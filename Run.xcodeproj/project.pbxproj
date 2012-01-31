@@ -12,6 +12,7 @@
 		76310BE914D7B1770084D06A /* TrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76310BE814D7B1770084D06A /* TrackingManager.m */; };
 		76310BEF14D7B2350084D06A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BEE14D7B2350084D06A /* SystemConfiguration.framework */; };
 		76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BF014D7B2550084D06A /* CoreLocation.framework */; };
+		88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8BAB114D8B22100A8010C /* SVStatusHUD.m */; };
 		88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD714D73EE900587116 /* UIKit.framework */; };
 		88F76ADA14D73EE900587116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD914D73EE900587116 /* Foundation.framework */; };
 		88F76ADC14D73EE900587116 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76ADB14D73EE900587116 /* CoreGraphics.framework */; };
@@ -34,6 +35,8 @@
 		76310BE814D7B1770084D06A /* TrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingManager.m; sourceTree = "<group>"; };
 		76310BEE14D7B2350084D06A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		76310BF014D7B2550084D06A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		88D8BAB014D8B22100A8010C /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVStatusHUD.h; sourceTree = "<group>"; };
+		88D8BAB114D8B22100A8010C /* SVStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVStatusHUD.m; sourceTree = "<group>"; };
 		88F76AD314D73EE900587116 /* Run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Run.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F76AD714D73EE900587116 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88F76AD914D73EE900587116 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +82,15 @@
 			path = Graphics;
 			sourceTree = "<group>";
 		};
+		88D8BAAF14D8B22100A8010C /* SVStatusHUD */ = {
+			isa = PBXGroup;
+			children = (
+				88D8BAB014D8B22100A8010C /* SVStatusHUD.h */,
+				88D8BAB114D8B22100A8010C /* SVStatusHUD.m */,
+			);
+			path = SVStatusHUD;
+			sourceTree = "<group>";
+		};
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 		88F76ADD14D73EE900587116 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				88D8BAAF14D8B22100A8010C /* SVStatusHUD */,
 				76310BE714D7B1770084D06A /* TrackingManager.h */,
 				76310BE814D7B1770084D06A /* TrackingManager.m */,
 				76310BE314D7AFAE0084D06A /* Graphics */,
@@ -221,6 +234,7 @@
 				88F76AFD14D74A2D00587116 /* RunViewController.m in Sources */,
 				76310BE614D7AFAE0084D06A /* ASBSparkLineView.m in Sources */,
 				76310BE914D7B1770084D06A /* TrackingManager.m in Sources */,
+				88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
