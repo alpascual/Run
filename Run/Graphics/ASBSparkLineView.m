@@ -287,6 +287,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     const CGFloat maxTextWidth = CGRectGetWidth(self.bounds) * MAX_TEXT_FRAC;
 
     // see how much text we have to show
+    if ( self.labelText == nil )
+        self.labelText = @"not set";
+    
     NSMutableString *graphText = [[NSMutableString alloc] initWithString:self.labelText];
     if (self.showCurrentValue) {
         [graphText appendString:@" "];
