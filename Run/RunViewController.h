@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASBSparkLineView.h"
 
 @interface RunViewController : UIViewController
+
+@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 
 @end

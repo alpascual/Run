@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76310BDD14D7AD7D0084D06A /* redgradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76310BDC14D7AD7D0084D06A /* redgradient.jpg */; };
+		76310BE614D7AFAE0084D06A /* ASBSparkLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76310BE514D7AFAE0084D06A /* ASBSparkLineView.m */; };
+		76310BE914D7B1770084D06A /* TrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76310BE814D7B1770084D06A /* TrackingManager.m */; };
+		76310BEF14D7B2350084D06A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BEE14D7B2350084D06A /* SystemConfiguration.framework */; };
+		76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BF014D7B2550084D06A /* CoreLocation.framework */; };
 		88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD714D73EE900587116 /* UIKit.framework */; };
 		88F76ADA14D73EE900587116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD914D73EE900587116 /* Foundation.framework */; };
 		88F76ADC14D73EE900587116 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76ADB14D73EE900587116 /* CoreGraphics.framework */; };
@@ -22,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76310BDC14D7AD7D0084D06A /* redgradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redgradient.jpg; sourceTree = "<group>"; };
+		76310BE414D7AFAE0084D06A /* ASBSparkLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBSparkLineView.h; sourceTree = "<group>"; };
+		76310BE514D7AFAE0084D06A /* ASBSparkLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBSparkLineView.m; sourceTree = "<group>"; };
+		76310BE714D7B1770084D06A /* TrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingManager.h; sourceTree = "<group>"; };
+		76310BE814D7B1770084D06A /* TrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingManager.m; sourceTree = "<group>"; };
+		76310BEE14D7B2350084D06A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		76310BF014D7B2550084D06A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		88F76AD314D73EE900587116 /* Run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Run.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F76AD714D73EE900587116 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88F76AD914D73EE900587116 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */,
+				76310BEF14D7B2350084D06A /* SystemConfiguration.framework in Frameworks */,
 				88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */,
 				88F76ADA14D73EE900587116 /* Foundation.framework in Frameworks */,
 				88F76ADC14D73EE900587116 /* CoreGraphics.framework in Frameworks */,
@@ -56,9 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76310BE314D7AFAE0084D06A /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				76310BE414D7AFAE0084D06A /* ASBSparkLineView.h */,
+				76310BE514D7AFAE0084D06A /* ASBSparkLineView.m */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				76310BF014D7B2550084D06A /* CoreLocation.framework */,
+				76310BEE14D7B2350084D06A /* SystemConfiguration.framework */,
 				88F76ADD14D73EE900587116 /* Run */,
 				88F76AD614D73EE900587116 /* Frameworks */,
 				88F76AD414D73EE900587116 /* Products */,
@@ -86,6 +111,9 @@
 		88F76ADD14D73EE900587116 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				76310BE714D7B1770084D06A /* TrackingManager.h */,
+				76310BE814D7B1770084D06A /* TrackingManager.m */,
+				76310BE314D7AFAE0084D06A /* Graphics */,
 				88F76AF414D73F9C00587116 /* Resources */,
 				88F76AE614D73EE900587116 /* AppDelegate.h */,
 				88F76AE714D73EE900587116 /* AppDelegate.m */,
@@ -113,6 +141,7 @@
 		88F76AF414D73F9C00587116 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				76310BDC14D7AD7D0084D06A /* redgradient.jpg */,
 				88F76AF514D73F9C00587116 /* 102-walk.png */,
 				88F76AF614D73F9C00587116 /* 63-runner.png */,
 				88F76AF714D73F9C00587116 /* baby-blue-solid.jpg */,
@@ -175,6 +204,7 @@
 				88F76AF814D73F9C00587116 /* 102-walk.png in Resources */,
 				88F76AF914D73F9C00587116 /* 63-runner.png in Resources */,
 				88F76AFA14D73F9C00587116 /* baby-blue-solid.jpg in Resources */,
+				76310BDD14D7AD7D0084D06A /* redgradient.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +219,8 @@
 				88F76AE814D73EE900587116 /* AppDelegate.m in Sources */,
 				88F76AEE14D73EE900587116 /* ViewController.m in Sources */,
 				88F76AFD14D74A2D00587116 /* RunViewController.m in Sources */,
+				76310BE614D7AFAE0084D06A /* ASBSparkLineView.m in Sources */,
+				76310BE914D7B1770084D06A /* TrackingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +332,7 @@
 				88F76AF314D73EE900587116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
