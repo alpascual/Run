@@ -23,21 +23,17 @@
 
 @property (nonatomic, strong) CLLocationManager *locMgr;
 @property (nonatomic, strong) NSTimer *gpsTimer;
-@property (nonatomic) NSTimeInterval gpsTimerInterval;
+
 @property (nonatomic) NSTimeInterval submitInterval;
 
 @property (nonatomic, strong) NSTimer *timerForEditing;
-@property (nonatomic) NSInteger gpsCounter;
 @property (nonatomic, strong) CLLocation *lastLocation;
-//@property (nonatomic, strong) NSTimer *checkOnlineAvailableTimer;
 
 
 - (void) startUpTracking;
-- (void) changeDesiredAccuracy:(CLLocationAccuracy) accuracy;
-- (void) changeGpsIntervalInSeconds:(NSTimeInterval)interval;
-- (void) changeDistanceFilter:(CLLocationDistance)filter;
 - (void) submitPoint:(CLLocation *) newPoint;
 -(BOOL) validNetworkConnection;
+- (void) stopTracking;
 
 
 @end

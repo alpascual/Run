@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "ASBSparkLineView.h"
+#import "TrackingManager.h"
 
 @interface RunViewController : UIViewController
 
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
+@property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
+@property (nonatomic, strong) TrackingManager *trackingManager;
+
+
+- (void) startRun;
+- (void) stopRun;
+
 
 @end

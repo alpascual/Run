@@ -38,13 +38,15 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.trackingManager = [[TrackingManager alloc] init];
 }
-*/
+
 
 - (void)viewDidUnload
 {
@@ -57,6 +59,30 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma Start and Actions
+
+- (IBAction)switchChanged:(id)sender {
+    
+    UISegmentedControl *segment = sender;
+    
+    if ( segment.selectedSegmentIndex == 0 )
+        [self startRun];
+    else
+        [self stopRun];
+}
+
+- (void) startRun {
+    [self.trackingManager startUpTracking];
+    
+    //TODO UI change and reset counter
+    
+    //TODO start timer to update UI
+}
+
+- (void) stopRun {
+    [self.trackingManager stopTracking];
 }
 
 @end

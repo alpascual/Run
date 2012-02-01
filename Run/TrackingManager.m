@@ -8,19 +8,16 @@
 
 #import "TrackingManager.h"
 
-#define kGPSFeatureService @"http://nwdemo6.esri.com/ArcGIS/rest/services/Tracking/FeatureServer/0"
-#define kGPSWKID 102100
 
 @implementation TrackingManager
 
 @synthesize locMgr = _locMgr;
 @synthesize gpsTimer = _gpsTimer;
-@synthesize gpsTimerInterval = _gpsTimerInterval;
+
 
 @synthesize timerForEditing = _timerForEditing;
 //@synthesize checkOnlineAvailableTimer = _checkOnlineAvailableTimer;
 @synthesize submitInterval = _submitInterval;
-@synthesize gpsCounter = _gpsCounter;
 @synthesize lastLocation = _lastLocation;
 
 
@@ -31,17 +28,17 @@
     self.locMgr = [[CLLocationManager alloc] init]; // Create new instance of locMgr
     self.locMgr.delegate = self; // Set the delegate as self.
     
-    //self.locMgr.desiredAccuracy = kCLLocationAccuracyKilometer;
-    self.locMgr.distanceFilter = 10.0f;
-    self.gpsTimerInterval = (60 * 5);
-    self.gpsCounter = 0;
-    
+    self.locMgr.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    self.locMgr.distanceFilter = 1.0f;
+         
     [self.locMgr startUpdatingLocation];
     
     
-    // Check for internet
-    //self.submitInterval = (5*60);
-    //self.checkOnlineAvailableTimer = [NSTimer scheduledTimerWithTimeInterval:self.submitInterval target:self selector:@selector(tryToCommitInterval:) userInfo:nil repeats:YES];
+}
+
+- (void) stopTracking
+{
+    [self.locMgr stopUpdatingLocation];
 }
 
 
@@ -55,25 +52,22 @@
         return;
    
     NSLog(@"GPS Point %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    NSLog(@"Accuracy %f", newLocation.horizontalAccuracy);
+    NSLog(@"Elevation %f", newLocation.altitude);
+    NSLog(@"Speed in miles %f", (newLocation.speed * 2.2369));
     
     self.lastLocation = newLocation;
     // Send the gps x = long and y = lat to the server
     [self submitPoint:newLocation];    
+   
     
-        
-    if ( self.gpsTimerInterval > 59 && self.gpsCounter > 3) {
-        self.gpsCounter = 0;
-        [self.locMgr stopUpdatingLocation];
-    // Add a timer for checking into Alerts
-    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(self.gpsTimerInterval) target:self selector:@selector(timerRestartGPS:) userInfo:nil repeats:NO];
-    }
-    
-    self.gpsCounter = self.gpsCounter + 1;
 }
 
 
 - (void) submitPoint:(CLLocation *) newPoint {
-    if ( [self validNetworkConnection] == YES ) {
+   
+    
+    /*if ( [self validNetworkConnection] == YES ) {
         
         NSUserDefaults *myPrefs = [NSUserDefaults standardUserDefaults]; 
         if ( [myPrefs objectForKey:@"twitteruser"] != nil && [myPrefs objectForKey:@"hashtag"] != nil)
@@ -94,7 +88,7 @@
             
             NSLog(@"Response: %@", get);
         }
-    }
+    }*/
 }
 
 - (void)timerRestartGPS:(NSTimer *)timer 
@@ -122,24 +116,6 @@
     self.locMgr.desiredAccuracy = accuracy;
     
     NSLog(@"Accuracy %f", accuracy);
-    
-    [self.locMgr stopUpdatingLocation];
-    [self.locMgr startUpdatingLocation];
-}
-
-- (void) changeGpsIntervalInSeconds:(NSTimeInterval)interval {
-    self.gpsTimerInterval = interval;
-    NSLog(@"Timer Interval %f", interval);
-}
-
-/*Discussion:
-*      Specifies the minimum update distance in meters. Client will not be notified of movements of less 
-*      than the stated value, unless the accuracy has improved. Pass in kCLDistanceFilterNone to be 
-*      notified of all movements. By default, kCLDistanceFilterNone is used.*/
-- (void) changeDistanceFilter:(CLLocationDistance)filter {
-    self.locMgr.distanceFilter = filter;
-    
-    NSLog(@"Filter %f", filter);
     
     [self.locMgr stopUpdatingLocation];
     [self.locMgr startUpdatingLocation];
