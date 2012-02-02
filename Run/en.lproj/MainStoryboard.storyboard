@@ -65,7 +65,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="1" id="f5K-KJ-bX8">
-                                <rect key="frame" x="47" y="329" width="236" height="44"/>
+                                <rect key="frame" x="47" y="348" width="236" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Start"/>
@@ -82,8 +82,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="alt: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="OnS-Fq-bia">
+                                <rect key="frame" x="184" y="24" width="116" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="time: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="5AP-Ab-8bB">
+                                <rect key="frame" x="194" y="139" width="116" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="speed: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="gLn-U0-qr9">
+                                <rect key="frame" x="25" y="139" width="121" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="gps: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="wBw-eO-4ui">
+                                <rect key="frame" x="24" y="24" width="115" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" id="sUy-um-Rn4" customClass="ASBSparkLineView">
-                                <rect key="frame" x="34" y="177" width="266" height="59"/>
+                                <rect key="frame" x="34" y="217" width="266" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -92,7 +120,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="79G-95-0vW"/>
                     <connections>
+                        <outlet property="altitude" destination="OnS-Fq-bia" id="0hw-T9-s9u"/>
+                        <outlet property="gpsAccuracy" destination="wBw-eO-4ui" id="tOf-7T-hZZ"/>
                         <outlet property="sparkLineViewAltitude" destination="sUy-um-Rn4" id="fhS-5y-iFr"/>
+                        <outlet property="speed" destination="gLn-U0-qr9" id="OX8-DL-M1g"/>
+                        <outlet property="time" destination="5AP-Ab-8bB" id="e3x-Xy-gv1"/>
                     </connections>
                 </viewController>
             </objects>
@@ -122,7 +154,11 @@
         <class className="RunViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RunViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="altitude" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gpsAccuracy" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="speed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">

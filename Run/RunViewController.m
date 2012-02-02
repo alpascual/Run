@@ -11,6 +11,12 @@
 @implementation RunViewController
 
 @synthesize sparkLineViewAltitude = _sparkLineViewAltitude;
+@synthesize trackingManager = _trackingManager;
+@synthesize speed = _speed;
+@synthesize time = _time;
+@synthesize gpsAccuracy = _gpsAccuracy;
+@synthesize altitude = _altitude;
+@synthesize gpsTimer = _gpsTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,13 +82,24 @@
 - (void) startRun {
     [self.trackingManager startUpTracking];
     
+    [SVStatusHUD showWithoutImage:@"Starting..."];
+    
+    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.5) target:self selector:
+                     @selector(refreshTimer:) userInfo:nil repeats:YES];
+    
     //TODO UI change and reset counter
     
     //TODO start timer to update UI
 }
 
-- (void) stopRun {
+- (void) stopRun {    
     [self.trackingManager stopTracking];
+    
+    [SVStatusHUD showWithoutImage:@"Stopping..."];
+}
+
+- (void)refreshTimer:(NSTimer *)timer {
+    
 }
 
 @end
