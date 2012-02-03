@@ -95,6 +95,7 @@
     
     self.gpsTotals.speed = newPoint.speed;
     self.gpsTotals.altitude = newPoint.altitude;
+    self.gpsTotals.accuracy = newPoint.horizontalAccuracy;
     
     [self.DistancePoints addObject:mypoint];
     NSLog(@"Total points %d",self.DistancePoints.count);

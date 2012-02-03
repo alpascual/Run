@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 @property (nonatomic, strong) TrackingManager *trackingManager;
 @property (nonatomic, strong) NSTimer *gpsTimer;
+@property (nonatomic, strong) NSDate *start;
 
 @property (nonatomic, strong) IBOutlet UILabel *speed;
 @property (nonatomic, strong) IBOutlet UILabel *time;

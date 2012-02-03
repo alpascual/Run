@@ -18,6 +18,7 @@
 @synthesize altitude = _altitude;
 @synthesize gpsTimer = _gpsTimer;
 @synthesize miles = _miles;
+@synthesize start = _start;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -91,6 +92,8 @@
     self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.5) target:self selector:
                      @selector(refreshTimer:) userInfo:nil repeats:YES];
     
+    self.start = [NSDate date];
+    
     //TODO UI change and reset counter
     
     //TODO start timer to update UI
@@ -117,6 +120,23 @@
     self.altitude.text = [[NSString alloc] initWithFormat:@"%f alt.", self.trackingManager.gpsTotals.altitude];
     
     self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
+    
+    self.gpsAccuracy.text = [[NSString alloc] initWithFormat:@"%.2f gps acc.", self.trackingManager.gpsTotals.accuracy];
+    
+    NSTimeInterval timeInterval = [self.start timeIntervalSinceNow];
+    NSInteger ti = (NSInteger)timeInterval;
+    NSInteger seconds = ti % 60;
+    seconds = -seconds;
+    NSInteger minutes = (ti / 60) % 60;
+    minutes = -minutes;
+    NSInteger hours = (ti / 3600);
+    hours = -hours;
+        
+    // If you want to get the individual digits of the units, use div again
+    
+    // with a divisor of 10.    
+    NSLog(@"%d:%d:%d", hours, minutes, seconds);
+    self.time.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
 }
 
 @end

@@ -10,9 +10,10 @@
 
 @implementation GpsTotals
 
-@synthesize distanceTotal;
-@synthesize altitudeTotal;
-@synthesize altitude;
-@synthesize speed;
+@synthesize distanceTotal = _distanceTotal;
+@synthesize altitudeTotal = _altitudeTotal;
+@synthesize altitude = _altitude;
+@synthesize speed = _speed;
+@synthesize accuracy = _accuracy;
 
 @end

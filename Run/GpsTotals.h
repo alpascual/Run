@@ -14,5 +14,6 @@
 @property (nonatomic) double altitudeTotal;
 @property (nonatomic) double speed;
 @property (nonatomic) double altitude;
+@property (nonatomic) double accuracy;
 
 @end
