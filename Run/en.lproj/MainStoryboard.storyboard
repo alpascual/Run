@@ -122,6 +122,7 @@
                     <connections>
                         <outlet property="altitude" destination="OnS-Fq-bia" id="0hw-T9-s9u"/>
                         <outlet property="gpsAccuracy" destination="wBw-eO-4ui" id="tOf-7T-hZZ"/>
+                        <outlet property="miles" destination="06E-Sm-nqd" id="Z9i-Qt-RxE"/>
                         <outlet property="sparkLineViewAltitude" destination="sUy-um-Rn4" id="fhS-5y-iFr"/>
                         <outlet property="speed" destination="gLn-U0-qr9" id="OX8-DL-M1g"/>
                         <outlet property="time" destination="5AP-Ab-8bB" id="e3x-Xy-gv1"/>
@@ -156,6 +157,7 @@
             <relationships>
                 <relationship kind="outlet" name="altitude" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gpsAccuracy" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="miles" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="speed" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="time" candidateClass="UILabel"/>

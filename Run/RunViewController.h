@@ -21,6 +21,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *time;
 @property (nonatomic, strong) IBOutlet UILabel *gpsAccuracy;
 @property (nonatomic, strong) IBOutlet UILabel *altitude;
+@property (nonatomic, strong) IBOutlet UILabel *miles;
 
 
 - (void) startRun;

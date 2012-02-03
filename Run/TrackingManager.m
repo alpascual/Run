@@ -13,8 +13,8 @@
 
 @synthesize locMgr = _locMgr;
 @synthesize gpsTimer = _gpsTimer;
-
-
+@synthesize DistancePoints = _DistancePoints;
+@synthesize gpsTotals = _gpsTotals;
 @synthesize timerForEditing = _timerForEditing;
 //@synthesize checkOnlineAvailableTimer = _checkOnlineAvailableTimer;
 @synthesize submitInterval = _submitInterval;
@@ -33,12 +33,15 @@
          
     [self.locMgr startUpdatingLocation];
     
-    
+    self.DistancePoints = [[NSMutableArray alloc] init];
+    self.gpsTotals = [[GpsTotals alloc] init];
 }
 
 - (void) stopTracking
 {
     [self.locMgr stopUpdatingLocation];
+    self.DistancePoints = nil;
+    self.gpsTotals = nil;
 }
 
 
@@ -56,39 +59,45 @@
     NSLog(@"Elevation %f", newLocation.altitude);
     NSLog(@"Speed in miles %f", (newLocation.speed * 2.2369));
     
-    self.lastLocation = newLocation;
+    
     // Send the gps x = long and y = lat to the server
     [self submitPoint:newLocation];    
    
+    self.lastLocation = newLocation;
     
 }
 
 
 - (void) submitPoint:(CLLocation *) newPoint {
-   
+    DistancePoint *mypoint = [[DistancePoint alloc] init];
+    mypoint.point = newPoint;
+    if ( self.lastLocation != nil ) {
+        CLLocationDistance dist = [newPoint distanceFromLocation:self.lastLocation];
+        double kilometers = dist / 1000;
+        NSLog(@"kilometers %f", kilometers);
+        mypoint.distanceFrom = kilometers * 0.6213711922;
+        NSLog(@"miles %f", mypoint.distanceFrom);
+        self.gpsTotals.distanceTotal += mypoint.distanceFrom;
+    }
+    else {
+        mypoint.distanceFrom = 0;
+        self.gpsTotals.distanceTotal = 0;
+    }
     
-    /*if ( [self validNetworkConnection] == YES ) {
+    NSLog(@"distance for this point %f", mypoint.distanceFrom);
+    NSLog(@"Total distance %f", self.gpsTotals.distanceTotal);
+    
+    // Set the max altitude
+    if ( newPoint.altitude > self.gpsTotals.altitudeTotal )
+        self.gpsTotals.altitudeTotal = newPoint.altitude;
         
-        NSUserDefaults *myPrefs = [NSUserDefaults standardUserDefaults]; 
-        if ( [myPrefs objectForKey:@"twitteruser"] != nil && [myPrefs objectForKey:@"hashtag"] != nil)
-        {
-            NSString *twitterUser = [myPrefs objectForKey:@"twitteruser"];
-            NSString *hashTag = [myPrefs objectForKey:@"hashtag"];
-            NSString *Long = [[NSString alloc] initWithFormat:@"%f", newPoint.coordinate.longitude];
-            NSString *Lat = [[NSString alloc] initWithFormat:@"%f", newPoint.coordinate.latitude];
-        
-        
-            // send the request to the server here
-            NSString *myRequestString = [[NSString alloc] initWithFormat:@"http://tracker.alsandbox.us/api/Create?TwitterName=%@&Long=%@&Lat=%@&sHashTag=%@", twitterUser, Long, Lat, hashTag ];
-            NSLog(@"Submitting %@", myRequestString);
-            
-            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:myRequestString]];
-            NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-            NSString *get = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-            
-            NSLog(@"Response: %@", get);
-        }
-    }*/
+    mypoint.altitude = newPoint.altitude;
+    
+    self.gpsTotals.speed = newPoint.speed;
+    self.gpsTotals.altitude = newPoint.altitude;
+    
+    [self.DistancePoints addObject:mypoint];
+    NSLog(@"Total points %d",self.DistancePoints.count);
 }
 
 - (void)timerRestartGPS:(NSTimer *)timer 

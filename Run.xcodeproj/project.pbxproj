@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761849CB14DB808B00F84561 /* DistancePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 761849CA14DB808B00F84561 /* DistancePoint.m */; };
+		761849CE14DB851600F84561 /* GpsTotals.m in Sources */ = {isa = PBXBuildFile; fileRef = 761849CD14DB851600F84561 /* GpsTotals.m */; };
 		76310BDD14D7AD7D0084D06A /* redgradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76310BDC14D7AD7D0084D06A /* redgradient.jpg */; };
 		76310BE614D7AFAE0084D06A /* ASBSparkLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76310BE514D7AFAE0084D06A /* ASBSparkLineView.m */; };
 		76310BE914D7B1770084D06A /* TrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76310BE814D7B1770084D06A /* TrackingManager.m */; };
@@ -28,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		761849C914DB808B00F84561 /* DistancePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePoint.h; sourceTree = "<group>"; };
+		761849CA14DB808B00F84561 /* DistancePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePoint.m; sourceTree = "<group>"; };
+		761849CC14DB851600F84561 /* GpsTotals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsTotals.h; sourceTree = "<group>"; };
+		761849CD14DB851600F84561 /* GpsTotals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsTotals.m; sourceTree = "<group>"; };
 		76310BDC14D7AD7D0084D06A /* redgradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redgradient.jpg; sourceTree = "<group>"; };
 		76310BE414D7AFAE0084D06A /* ASBSparkLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBSparkLineView.h; sourceTree = "<group>"; };
 		76310BE514D7AFAE0084D06A /* ASBSparkLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBSparkLineView.m; sourceTree = "<group>"; };
@@ -73,6 +79,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		761849C714DB804E00F84561 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				761849C914DB808B00F84561 /* DistancePoint.h */,
+				761849CA14DB808B00F84561 /* DistancePoint.m */,
+				761849CC14DB851600F84561 /* GpsTotals.h */,
+				761849CD14DB851600F84561 /* GpsTotals.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		76310BE314D7AFAE0084D06A /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +140,7 @@
 		88F76ADD14D73EE900587116 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				761849C714DB804E00F84561 /* Models */,
 				88D8BAAF14D8B22100A8010C /* SVStatusHUD */,
 				76310BE714D7B1770084D06A /* TrackingManager.h */,
 				76310BE814D7B1770084D06A /* TrackingManager.m */,
@@ -235,6 +253,8 @@
 				76310BE614D7AFAE0084D06A /* ASBSparkLineView.m in Sources */,
 				76310BE914D7B1770084D06A /* TrackingManager.m in Sources */,
 				88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */,
+				761849CB14DB808B00F84561 /* DistancePoint.m in Sources */,
+				761849CE14DB851600F84561 /* GpsTotals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

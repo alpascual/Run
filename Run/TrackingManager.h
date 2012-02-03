@@ -18,6 +18,9 @@
 #import <ifaddrs.h>
 #import <netdb.h>
 
+#import "DistancePoint.h"
+#import "GpsTotals.h"
+
 
 @interface TrackingManager : NSObject <CLLocationManagerDelegate>
 
@@ -28,6 +31,9 @@
 
 @property (nonatomic, strong) NSTimer *timerForEditing;
 @property (nonatomic, strong) CLLocation *lastLocation;
+
+@property (nonatomic, strong) NSMutableArray *DistancePoints;
+@property (nonatomic, strong) GpsTotals *gpsTotals;
 
 
 - (void) startUpTracking;

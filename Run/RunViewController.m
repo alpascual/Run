@@ -17,6 +17,7 @@
 @synthesize gpsAccuracy = _gpsAccuracy;
 @synthesize altitude = _altitude;
 @synthesize gpsTimer = _gpsTimer;
+@synthesize miles = _miles;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +49,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     self.trackingManager = [[TrackingManager alloc] init];
@@ -84,6 +86,8 @@
     
     [SVStatusHUD showWithoutImage:@"Starting..."];
     
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
     self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.5) target:self selector:
                      @selector(refreshTimer:) userInfo:nil repeats:YES];
     
@@ -96,10 +100,23 @@
     [self.trackingManager stopTracking];
     
     [SVStatusHUD showWithoutImage:@"Stopping..."];
+    
+    [self.gpsTimer invalidate];
+    self.gpsTimer = nil;
+    
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)refreshTimer:(NSTimer *)timer {
     
+    if ( self.trackingManager.gpsTotals.speed > 0 )
+        self.speed.text = [[NSString alloc] initWithFormat:@"%lf mph", (self.trackingManager.gpsTotals.speed * 2.2369)];
+    else
+        self.speed.text = @"0 mph";
+    
+    self.altitude.text = [[NSString alloc] initWithFormat:@"%f alt.", self.trackingManager.gpsTotals.altitude];
+    
+    self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
 }
 
 @end
