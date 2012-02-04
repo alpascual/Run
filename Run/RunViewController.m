@@ -95,7 +95,7 @@
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.3) target:self selector:
+    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.9) target:self selector:
                      @selector(refreshTimer:) userInfo:nil repeats:YES];
     
     self.start = [NSDate date];
@@ -190,6 +190,8 @@
     
     [self.sparkLineViewAltitude reloadInputViews];
     [self.sparkLineViewSpeed reloadInputViews];
+    
+    //reset the arrays if they are too big
 }
 
 
