@@ -11,6 +11,7 @@
 @implementation RunViewController
 
 @synthesize sparkLineViewAltitude = _sparkLineViewAltitude;
+@synthesize sparkLineViewSpeed = _sparkLineViewSpeed;
 @synthesize trackingManager = _trackingManager;
 @synthesize speed = _speed;
 @synthesize time = _time;
@@ -19,6 +20,9 @@
 @synthesize gpsTimer = _gpsTimer;
 @synthesize miles = _miles;
 @synthesize start = _start;
+@synthesize altitudeArray = _altitudeArray;
+@synthesize speedArray = _speedArray;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,10 +54,11 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
     self.trackingManager = [[TrackingManager alloc] init];
+    self.trackingManager.bStarted = NO;
+    [self.trackingManager startUpTracking];
 }
 
 
@@ -83,23 +88,27 @@
 }
 
 - (void) startRun {
+    self.trackingManager.bStarted = YES;
     [self.trackingManager startUpTracking];
     
     [SVStatusHUD showWithoutImage:@"Starting..."];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.5) target:self selector:
+    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.3) target:self selector:
                      @selector(refreshTimer:) userInfo:nil repeats:YES];
     
     self.start = [NSDate date];
     
+    self.speedArray = [[NSMutableArray alloc] init];
+    self.altitudeArray = [[NSMutableArray alloc] init];
     //TODO UI change and reset counter
     
     //TODO start timer to update UI
 }
 
 - (void) stopRun {    
+    self.trackingManager.bStarted = NO;
     [self.trackingManager stopTracking];
     
     [SVStatusHUD showWithoutImage:@"Stopping..."];
@@ -110,14 +119,34 @@
     [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
+
+
 - (void)refreshTimer:(NSTimer *)timer {
     
-    if ( self.trackingManager.gpsTotals.speed > 0 )
-        self.speed.text = [[NSString alloc] initWithFormat:@"%lf mph", (self.trackingManager.gpsTotals.speed * 2.2369)];
-    else
-        self.speed.text = @"0 mph";
+    if ( self.trackingManager.gpsTotals.speed > 0 ) {
+        self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", (self.trackingManager.gpsTotals.speed * 2.2369)];
+        NSNumber *tempSpeed = [[NSNumber alloc] initWithDouble:(self.trackingManager.gpsTotals.speed * 2.2369)];
+        [self.speedArray addObject:tempSpeed];
+        NSLog(@"Speed values is %@", tempSpeed);
+    }
+    else {
+        NSNumber * iSpeed = [[NSNumber alloc] initWithDouble:-self.trackingManager.gpsTotals.speed];
+        self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", iSpeed];
+        [self.speedArray addObject:iSpeed];
+        NSLog(@"Speed values is %@", iSpeed);
+    }
     
-    self.altitude.text = [[NSString alloc] initWithFormat:@"%f alt.", self.trackingManager.gpsTotals.altitude];
+    self.altitude.text = [[NSString alloc] initWithFormat:@"%.2f alt.", self.trackingManager.gpsTotals.altitude];
+    
+    NSNumber *tempAltitude = [[NSNumber alloc] initWithDouble:self.trackingManager.gpsTotals.altitude];
+    
+    // For test only
+    /*int ranNo=  random()%100+1;
+    NSNumber *tempAltitude = [[NSNumber alloc] initWithInt:ranNo];
+     */
+    
+    [self.altitudeArray addObject:tempAltitude];
+    NSLog(@"Altitude values is %@", tempAltitude);
     
     self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
     
@@ -137,6 +166,32 @@
     // with a divisor of 10.    
     NSLog(@"%d:%d:%d", hours, minutes, seconds);
     self.time.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
+    
+    [self setupLineGraphics];
 }
+
+- (void) setupLineGraphics {
+    self.sparkLineViewAltitude.dataValues = self.altitudeArray;
+    self.sparkLineViewAltitude.labelText = @"Altitude";
+    self.sparkLineViewAltitude.currentValueColor = [UIColor redColor];
+    self.sparkLineViewAltitude.penColor = [UIColor blueColor];
+    self.sparkLineViewAltitude.penWidth = 3.0f;
+    self.sparkLineViewAltitude.rangeOverlayLowerLimit = nil;
+    self.sparkLineViewAltitude.rangeOverlayUpperLimit = nil;
+    
+    self.sparkLineViewSpeed.dataValues = self.speedArray;
+    self.sparkLineViewSpeed.labelText = @"Speed";
+    self.sparkLineViewSpeed.currentValueColor = [UIColor greenColor];
+    self.sparkLineViewSpeed.currentValueFormat = @"%.0f";
+    self.sparkLineViewSpeed.penColor = [UIColor redColor];
+    self.sparkLineViewSpeed.penWidth = 3.0f;
+    self.sparkLineViewSpeed.rangeOverlayLowerLimit = nil;
+    self.sparkLineViewSpeed.rangeOverlayUpperLimit = nil;
+    
+    [self.sparkLineViewAltitude reloadInputViews];
+    [self.sparkLineViewSpeed reloadInputViews];
+}
+
+
 
 @end

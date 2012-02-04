@@ -13,7 +13,7 @@
 
 @interface RunViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
+
 @property (nonatomic, strong) TrackingManager *trackingManager;
 @property (nonatomic, strong) NSTimer *gpsTimer;
 @property (nonatomic, strong) NSDate *start;
@@ -24,9 +24,16 @@
 @property (nonatomic, strong) IBOutlet UILabel *altitude;
 @property (nonatomic, strong) IBOutlet UILabel *miles;
 
+@property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
+@property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;
+@property (nonatomic, strong) NSMutableArray *altitudeArray;
+@property (nonatomic, strong) NSMutableArray *speedArray;
+
+
 
 - (void) startRun;
 - (void) stopRun;
+- (void) setupLineGraphics;
 
 
 @end

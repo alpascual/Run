@@ -16,7 +16,7 @@
 @synthesize DistancePoints = _DistancePoints;
 @synthesize gpsTotals = _gpsTotals;
 @synthesize timerForEditing = _timerForEditing;
-//@synthesize checkOnlineAvailableTimer = _checkOnlineAvailableTimer;
+@synthesize bStarted = _bStarted;
 @synthesize submitInterval = _submitInterval;
 @synthesize lastLocation = _lastLocation;
 
@@ -47,6 +47,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
+    
+    if ( self.bStarted == NO )
+        return;
     
     NSTimeInterval ageInSeconds = [newLocation.timestamp timeIntervalSinceNow];
     

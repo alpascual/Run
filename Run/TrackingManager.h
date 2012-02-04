@@ -35,6 +35,8 @@
 @property (nonatomic, strong) NSMutableArray *DistancePoints;
 @property (nonatomic, strong) GpsTotals *gpsTotals;
 
+@property (nonatomic) BOOL bStarted;
+
 
 - (void) startUpTracking;
 - (void) submitPoint:(CLLocation *) newPoint;
