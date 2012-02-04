@@ -160,8 +160,6 @@
     minutes = -minutes;
     NSInteger hours = (ti / 3600);
     hours = -hours;
-        
-    // If you want to get the individual digits of the units, use div again
     
     // with a divisor of 10.    
     NSLog(@"%d:%d:%d", hours, minutes, seconds);
@@ -192,6 +190,11 @@
     [self.sparkLineViewSpeed reloadInputViews];
     
     //reset the arrays if they are too big
+    if ( self.altitudeArray.count > 1000 )
+        [self.altitudeArray removeAllObjects];
+    
+    if ( self.speedArray.count > 1000 )
+        [self.speedArray removeAllObjects];
 }
 
 
