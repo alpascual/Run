@@ -103,6 +103,13 @@
         
 }
 
+- (void) FinishHistory {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) FinishRun {
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 
 @end

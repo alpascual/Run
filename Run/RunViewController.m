@@ -224,4 +224,8 @@
     
 }
 
+- (IBAction)returnBack:(id)sender {
+    [self.delegate FinishRun];
+}
+
 @end

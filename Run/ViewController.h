@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "RunViewController.h"
+#import "RunProtocol.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RunProtocol>
 
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *menuArray;
