@@ -18,5 +18,6 @@
 @synthesize accuracy = _accuracy;
 @synthesize speedMax = _speedMax;
 @synthesize uniqueID = _uniqueID;
+@synthesize calories = _calories;
 
 @end

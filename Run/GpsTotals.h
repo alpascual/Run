@@ -18,5 +18,6 @@
 @property (nonatomic) double altitude;
 @property (nonatomic) double accuracy;
 @property (nonatomic,strong) NSString *uniqueID;
+@property (nonatomic) double calories;
 
 @end

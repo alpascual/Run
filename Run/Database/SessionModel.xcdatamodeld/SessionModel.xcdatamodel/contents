@@ -10,9 +10,17 @@
         <attribute name="x" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="y" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="SessionRun" syncable="YES"/>
+    <entity name="SessionRun" representedClassName="SessionRun" syncable="YES">
+        <attribute name="altitudeMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="altitudeMin" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="speedMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="when" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="SessionRun" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="SessionRun" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Points" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>

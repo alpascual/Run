@@ -10,6 +10,7 @@
 #import "ASBSparkLineView.h"
 #import "TrackingManager.h"
 #import "SVStatusHUD.h"
+#import "GpsDatabaseManager.h"
 
 @interface RunViewController : UIViewController
 

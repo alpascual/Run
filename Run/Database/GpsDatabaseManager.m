@@ -130,25 +130,44 @@
     Points *dbPoints = [NSEntityDescription
                                        insertNewObjectForEntityForName:@"Points" 
                                        inManagedObjectContext:self.managedObjectContext];    
-        
-    NSString * stringX = [[NSString alloc] initWithFormat:@"%d", newLocation.coordinate.longitude];
-    NSString * stringY = [[NSString alloc] initWithFormat:@"%d", newLocation.coordinate.latitude]; 
-    NSString * stringDate = [NSString stringWithFormat:@"%ld", (long) [ newLocation.timestamp timeIntervalSince1970]];
     
-    [dbPoints setValue:stringDate forKey:@"when"];
-    [dbPoints setValue:stringX forKey:@"x"];
-    [dbPoints setValue:stringY forKey:@"y"]; 
-    [dbPoints setValue:[[NSNumber alloc] initWithDouble:distanceP.distanceFrom ] forKey:@"distance"]; 
-    [dbPoints setValue:[[NSNumber alloc] initWithDouble:totals.speed ] forKey:@"speed"]; 
-    [dbPoints setValue:@"0" forKey:@"attribute"]; 
-    [dbPoints setValue:totals.uniqueID forKey:@"uniqueId"]; 
-    [dbPoints setValue:[[NSNumber alloc] initWithDouble:totals.altitude ] forKey:@"altitude"]; 
-  
+    dbPoints.when = newLocation.timestamp;
+    // TODO check longintude and latitude
+    dbPoints.x = [[NSNumber alloc] initWithDouble:newLocation.coordinate.longitude];
+    dbPoints.y = [[NSNumber alloc] initWithDouble:newLocation.coordinate.latitude];
+    
+    dbPoints.distance = [[NSNumber alloc] initWithDouble:distanceP.distanceFrom]; 
+    dbPoints.speed = [[NSNumber alloc] initWithDouble:totals.speed];
+    dbPoints.attribute =  [[NSNumber alloc] initWithDouble:0];
+    dbPoints.uniqueId = totals.uniqueID;
+    dbPoints.altitude = [[NSNumber alloc] initWithDouble:totals.altitude];   
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        NSLog(@"Whoops, couldn't save poin: %@", [error localizedDescription]);
     }
 }
+
+- (void) saveSession:(GpsTotals *)totals {
+    
+    SessionRun *mySession = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"SessionRun" 
+                        inManagedObjectContext:self.managedObjectContext]; 
+   
+    [mySession setSpeedMax:[[NSNumber alloc] initWithDouble:totals.speedMax ]];
+    [mySession setTotalDistance:[[NSNumber alloc] initWithDouble:totals.distanceTotal ]];
+    [mySession setAltitudeMax:[[NSNumber alloc] initWithDouble:totals.altitudeMax ]];
+    [mySession setAltitudeMin:[[NSNumber alloc] initWithDouble:totals.altitudeMin ]];
+    [mySession setUniqueID:totals.uniqueID];
+    [mySession setCalories:[[NSNumber alloc] initWithDouble:totals.calories ]];
+    [mySession setWhen:[NSDate date]];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save session: %@", [error localizedDescription]);
+    }
+}
+
+
 
 @end

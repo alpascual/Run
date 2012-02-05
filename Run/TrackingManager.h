@@ -20,6 +20,7 @@
 
 #import "DistancePoint.h"
 #import "GpsTotals.h"
+#import "GpsDatabaseManager.h"
 
 
 @interface TrackingManager : NSObject <CLLocationManagerDelegate>
@@ -37,6 +38,8 @@
 
 @property (nonatomic) BOOL bStarted;
 @property (nonatomic, strong) NSString *uniqueID;
+
+@property (nonatomic,strong) GpsDatabaseManager *database;
 
 
 - (void) startUpTracking;

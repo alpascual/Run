@@ -219,6 +219,9 @@
     [SVStatusHUD showWithoutImage:@"Saving..."];
     // TODO save all to the database
     
+    GpsDatabaseManager *database = [[GpsDatabaseManager alloc] init];
+    [database saveSession:self.trackingManager.gpsTotals];
+    
 }
 
 @end

@@ -20,6 +20,7 @@
 @synthesize submitInterval = _submitInterval;
 @synthesize lastLocation = _lastLocation;
 @synthesize uniqueID = _uniqueID;
+@synthesize database = _database;
 
 
 
@@ -38,6 +39,8 @@
     self.gpsTotals = [[GpsTotals alloc] init];
     self.gpsTotals.altitudeMax = 0;
     self.gpsTotals.altitudeMin = 9999;
+    
+    self.database = [[GpsDatabaseManager alloc] init];
 }
 
 - (void) stopTracking
@@ -107,6 +110,9 @@
     
     [self.DistancePoints addObject:mypoint];
     NSLog(@"Total points %d",self.DistancePoints.count);
+    
+    // Save into the database
+    [self.database addPoint:newPoint :self.gpsTotals.uniqueID :mypoint :self.gpsTotals];
 }
 
 - (void)timerRestartGPS:(NSTimer *)timer 

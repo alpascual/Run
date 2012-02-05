@@ -13,6 +13,7 @@
 #import "DistancePoint.h"
 #import "GpsTotals.h"
 #import "Points.h"
+#import "SessionRun.h"
 
 @interface GpsDatabaseManager : NSObject
 
@@ -23,6 +24,7 @@
 //- (NSManagedObjectContext *)getManagedObjectContext;
 - (void) addPoint:(CLLocation*) newLocation : (NSString *)uniqueID :(DistancePoint*) distanceP :
                 (GpsTotals *) totals;
+- (void) saveSession:(GpsTotals *)totals;
 
 - (NSString *)applicationDocumentsDirectory;
 
