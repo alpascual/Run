@@ -11,9 +11,12 @@
 @interface GpsTotals : NSObject
 
 @property (nonatomic) double distanceTotal;
-@property (nonatomic) double altitudeTotal;
+@property (nonatomic) double altitudeMax;
+@property (nonatomic) double altitudeMin;
 @property (nonatomic) double speed;
+@property (nonatomic) double speedMax;
 @property (nonatomic) double altitude;
 @property (nonatomic) double accuracy;
+@property (nonatomic,strong) NSString *uniqueID;
 
 @end

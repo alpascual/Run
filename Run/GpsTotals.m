@@ -11,9 +11,12 @@
 @implementation GpsTotals
 
 @synthesize distanceTotal = _distanceTotal;
-@synthesize altitudeTotal = _altitudeTotal;
+@synthesize altitudeMax = _altitudeMax;
+@synthesize altitudeMin = _altitudeMin;
 @synthesize altitude = _altitude;
 @synthesize speed = _speed;
 @synthesize accuracy = _accuracy;
+@synthesize speedMax = _speedMax;
+@synthesize uniqueID = _uniqueID;
 
 @end

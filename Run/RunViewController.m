@@ -22,6 +22,7 @@
 @synthesize start = _start;
 @synthesize altitudeArray = _altitudeArray;
 @synthesize speedArray = _speedArray;
+@synthesize saveButton = _saveButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +56,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.saveButton.hidden = YES;
     
     self.trackingManager = [[TrackingManager alloc] init];
     self.trackingManager.bStarted = NO;
@@ -102,9 +105,21 @@
     
     self.speedArray = [[NSMutableArray alloc] init];
     self.altitudeArray = [[NSMutableArray alloc] init];
+    
+    self.saveButton.hidden = YES;
+    
+    //Set the unique id for the session Run
+    // create a new UUID which you own
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // create a new CFStringRef (toll-free bridged to NSString)
+    // that you own
+    NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    self.trackingManager.uniqueID = uuidString;
+    
     //TODO UI change and reset counter
     
-    //TODO start timer to update UI
+    
 }
 
 - (void) stopRun {    
@@ -117,13 +132,15 @@
     self.gpsTimer = nil;
     
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    
+    self.saveButton.hidden = NO;
 }
 
 
 
 - (void)refreshTimer:(NSTimer *)timer {
     
-    if ( self.trackingManager.gpsTotals.speed > 0 ) {
+    if ( self.trackingManager.gpsTotals.speed >= 0 ) {
         self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", (self.trackingManager.gpsTotals.speed * 2.2369)];
         NSNumber *tempSpeed = [[NSNumber alloc] initWithDouble:(self.trackingManager.gpsTotals.speed * 2.2369)];
         [self.speedArray addObject:tempSpeed];
@@ -198,5 +215,10 @@
 }
 
 
+- (IBAction)savePressed:(id)sender {
+    [SVStatusHUD showWithoutImage:@"Saving..."];
+    // TODO save all to the database
+    
+}
 
 @end

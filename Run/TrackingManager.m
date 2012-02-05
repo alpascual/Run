@@ -19,6 +19,7 @@
 @synthesize bStarted = _bStarted;
 @synthesize submitInterval = _submitInterval;
 @synthesize lastLocation = _lastLocation;
+@synthesize uniqueID = _uniqueID;
 
 
 
@@ -35,6 +36,8 @@
     
     self.DistancePoints = [[NSMutableArray alloc] init];
     self.gpsTotals = [[GpsTotals alloc] init];
+    self.gpsTotals.altitudeMax = 0;
+    self.gpsTotals.altitudeMin = 9999;
 }
 
 - (void) stopTracking
@@ -91,8 +94,10 @@
     NSLog(@"Total distance %f", self.gpsTotals.distanceTotal);
     
     // Set the max altitude
-    if ( newPoint.altitude > self.gpsTotals.altitudeTotal )
-        self.gpsTotals.altitudeTotal = newPoint.altitude;
+    if ( newPoint.altitude > self.gpsTotals.altitudeMax )
+        self.gpsTotals.altitudeMax = newPoint.altitude;
+    if ( newPoint.altitude < self.gpsTotals.altitudeMin )
+        self.gpsTotals.altitudeMin = newPoint.altitude;
         
     mypoint.altitude = newPoint.altitude;
     

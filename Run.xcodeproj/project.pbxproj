@@ -20,6 +20,10 @@
 		76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BF014D7B2550084D06A /* CoreLocation.framework */; };
 		763D849714DDDFE6008ECB99 /* MovieTransportBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */; };
 		763D849A14DDE734008ECB99 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 763D849914DDE734008ECB99 /* README */; };
+		763D84A114DDFAE4008ECB99 /* GpsDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A014DDFAE4008ECB99 /* GpsDatabaseManager.m */; };
+		763D84A414DDFB3B008ECB99 /* SessionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A214DDFB3B008ECB99 /* SessionModel.xcdatamodeld */; };
+		763D84AA14DE028A008ECB99 /* Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A914DE028A008ECB99 /* Points.m */; };
+		763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D84AB14DE057A008ECB99 /* CoreData.framework */; };
 		88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8BAB114D8B22100A8010C /* SVStatusHUD.m */; };
 		88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD714D73EE900587116 /* UIKit.framework */; };
 		88F76ADA14D73EE900587116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD914D73EE900587116 /* Foundation.framework */; };
@@ -53,6 +57,12 @@
 		76310BF014D7B2550084D06A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MovieTransportBackground.png; sourceTree = "<group>"; };
 		763D849914DDE734008ECB99 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		763D849F14DDFAE4008ECB99 /* GpsDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsDatabaseManager.h; sourceTree = "<group>"; };
+		763D84A014DDFAE4008ECB99 /* GpsDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsDatabaseManager.m; sourceTree = "<group>"; };
+		763D84A314DDFB3B008ECB99 /* SessionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SessionModel.xcdatamodel; sourceTree = "<group>"; };
+		763D84A814DE028A008ECB99 /* Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Points.h; sourceTree = "<group>"; };
+		763D84A914DE028A008ECB99 /* Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Points.m; sourceTree = "<group>"; };
+		763D84AB14DE057A008ECB99 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		88D8BAB014D8B22100A8010C /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVStatusHUD.h; sourceTree = "<group>"; };
 		88D8BAB114D8B22100A8010C /* SVStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVStatusHUD.m; sourceTree = "<group>"; };
 		88F76AD314D73EE900587116 /* Run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Run.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */,
 				76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */,
 				76310BEF14D7B2350084D06A /* SystemConfiguration.framework in Frameworks */,
 				88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */,
@@ -114,7 +125,12 @@
 		763D849814DDE734008ECB99 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				763D849F14DDFAE4008ECB99 /* GpsDatabaseManager.h */,
+				763D84A014DDFAE4008ECB99 /* GpsDatabaseManager.m */,
 				763D849914DDE734008ECB99 /* README */,
+				763D84A214DDFB3B008ECB99 /* SessionModel.xcdatamodeld */,
+				763D84A814DE028A008ECB99 /* Points.h */,
+				763D84A914DE028A008ECB99 /* Points.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -131,6 +147,7 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				763D84AB14DE057A008ECB99 /* CoreData.framework */,
 				76310BF014D7B2550084D06A /* CoreLocation.framework */,
 				76310BEE14D7B2350084D06A /* SystemConfiguration.framework */,
 				88F76ADD14D73EE900587116 /* Run */,
@@ -287,6 +304,9 @@
 				88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */,
 				761849CB14DB808B00F84561 /* DistancePoint.m in Sources */,
 				761849CE14DB851600F84561 /* GpsTotals.m in Sources */,
+				763D84A114DDFAE4008ECB99 /* GpsDatabaseManager.m in Sources */,
+				763D84A414DDFB3B008ECB99 /* SessionModel.xcdatamodeld in Sources */,
+				763D84AA14DE028A008ECB99 /* Points.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +421,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		763D84A214DDFB3B008ECB99 /* SessionModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				763D84A314DDFB3B008ECB99 /* SessionModel.xcdatamodel */,
+			);
+			currentVersion = 763D84A314DDFB3B008ECB99 /* SessionModel.xcdatamodel */;
+			path = SessionModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 88F76ACA14D73EE900587116 /* Project object */;
 }
