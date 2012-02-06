@@ -119,16 +119,18 @@
 {
     NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
     NSString *menuString = [self.menuArray objectAtIndex:selectedPath.row];
-    if ( [menuString isEqualToString:@"Run"] )
-    {
-        [self performSegueWithIdentifier:@"selectedMenu" sender:self];
-    }
     
+    if ( [menuString isEqualToString:@"Run"] )    
+        [self performSegueWithIdentifier:@"selectedMenu" sender:self];
+        
     else if ( [menuString isEqualToString:@"History"] )
         [self performSegueWithIdentifier:@"selectedMenu2" sender:self];
         
     else if ( [menuString isEqualToString:@"Settings"] )
         [self performSegueWithIdentifier:@"segueSettings" sender:self];
+    
+    else if ( [menuString isEqualToString:@"About"] )
+        [self performSegueWithIdentifier:@"segueAbout" sender:self];
         
 }
 

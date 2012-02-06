@@ -28,5 +28,7 @@
 
 - (NSString *)applicationDocumentsDirectory;
 
+// Methods for getting info from the database
+- (void) getAllSessions;
 
 @end

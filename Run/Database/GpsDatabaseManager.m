@@ -168,6 +168,23 @@
     }
 }
 
+- (void) getAllSessions {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription 
+                                   entityForName:@"SessionRun" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject *info in fetchedObjects) {
+        //TODO get each objects and added to a list?
+        
+        NSLog(@"Name: %@", [info valueForKey:@"name"]);
+        NSManagedObject *details = [info valueForKey:@"details"];
+        NSLog(@"Zip: %@", [details valueForKey:@"zip"]);
+    }        
+}
 
 
 @end
