@@ -10,6 +10,9 @@
 
 #import "RunViewController.h"
 #import "RunProtocol.h"
+#import "HistoryViewController.h"
+#import "SettingsViewController.h"
+#import "AboutViewController.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RunProtocol>
 

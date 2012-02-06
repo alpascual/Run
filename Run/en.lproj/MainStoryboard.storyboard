@@ -18,7 +18,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MvH-eA-24g">
-                                <rect key="frame" x="55" y="246" width="221" height="172"/>
+                                <rect key="frame" x="55" y="223" width="221" height="195"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -47,6 +47,8 @@
                     <connections>
                         <outlet property="tableView" destination="MvH-eA-24g" id="isv-86-dOb"/>
                         <segue destination="CK7-2j-Ocb" kind="modal" identifier="selectedMenu" modalTransitionStyle="flipHorizontal" id="38e-Bm-P1A"/>
+                        <segue destination="kTN-S4-1ZR" kind="modal" identifier="segueSettings" id="A3c-c4-OYz"/>
+                        <segue destination="aEj-gL-yVi" kind="modal" identifier="segueAbout" modalTransitionStyle="crossDissolve" id="56v-ko-fek"/>
                     </connections>
                 </viewController>
             </objects>
@@ -110,11 +112,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" image="MovieTransportBackground.png" id="cVk-dp-Uud">
+                            <imageView userInteractionEnabled="NO" alpha="0.70000000000000007" contentMode="scaleToFill" image="GradientFill.png" id="cVk-dp-Uud">
                                 <rect key="frame" x="20" y="183" width="290" height="79"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="MovieTransportBackground.png" id="Wsg-WH-GGd">
+                            <imageView userInteractionEnabled="NO" alpha="0.70000001192092898" contentMode="scaleToFill" image="UITableSelection.png" id="Wsg-WH-GGd">
                                 <rect key="frame" x="20" y="270" width="290" height="79"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -172,6 +174,80 @@
             </objects>
             <point key="canvasLocation" x="523" y="156"/>
         </scene>
+        <scene sceneID="PGl-hN-tKi">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUI-pT-Dm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="kTN-S4-1ZR" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pgV-Ka-5wW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="baby-blue-solid.jpg" id="JdC-OI-hPZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" barStyle="blackTranslucent" id="lPH-Xe-ock">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" id="OzO-IB-HDS">
+                                        <connections>
+                                            <action selector="backPressed:" destination="kTN-S4-1ZR" id="M9U-r1-jh2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="mpW-Wp-dWY">
+                                <rect key="frame" x="73" y="50" width="175" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="39"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="82" y="1011"/>
+        </scene>
+        <scene sceneID="ReO-bo-4A1">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4B-SL-GpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="aEj-gL-yVi" customClass="AboutViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nKZ-mk-3JE">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="baby-blue-solid.jpg" id="gNO-3X-mcm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" barStyle="blackTranslucent" id="SWM-m3-YMy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" id="on8-k5-Ef2">
+                                        <connections>
+                                            <action selector="backPressed:" destination="aEj-gL-yVi" id="Bj7-na-T81"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="JfH-cf-s97">
+                                <rect key="frame" x="76" y="62" width="174" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="473" y="1413"/>
+        </scene>
         <scene sceneID="KON-qT-adr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77V-dq-Qnt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,7 +280,7 @@
                                     <outlet property="delegate" destination="phs-1P-1CI" id="7yr-vp-5IJ"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nQ3-ji-UFa">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" barStyle="blackTranslucent" id="nQ3-ji-UFa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -214,7 +290,6 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="0.22447907289999999" green="0.82143597899999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -224,16 +299,20 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="340" y="738"/>
+            <point key="canvasLocation" x="482" y="746"/>
         </scene>
     </scenes>
     <resources>
-        <image name="MovieTransportBackground.png" width="314" height="93"/>
+        <image name="GradientFill.png" width="320" height="222"/>
+        <image name="UITableSelection.png" width="320" height="43"/>
         <image name="baby-blue-solid.jpg" width="1366" height="768"/>
     </resources>
     <classes>
         <class className="ASBSparkLineView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ASBSparkLineView.h"/>
+        </class>
+        <class className="AboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
         </class>
         <class className="HistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
@@ -253,6 +332,9 @@
                 <relationship kind="outlet" name="speed" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="time" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>

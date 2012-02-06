@@ -28,6 +28,7 @@
     self.menuArray = [[NSMutableArray alloc] init];
     [self.menuArray addObject:@"Run"];
     [self.menuArray addObject:@"History"];
+    [self.menuArray addObject:@"Settings"];
     [self.menuArray addObject:@"About"];
     
 }
@@ -89,6 +90,31 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"selectedMenu"])
+    {
+        RunViewController *controller=[segue destinationViewController];
+        controller.delegate=self;
+    }
+    else if ([[segue identifier] isEqualToString:@"selectedMenu2"])
+    {
+        HistoryViewController *controller=[segue destinationViewController];
+        controller.delegate=self;
+    }
+    else if ([[segue identifier] isEqualToString:@"segueSettings"])
+    {
+        SettingsViewController *controller =[segue destinationViewController];
+        controller.delegate=self;
+    }
+    else if ([[segue identifier] isEqualToString:@"segueAbout"])
+    {
+        AboutViewController *controller =[segue destinationViewController];
+        controller.delegate=self;
+    }
+
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
@@ -98,18 +124,36 @@
         [self performSegueWithIdentifier:@"selectedMenu" sender:self];
     }
     
-    else
+    else if ( [menuString isEqualToString:@"History"] )
         [self performSegueWithIdentifier:@"selectedMenu2" sender:self];
+        
+    else if ( [menuString isEqualToString:@"Settings"] )
+        [self performSegueWithIdentifier:@"segueSettings" sender:self];
         
 }
 
 - (void) FinishHistory {
     [self dismissModalViewControllerAnimated:YES];
+    
+    [self.tableView reloadData];
 }
 
 - (void) FinishRun {
     [self dismissModalViewControllerAnimated:YES];
+    
+    [self.tableView reloadData];
 }
 
+-(void) FinishSettings {
+    [self dismissModalViewControllerAnimated:YES];
+    
+    [self.tableView reloadData];
+}
+
+-(void) FinishAbout {
+    [self dismissModalViewControllerAnimated:YES];
+    
+    [self.tableView reloadData];
+}
 
 @end

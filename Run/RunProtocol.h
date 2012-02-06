@@ -12,5 +12,7 @@
 
 - (void) FinishHistory;
 - (void) FinishRun;
+- (void) FinishSettings;
+- (void) FinishAbout;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  HistoryViewController.h
+//  SettingsViewController.h
 //  Run
 //
 //  Created by Albert Pascual on 2/5/12.
@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "RunProtocol.h"
 
-@interface HistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SettingsViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) id <RunProtocol> delegate;
 
 @end

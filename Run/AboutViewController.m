@@ -1,16 +1,15 @@
 //
-//  HistoryViewController.m
+//  AboutViewController.m
 //  Run
 //
 //  Created by Albert Pascual on 2/5/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "HistoryViewController.h"
+#import "AboutViewController.h"
 
-@implementation HistoryViewController
+@implementation AboutViewController
 
-@synthesize tableView = _tableView;
 @synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,11 +31,20 @@
 
 #pragma mark - View lifecycle
 
+/*
+// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)loadView
+{
+}
+*/
+
+/*
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
+*/
 
 - (void)viewDidUnload
 {
@@ -52,22 +60,7 @@
 }
 
 - (IBAction)backPressed:(id)sender {
-    
-    [self.delegate FinishHistory];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    // TODO Read the database
-    return 0;
-}
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return nil;
+    [self.delegate FinishAbout];
 }
 
 @end

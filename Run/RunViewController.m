@@ -23,6 +23,7 @@
 @synthesize altitudeArray = _altitudeArray;
 @synthesize speedArray = _speedArray;
 @synthesize saveButton = _saveButton;
+@synthesize delegate = _delegate;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -189,7 +190,7 @@
     self.sparkLineViewAltitude.dataValues = self.altitudeArray;
     self.sparkLineViewAltitude.labelText = @"Altitude";
     self.sparkLineViewAltitude.currentValueColor = [UIColor redColor];
-    self.sparkLineViewAltitude.penColor = [UIColor blueColor];
+    self.sparkLineViewAltitude.penColor = [UIColor whiteColor];
     self.sparkLineViewAltitude.penWidth = 3.0f;
     self.sparkLineViewAltitude.rangeOverlayLowerLimit = nil;
     self.sparkLineViewAltitude.rangeOverlayUpperLimit = nil;
@@ -200,8 +201,8 @@
     self.sparkLineViewSpeed.currentValueFormat = @"%.0f";
     self.sparkLineViewSpeed.penColor = [UIColor redColor];
     self.sparkLineViewSpeed.penWidth = 3.0f;
-    self.sparkLineViewSpeed.rangeOverlayLowerLimit = nil;
-    self.sparkLineViewSpeed.rangeOverlayUpperLimit = nil;
+    self.sparkLineViewSpeed.rangeOverlayLowerLimit = [[NSNumber alloc] initWithInt:0];
+    self.sparkLineViewSpeed.rangeOverlayUpperLimit = [[NSNumber alloc] initWithInt:10];;
     
     [self.sparkLineViewAltitude reloadInputViews];
     [self.sparkLineViewSpeed reloadInputViews];

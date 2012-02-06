@@ -26,6 +26,10 @@
 		763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D84AB14DE057A008ECB99 /* CoreData.framework */; };
 		763D84B214DE0CEF008ECB99 /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84B114DE0CEE008ECB99 /* SessionRun.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
+		76CA2A0C14DF7AF9000C6B4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */; };
+		76CA2A1014DF7DD0000C6B4F /* GradientFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */; };
+		76CA2A1114DF7DD0000C6B4F /* UITableSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */; };
+		76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A1314DF7F78000C6B4F /* AboutViewController.m */; };
 		88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8BAB114D8B22100A8010C /* SVStatusHUD.m */; };
 		88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD714D73EE900587116 /* UIKit.framework */; };
 		88F76ADA14D73EE900587116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD914D73EE900587116 /* Foundation.framework */; };
@@ -70,6 +74,12 @@
 		76C4E34214DEECA1009AF75F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		76C4E34314DEECA1009AF75F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		76C4E34814DEF363009AF75F /* RunProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
+		76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientFill.png; sourceTree = "<group>"; };
+		76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableSelection.png; sourceTree = "<group>"; };
+		76CA2A1214DF7F78000C6B4F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		76CA2A1314DF7F78000C6B4F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		88D8BAB014D8B22100A8010C /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVStatusHUD.h; sourceTree = "<group>"; };
 		88D8BAB114D8B22100A8010C /* SVStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVStatusHUD.m; sourceTree = "<group>"; };
 		88F76AD314D73EE900587116 /* Run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Run.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +214,10 @@
 				76C4E34214DEECA1009AF75F /* HistoryViewController.h */,
 				76C4E34314DEECA1009AF75F /* HistoryViewController.m */,
 				76C4E34814DEF363009AF75F /* RunProtocol.h */,
+				76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */,
+				76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */,
+				76CA2A1214DF7F78000C6B4F /* AboutViewController.h */,
+				76CA2A1314DF7F78000C6B4F /* AboutViewController.m */,
 			);
 			path = Run;
 			sourceTree = "<group>";
@@ -222,6 +236,8 @@
 		88F76AF414D73F9C00587116 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */,
+				76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */,
 				763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */,
 				761849D714DBA82000F84561 /* BigOn512.png */,
 				761849D814DBA82000F84561 /* Icon-72.png */,
@@ -297,6 +313,8 @@
 				761849DE14DBA82000F84561 /* Icon@2x.png in Resources */,
 				763D849714DDDFE6008ECB99 /* MovieTransportBackground.png in Resources */,
 				763D849A14DDE734008ECB99 /* README in Resources */,
+				76CA2A1014DF7DD0000C6B4F /* GradientFill.png in Resources */,
+				76CA2A1114DF7DD0000C6B4F /* UITableSelection.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +339,8 @@
 				763D84AA14DE028A008ECB99 /* Points.m in Sources */,
 				763D84B214DE0CEF008ECB99 /* SessionRun.m in Sources */,
 				76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */,
+				76CA2A0C14DF7AF9000C6B4F /* SettingsViewController.m in Sources */,
+				76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
