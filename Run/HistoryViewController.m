@@ -124,4 +124,16 @@
     return 100;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = [indexPath row]; 
+    
+    NSManagedObject *info = [self.historyRaw objectAtIndex:row];
+    
+    NSString *uniqueID = [info valueForKey:@"uniqueID"];
+    
+    //TODO pass this to the new UI remember the segue.
+    
+}
+
 @end
