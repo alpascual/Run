@@ -96,7 +96,7 @@
     cell.detailTextLabel.textColor = [UIColor blackColor];
         
     // TODO add a picture
-    //cell.imageView.image = [UIImage imageNamed:@"UITableSelection.png"];
+    cell.imageView.image = [UIImage imageNamed:@"route61logo1.jpg"];
     
     /*UIImage *backImage = [UIImage imageNamed:@"UITableSelection.png"];
      UIImageView *imageView = [[UIImageView alloc] initWithImage:backImage];    
