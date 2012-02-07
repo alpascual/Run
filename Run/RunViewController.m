@@ -141,14 +141,17 @@
 
 - (void)refreshTimer:(NSTimer *)timer {
     
-    if ( self.trackingManager.gpsTotals.speed >= 0 ) {
-        self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", (self.trackingManager.gpsTotals.speed * 2.2369)];
-        NSNumber *tempSpeed = [[NSNumber alloc] initWithDouble:(self.trackingManager.gpsTotals.speed * 2.2369)];
+    double dSpeed = self.trackingManager.gpsTotals.speed * 2.2369;
+    
+    if ( dSpeed >= 0 ) {
+        self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", dSpeed];
+        NSNumber *tempSpeed = [[NSNumber alloc] initWithDouble:dSpeed];
         [self.speedArray addObject:tempSpeed];
         NSLog(@"Speed values is %@", tempSpeed);
     }
     else {
-        NSNumber * iSpeed = [[NSNumber alloc] initWithDouble:-self.trackingManager.gpsTotals.speed];
+        dSpeed = -dSpeed;
+        NSNumber * iSpeed = [[NSNumber alloc] initWithDouble:dSpeed];
         self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", iSpeed];
         [self.speedArray addObject:iSpeed];
         NSLog(@"Speed values is %@", iSpeed);
@@ -223,7 +226,8 @@
 
 - (IBAction)savePressed:(id)sender {
     [SVStatusHUD showWithoutImage:@"Saving..."];
-    // TODO save all to the database
+    
+    // save all to the database
     
     GpsDatabaseManager *database = [[GpsDatabaseManager alloc] init];
     [database saveSession:self.trackingManager.gpsTotals];

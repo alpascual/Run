@@ -1,14 +1,17 @@
 //
-//  HistoryDetailsViewController.m
+//  DetailsAnalyzeViewController.m
 //  Run
 //
-//  Created by Albert Pascual on 2/6/12.
+//  Created by Al Pascual on 2/7/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "HistoryDetailsViewController.h"
+#import "DetailsAnalyzeViewController.h"
 
-@implementation HistoryDetailsViewController
+@implementation DetailsAnalyzeViewController
+
+@synthesize uniqueID = _uniqueID;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +58,10 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)backPressed:(id)sender {
+    [self.delegate FinishDetailsAnalyze];
 }
 
 @end

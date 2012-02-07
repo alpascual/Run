@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailsProtocol.h"
+#import "DetailsMapViewController.h"
+#import "DetailsAnalyzeViewController.h"
+#import "DetailsShareViewController.h"
 
 @protocol DetailsMenuViewControllerProtocol <NSObject>
 
@@ -14,7 +18,7 @@
 
 @end
 
-@interface DetailsMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DetailsMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DetailsProtocol>
 
 @property (nonatomic, strong) id <DetailsMenuViewControllerProtocol> delegate;
 @property (nonatomic, strong) NSString *uniqueID;

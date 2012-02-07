@@ -94,11 +94,16 @@
     NSDateFormatter* theDateFormatter = [[NSDateFormatter alloc] init];
     [theDateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
     [theDateFormatter setDateFormat:@"EEEE"];
-    NSString *weekDay =  [theDateFormatter stringFromDate:[info valueForKey:@"when"]];
     
-    cell.textLabel.text = weekDay;
-    cell.detailTextLabel.numberOfLines = 5; 
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH:mm"];
     
+    
+    NSString *weekDay = [theDateFormatter stringFromDate:[info valueForKey:@"when"]];
+    NSString *theTime = [timeFormat stringFromDate:[info valueForKey:@"when"]];
+    
+    cell.textLabel.text = [[NSString alloc] initWithFormat:@"%@ %@", weekDay, theTime];
+    cell.detailTextLabel.numberOfLines = 5;     
     
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"Distance: %@\nTime: %@:%@:%@\nMax. Speed %@", [info valueForKey:@"totalDistance"], 
                                  [info valueForKey:@"totalTimeHours"],
@@ -143,6 +148,10 @@
     DetailsMenuViewController *controller=[segue destinationViewController];
     controller.delegate=self;
     controller.uniqueID = self.uniqueIDForSegue;
+}
+
+- (void) Finish {
+    [self dismissModalViewControllerAnimated:YES];    
 }
 
 @end

@@ -99,46 +99,54 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    /*if([[segue identifier] isEqualToString:@"selectedMenu"])
+    if([[segue identifier] isEqualToString:@"segueDetailsMap"])
     {
-        RunViewController *controller=[segue destinationViewController];
+        DetailsMapViewController *controller=[segue destinationViewController];
         controller.delegate=self;
+        controller.uniqueID = self.uniqueID;
     }
-    else if ([[segue identifier] isEqualToString:@"selectedMenu2"])
+    else if ([[segue identifier] isEqualToString:@"segueDetailsAnalyze"])
     {
-        HistoryViewController *controller=[segue destinationViewController];
+        DetailsAnalyzeViewController *controller=[segue destinationViewController];
         controller.delegate=self;
+        controller.uniqueID = self.uniqueID;
     }
-    else if ([[segue identifier] isEqualToString:@"segueSettings"])
+    else if ([[segue identifier] isEqualToString:@"segueDetailsShare"])
     {
-        SettingsViewController *controller =[segue destinationViewController];
+        DetailsShareViewController *controller =[segue destinationViewController];
         controller.delegate=self;
+        controller.uniqueID = self.uniqueID;
     }
-    else if ([[segue identifier] isEqualToString:@"segueAbout"])
-    {
-        AboutViewController *controller =[segue destinationViewController];
-        controller.delegate=self;
-    }*/
+    
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
+    NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
     NSString *menuString = [self.menuArray objectAtIndex:selectedPath.row];
     
-    if ( [menuString isEqualToString:@"Run"] )    
-        [self performSegueWithIdentifier:@"selectedMenu" sender:self];
+    if ( [menuString isEqualToString:@"View Map"] )    
+        [self performSegueWithIdentifier:@"segueDetailsMap" sender:self];
     
-    else if ( [menuString isEqualToString:@"History"] )
-        [self performSegueWithIdentifier:@"selectedMenu2" sender:self];
+    else if ( [menuString isEqualToString:@"Analyze"] )
+        [self performSegueWithIdentifier:@"segueDetailsAnalyze" sender:self];
     
-    else if ( [menuString isEqualToString:@"Settings"] )
-        [self performSegueWithIdentifier:@"segueSettings" sender:self];
-    
-    else if ( [menuString isEqualToString:@"About"] )
-        [self performSegueWithIdentifier:@"segueAbout" sender:self];
-    */
+    else if ( [menuString isEqualToString:@"Share"] )
+        [self performSegueWithIdentifier:@"segueDetailsShare" sender:self];    
+}
+
+- (void) FinishDetailsMap {
+    [self dismissModalViewControllerAnimated:YES];
+    [self.tableView reloadData];
+}
+- (void) FinishDetailsAnalyze {
+    [self dismissModalViewControllerAnimated:YES];
+    [self.tableView reloadData];
+}
+- (void) FinishDetailsShare {
+    [self dismissModalViewControllerAnimated:YES];
+    [self.tableView reloadData];
 }
 
 @end

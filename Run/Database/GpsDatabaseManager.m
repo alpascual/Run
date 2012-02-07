@@ -162,7 +162,7 @@
     [mySession setAltitudeMin:[[NSNumber alloc] initWithDouble:totals.altitudeMin ]];
     [mySession setUniqueID:totals.uniqueID];
     [mySession setCalories:[[NSNumber alloc] initWithDouble:totals.calories ]];
-    [mySession setWhen:[NSDate date]];
+    [mySession setWhen:[NSDate date]];    
     [mySession setTotalTimeHours:[[NSNumber alloc] initWithDouble:totals.totalTimeHours]];
     [mySession setTotalTimeMinutes:[[NSNumber alloc] initWithDouble:totals.totalTimeMinutes]];
     [mySession setTotalTimeSeconds:[[NSNumber alloc] initWithDouble:totals.totalTimeSeconds]];
