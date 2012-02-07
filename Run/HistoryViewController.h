@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "RunProtocol.h"
 #import "GpsDatabaseManager.h"
+#import "DetailsMenuViewController.h"
 
-@interface HistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DetailsMenuViewControllerProtocol>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) id <RunProtocol> delegate;
 @property (nonatomic, strong) GpsDatabaseManager *database;
 @property (nonatomic, strong) NSArray *historyRaw;
+@property (nonatomic, strong) NSString *uniqueIDForSegue;
 
 @end

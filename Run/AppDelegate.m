@@ -13,6 +13,9 @@
 @synthesize window = _window;
 @synthesize trackingManager = _trackingManager;
 
+//iCloud info
+//http://goddess-gate.com/dc2/index.php/post/452
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

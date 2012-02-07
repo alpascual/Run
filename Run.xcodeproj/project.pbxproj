@@ -32,6 +32,7 @@
 		76CA2A1114DF7DD0000C6B4F /* UITableSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */; };
 		76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A1314DF7F78000C6B4F /* AboutViewController.m */; };
 		8874B3FD14E0B57600ADA7C3 /* route61logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */; };
+		8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */; };
 		88D8BAB214D8B22100A8010C /* SVStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D8BAB114D8B22100A8010C /* SVStatusHUD.m */; };
 		88F76AD814D73EE900587116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD714D73EE900587116 /* UIKit.framework */; };
 		88F76ADA14D73EE900587116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F76AD914D73EE900587116 /* Foundation.framework */; };
@@ -85,6 +86,9 @@
 		76CA2A1214DF7F78000C6B4F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		76CA2A1314DF7F78000C6B4F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route61logo1.jpg; sourceTree = "<group>"; };
+		8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMenuViewController.h; sourceTree = "<group>"; };
+		8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMenuViewController.m; sourceTree = "<group>"; };
+		8874B40714E19B2600ADA7C3 /* Run.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Run.entitlements; sourceTree = "<group>"; };
 		88D8BAB014D8B22100A8010C /* SVStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVStatusHUD.h; sourceTree = "<group>"; };
 		88D8BAB114D8B22100A8010C /* SVStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVStatusHUD.m; sourceTree = "<group>"; };
 		88F76AD314D73EE900587116 /* Run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Run.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +205,7 @@
 		88F76ADD14D73EE900587116 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				8874B40714E19B2600ADA7C3 /* Run.entitlements */,
 				763D849814DDE734008ECB99 /* Database */,
 				761849C714DB804E00F84561 /* Models */,
 				88D8BAAF14D8B22100A8010C /* SVStatusHUD */,
@@ -225,6 +230,8 @@
 				76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */,
 				76CA2A1214DF7F78000C6B4F /* AboutViewController.h */,
 				76CA2A1314DF7F78000C6B4F /* AboutViewController.m */,
+				8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */,
+				8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */,
 			);
 			path = Run;
 			sourceTree = "<group>";
@@ -351,6 +358,7 @@
 				76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */,
 				7688C39614E0ED2F00C0D2A8 /* HistoryDetailsViewController.m in Sources */,
 				7688C39A14E0EF9700C0D2A8 /* SessionRun.m in Sources */,
+				8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +432,7 @@
 		88F76AF214D73EE900587116 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Run/Run.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
@@ -435,6 +444,7 @@
 		88F76AF314D73EE900587116 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Run/Run.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";

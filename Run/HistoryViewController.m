@@ -14,6 +14,7 @@
 @synthesize delegate = _delegate;
 @synthesize database = _database;
 @synthesize historyRaw = _historyRaw;
+@synthesize uniqueIDForSegue = _uniqueIDForSegue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -130,10 +131,18 @@
     
     NSManagedObject *info = [self.historyRaw objectAtIndex:row];
     
-    NSString *uniqueID = [info valueForKey:@"uniqueID"];
+    self.uniqueIDForSegue = [info valueForKey:@"uniqueID"];
     
-    //TODO pass this to the new UI remember the segue.
+    // pass this to the new UI remember the segue.
+    [self performSegueWithIdentifier:@"segueToDetailsMenu" sender:self];
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{   
+    DetailsMenuViewController *controller=[segue destinationViewController];
+    controller.delegate=self;
+    controller.uniqueID = self.uniqueIDForSegue;
 }
 
 @end
