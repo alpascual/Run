@@ -19,5 +19,8 @@
 @property (nonatomic) double accuracy;
 @property (nonatomic,strong) NSString *uniqueID;
 @property (nonatomic) double calories;
+@property (nonatomic) double totalTimeHours;
+@property (nonatomic) double totalTimeMinutes;
+@property (nonatomic) double totalTimeSeconds;
 
 @end

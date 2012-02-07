@@ -2,7 +2,7 @@
 //  SessionRun.m
 //  Run
 //
-//  Created by Albert Pascual on 2/4/12.
+//  Created by Albert Pascual on 2/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,12 +11,15 @@
 
 @implementation SessionRun
 
-@dynamic uniqueID;
-@dynamic totalDistance;
 @dynamic altitudeMax;
 @dynamic altitudeMin;
-@dynamic speedMax;
 @dynamic calories;
+@dynamic speedMax;
+@dynamic totalDistance;
+@dynamic uniqueID;
 @dynamic when;
+@dynamic totalTimeHours;
+@dynamic totalTimeMinutes;
+@dynamic totalTimeSeconds;
 
 @end

@@ -38,6 +38,8 @@
 {
     [super viewDidLoad];
     
+    self.title = @"History";
+    
     self.database = [[GpsDatabaseManager alloc] init];
     self.historyRaw = [self.database getAllSessions];
     
@@ -80,22 +82,34 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     NSUInteger row = [indexPath row]; 
     
     NSManagedObject *info = [self.historyRaw objectAtIndex:row];
     
-    cell.textLabel.text = [[NSString alloc] initWithFormat:@"%.2f", [info valueForKey:@"totalDistance"]];
-     
-    cell.detailTextLabel.numberOfLines = 4;
     
-    cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", [info valueForKey:@"when"]];
+    NSDateFormatter* theDateFormatter = [[NSDateFormatter alloc] init];
+    [theDateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [theDateFormatter setDateFormat:@"EEEE"];
+    NSString *weekDay =  [theDateFormatter stringFromDate:[info valueForKey:@"when"]];
+    
+    cell.textLabel.text = weekDay;
+    cell.detailTextLabel.numberOfLines = 5; 
+    
+    
+    cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"Distance: %@\nTime: %@:%@:%@\nMax. Speed %@", [info valueForKey:@"totalDistance"], 
+                                 [info valueForKey:@"totalTimeHours"],
+                                 [info valueForKey:@"totalTimeMinutes"],
+                                 [info valueForKey:@"totalTimeSeconds"],
+                                 [info valueForKey:@"speedMax"]];
+    
     
     cell.textLabel.textColor = [UIColor blackColor];
     cell.detailTextLabel.textColor = [UIColor blackColor];
         
-    // TODO add a picture
+    // add a picture or route
     cell.imageView.image = [UIImage imageNamed:@"route61logo1.jpg"];
     
     /*UIImage *backImage = [UIImage imageNamed:@"UITableSelection.png"];
@@ -107,7 +121,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {   
-    return 90;
+    return 100;
 }
 
 @end

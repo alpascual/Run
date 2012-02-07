@@ -19,5 +19,8 @@
 @synthesize speedMax = _speedMax;
 @synthesize uniqueID = _uniqueID;
 @synthesize calories = _calories;
+@synthesize totalTimeHours = _totalTimeHours;
+@synthesize totalTimeMinutes = _totalTimeMinutes;
+@synthesize totalTimeSeconds = _totalTimeSeconds;
 
 @end

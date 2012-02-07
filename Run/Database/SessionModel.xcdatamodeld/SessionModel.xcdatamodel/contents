@@ -16,11 +16,14 @@
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="speedMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="totalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalTimeHours" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalTimeMinutes" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalTimeSeconds" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="when" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SessionRun" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Points" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="SessionRun" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>

@@ -179,6 +179,11 @@
     NSInteger hours = (ti / 3600);
     hours = -hours;
     
+    // For saving
+    self.trackingManager.gpsTotals.totalTimeHours = hours;
+    self.trackingManager.gpsTotals.totalTimeMinutes = minutes;
+    self.trackingManager.gpsTotals.totalTimeSeconds = seconds;
+        
     // with a divisor of 10.    
     NSLog(@"%d:%d:%d", hours, minutes, seconds);
     self.time.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];

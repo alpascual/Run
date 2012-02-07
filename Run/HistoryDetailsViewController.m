@@ -1,16 +1,14 @@
 //
-//  SettingsViewController.m
+//  HistoryDetailsViewController.m
 //  Run
 //
-//  Created by Albert Pascual on 2/5/12.
+//  Created by Albert Pascual on 2/6/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "HistoryDetailsViewController.h"
 
-@implementation SettingsViewController
-
-@synthesize delegate = _delegate;
+@implementation HistoryDetailsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,15 +36,13 @@
 }
 */
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.title = @"Settings";
 }
-
+*/
 
 - (void)viewDidUnload
 {
@@ -59,10 +55,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (IBAction)backPressed:(id)sender {
-    [self.delegate FinishSettings];
 }
 
 @end

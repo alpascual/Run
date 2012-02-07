@@ -150,6 +150,8 @@
 
 - (void) saveSession:(GpsTotals *)totals {
     
+    NSLog(@"totals %f",totals.totalTimeSeconds );
+    
     SessionRun *mySession = [NSEntityDescription
                         insertNewObjectForEntityForName:@"SessionRun" 
                         inManagedObjectContext:self.managedObjectContext]; 
@@ -161,6 +163,9 @@
     [mySession setUniqueID:totals.uniqueID];
     [mySession setCalories:[[NSNumber alloc] initWithDouble:totals.calories ]];
     [mySession setWhen:[NSDate date]];
+    [mySession setTotalTimeHours:[[NSNumber alloc] initWithDouble:totals.totalTimeHours]];
+    [mySession setTotalTimeMinutes:[[NSNumber alloc] initWithDouble:totals.totalTimeMinutes]];
+    [mySession setTotalTimeSeconds:[[NSNumber alloc] initWithDouble:totals.totalTimeSeconds]];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

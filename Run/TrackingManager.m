@@ -46,8 +46,8 @@
 - (void) stopTracking
 {
     [self.locMgr stopUpdatingLocation];
-    self.DistancePoints = nil;
-    self.gpsTotals = nil;
+    //self.DistancePoints = nil;
+    //self.gpsTotals = nil;
 }
 
 

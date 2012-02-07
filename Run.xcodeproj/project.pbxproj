@@ -24,7 +24,8 @@
 		763D84A414DDFB3B008ECB99 /* SessionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A214DDFB3B008ECB99 /* SessionModel.xcdatamodeld */; };
 		763D84AA14DE028A008ECB99 /* Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A914DE028A008ECB99 /* Points.m */; };
 		763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D84AB14DE057A008ECB99 /* CoreData.framework */; };
-		763D84B214DE0CEF008ECB99 /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84B114DE0CEE008ECB99 /* SessionRun.m */; };
+		7688C39614E0ED2F00C0D2A8 /* HistoryDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688C39514E0ED2F00C0D2A8 /* HistoryDetailsViewController.m */; };
+		7688C39A14E0EF9700C0D2A8 /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688C39914E0EF9700C0D2A8 /* SessionRun.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76CA2A0C14DF7AF9000C6B4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */; };
 		76CA2A1014DF7DD0000C6B4F /* GradientFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */; };
@@ -70,8 +71,10 @@
 		763D84A814DE028A008ECB99 /* Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Points.h; sourceTree = "<group>"; };
 		763D84A914DE028A008ECB99 /* Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Points.m; sourceTree = "<group>"; };
 		763D84AB14DE057A008ECB99 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		763D84B014DE0CEE008ECB99 /* SessionRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionRun.h; sourceTree = "<group>"; };
-		763D84B114DE0CEE008ECB99 /* SessionRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRun.m; sourceTree = "<group>"; };
+		7688C39414E0ED2F00C0D2A8 /* HistoryDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsViewController.h; sourceTree = "<group>"; };
+		7688C39514E0ED2F00C0D2A8 /* HistoryDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsViewController.m; sourceTree = "<group>"; };
+		7688C39814E0EF9700C0D2A8 /* SessionRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionRun.h; sourceTree = "<group>"; };
+		7688C39914E0EF9700C0D2A8 /* SessionRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRun.m; sourceTree = "<group>"; };
 		76C4E34214DEECA1009AF75F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		76C4E34314DEECA1009AF75F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		76C4E34814DEF363009AF75F /* RunProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
@@ -150,8 +153,8 @@
 				763D84A214DDFB3B008ECB99 /* SessionModel.xcdatamodeld */,
 				763D84A814DE028A008ECB99 /* Points.h */,
 				763D84A914DE028A008ECB99 /* Points.m */,
-				763D84B014DE0CEE008ECB99 /* SessionRun.h */,
-				763D84B114DE0CEE008ECB99 /* SessionRun.m */,
+				7688C39814E0EF9700C0D2A8 /* SessionRun.h */,
+				7688C39914E0EF9700C0D2A8 /* SessionRun.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -215,6 +218,8 @@
 				88F76AFC14D74A2D00587116 /* RunViewController.m */,
 				76C4E34214DEECA1009AF75F /* HistoryViewController.h */,
 				76C4E34314DEECA1009AF75F /* HistoryViewController.m */,
+				7688C39414E0ED2F00C0D2A8 /* HistoryDetailsViewController.h */,
+				7688C39514E0ED2F00C0D2A8 /* HistoryDetailsViewController.m */,
 				76C4E34814DEF363009AF75F /* RunProtocol.h */,
 				76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */,
 				76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */,
@@ -341,10 +346,11 @@
 				763D84A114DDFAE4008ECB99 /* GpsDatabaseManager.m in Sources */,
 				763D84A414DDFB3B008ECB99 /* SessionModel.xcdatamodeld in Sources */,
 				763D84AA14DE028A008ECB99 /* Points.m in Sources */,
-				763D84B214DE0CEF008ECB99 /* SessionRun.m in Sources */,
 				76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */,
 				76CA2A0C14DF7AF9000C6B4F /* SettingsViewController.m in Sources */,
 				76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */,
+				7688C39614E0ED2F00C0D2A8 /* HistoryDetailsViewController.m in Sources */,
+				7688C39A14E0EF9700C0D2A8 /* SessionRun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
