@@ -30,5 +30,6 @@
 
 // Methods for getting info from the database
 - (NSArray *) getAllSessions;
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinatorNoCloud;
 
 @end

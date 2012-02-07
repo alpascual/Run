@@ -4,13 +4,13 @@
 <dict>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)L6RR26WWDD.com.alpascualcloud.Run</string>
+		<string>$(TeamIdentifierPrefix)com.alpascualcloud.Run</string>
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
-	<string>$(TeamIdentifierPrefix)L6RR26WWDD.com.alpascualcloud.Run</string>
+	<string>$(TeamIdentifierPrefix)com.alpascualcloud.Run</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.esri.ps.Run</string>
+		<string>$(AppIdentifierPrefix)com.alpascualcloud.Run</string>
 	</array>
 </dict>
 </plist>
