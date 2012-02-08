@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "GpsDatabaseManager.h"
+
 
 @interface MyAccelerometer : NSObject <UIAccelerometerDelegate>{
 
@@ -17,6 +19,11 @@
 
 }
 
-@property (nonatomic, retain) UIAccelerometer *accelerometerManager;  
+@property (nonatomic, strong) UIAccelerometer *accelerometerManager; 
+@property (nonatomic,strong) GpsDatabaseManager *database;
+@property (nonatomic,strong) NSString *uniqueId;
+@property (nonatomic) double X;
+@property (nonatomic) double Y;
+@property (nonatomic) double Z;
 
 @end

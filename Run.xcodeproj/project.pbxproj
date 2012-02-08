@@ -20,6 +20,7 @@
 		76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BF014D7B2550084D06A /* CoreLocation.framework */; };
 		7631F1A614E1FE12005CF2C2 /* SessionRunWithPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631F1A514E1FE12005CF2C2 /* SessionRunWithPoints.m */; };
 		7631F1AB14E2435F005CF2C2 /* MyAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631F1AA14E2435F005CF2C2 /* MyAccelerometer.m */; };
+		7631F1B214E24B87005CF2C2 /* Acceleration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631F1B114E24B87005CF2C2 /* Acceleration.m */; };
 		763D849714DDDFE6008ECB99 /* MovieTransportBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */; };
 		763D849A14DDE734008ECB99 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 763D849914DDE734008ECB99 /* README */; };
 		763D84A114DDFAE4008ECB99 /* GpsDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A014DDFAE4008ECB99 /* GpsDatabaseManager.m */; };
@@ -73,6 +74,8 @@
 		7631F1A514E1FE12005CF2C2 /* SessionRunWithPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRunWithPoints.m; sourceTree = "<group>"; };
 		7631F1A914E2435F005CF2C2 /* MyAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccelerometer.h; sourceTree = "<group>"; };
 		7631F1AA14E2435F005CF2C2 /* MyAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccelerometer.m; sourceTree = "<group>"; };
+		7631F1B014E24B87005CF2C2 /* Acceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Acceleration.h; sourceTree = "<group>"; };
+		7631F1B114E24B87005CF2C2 /* Acceleration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Acceleration.m; sourceTree = "<group>"; };
 		763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MovieTransportBackground.png; sourceTree = "<group>"; };
 		763D849914DDE734008ECB99 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		763D849F14DDFAE4008ECB99 /* GpsDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsDatabaseManager.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				763D84A914DE028A008ECB99 /* Points.m */,
 				7688C39814E0EF9700C0D2A8 /* SessionRun.h */,
 				7688C39914E0EF9700C0D2A8 /* SessionRun.m */,
+				7631F1B014E24B87005CF2C2 /* Acceleration.h */,
+				7631F1B114E24B87005CF2C2 /* Acceleration.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				8874B41114E1BB2500ADA7C3 /* DetailsShareViewController.m in Sources */,
 				7631F1A614E1FE12005CF2C2 /* SessionRunWithPoints.m in Sources */,
 				7631F1AB14E2435F005CF2C2 /* MyAccelerometer.m in Sources */,
+				7631F1B214E24B87005CF2C2 /* Acceleration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -264,6 +264,25 @@
     }
 }
 
+-(void) addMovement:(UIAcceleration *)acceleration : (NSString *) uniqueId {
+    NSLog(@"move x %.2f y %.2f z %.2f", acceleration.x , acceleration.y, acceleration.z );
+    
+    Acceleration *accel = [NSEntityDescription
+                             insertNewObjectForEntityForName:@"Acceleration" 
+                             inManagedObjectContext:self.managedObjectContext]; 
+    
+    [accel setX:[[NSNumber alloc] initWithDouble:acceleration.x ]];
+    [accel setY:[[NSNumber alloc] initWithDouble:acceleration.y ]];
+    [accel setZ:[[NSNumber alloc] initWithDouble:acceleration.z ]];
+    [accel setUniqueId:uniqueId];
+    [accel setWhen:[NSDate date]];   
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save acceleration: %@", [error localizedDescription]);
+    }
+}
+
 - (NSArray *) getAllSessions {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription 

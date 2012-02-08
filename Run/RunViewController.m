@@ -25,6 +25,8 @@
 @synthesize saveButton = _saveButton;
 @synthesize delegate = _delegate;
 @synthesize database = _database;
+@synthesize acceleration = _acceleration;
+@synthesize accelerationArray = _accelerationArray;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -108,6 +110,7 @@
     
     self.speedArray = [[NSMutableArray alloc] init];
     self.altitudeArray = [[NSMutableArray alloc] init];
+    self.accelerationArray = [[NSMutableArray alloc] init];
     
     self.saveButton.hidden = YES;
     
@@ -119,6 +122,9 @@
     // that you own
     NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
     self.trackingManager.uniqueID = uuidString;
+    
+    self.acceleration = [[MyAccelerometer alloc] init];
+    self.acceleration.uniqueId = uuidString;
     
     //TODO UI change and reset counter
     
@@ -137,6 +143,9 @@
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     
     self.saveButton.hidden = NO;
+    
+    self.acceleration.uniqueId = nil;
+    self.acceleration = nil;
 }
 
 
@@ -192,6 +201,9 @@
     // with a divisor of 10.    
     NSLog(@"%d:%d:%d", hours, minutes, seconds);
     self.time.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
+    
+    
+    //For line chart add accelerometer and acceleration TODO
     
     [self setupLineGraphics];
 }

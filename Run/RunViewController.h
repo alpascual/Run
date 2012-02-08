@@ -12,6 +12,7 @@
 #import "SVStatusHUD.h"
 #import "GpsDatabaseManager.h"
 #import "RunProtocol.h"
+#import "MyAccelerometer.h"
 
 @interface RunViewController : UIViewController
 
@@ -31,10 +32,11 @@
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;
 @property (nonatomic, strong) NSMutableArray *altitudeArray;
 @property (nonatomic, strong) NSMutableArray *speedArray;
+@property (nonatomic, strong) NSMutableArray *accelerationArray;
 
 @property (nonatomic, strong) id <RunProtocol> delegate;
 @property (nonatomic, strong) GpsDatabaseManager *database;
-
+@property (nonatomic, strong) MyAccelerometer *acceleration;
 
 
 - (void) startRun;

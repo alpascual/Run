@@ -11,13 +11,23 @@
 
 @implementation MyAccelerometer
 
-@synthesize accelerometerManager;
+@synthesize accelerometerManager = _accelerometerManager;
+@synthesize database = _database;
+@synthesize uniqueId = _uniqueId;
+@synthesize X = _X;
+@synthesize Y = _Y;
+@synthesize Z = _Z;
 
 - (id) init {
     self = [super init];
     if (self != nil) {
+        
+        self.database = [[GpsDatabaseManager alloc] init];
+        
         self.accelerometerManager = [UIAccelerometer sharedAccelerometer];
         self.accelerometerManager.delegate = self; 
+        
+        
     }
     return self;
 }
@@ -25,7 +35,14 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
 	
-    //TODO, record the numbers here and the database
+    // record the numbers here and the database
+    if ( self.uniqueId != nil && self.uniqueId.length > 0 ) {
+        [self.database addMovement:acceleration:self.uniqueId];
+    }
+    
+    self.X = acceleration.x;
+    self.Y = acceleration.y;
+    self.Z = acceleration.z;
     
     //labelX.text = [NSString stringWithFormat:@"%@%f", @"X: ", acceleration.x];
 	//labelY.text = [NSString stringWithFormat:@"%@%f", @"Y: ", acceleration.y];

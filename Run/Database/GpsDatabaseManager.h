@@ -14,6 +14,7 @@
 #import "GpsTotals.h"
 #import "Points.h"
 #import "SessionRun.h"
+#import "Acceleration.h"
 #import "SessionRunWithPoints.h"
 
 @interface GpsDatabaseManager : NSObject
@@ -26,6 +27,7 @@
 - (void) addPoint:(CLLocation*) newLocation : (NSString *)uniqueID :(DistancePoint*) distanceP :
                 (GpsTotals *) totals;
 - (void) saveSession:(GpsTotals *)totals;
+-(void) addMovement:(UIAcceleration *)acceleration : (NSString *) uniqueId;
 
 - (NSString *)applicationDocumentsDirectory;
 
