@@ -33,6 +33,7 @@
 @property (nonatomic, strong) NSMutableArray *speedArray;
 
 @property (nonatomic, strong) id <RunProtocol> delegate;
+@property (nonatomic, strong) GpsDatabaseManager *database;
 
 
 

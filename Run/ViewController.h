@@ -13,10 +13,13 @@
 #import "HistoryViewController.h"
 #import "SettingsViewController.h"
 #import "AboutViewController.h"
+#import "ASBSparkLineView.h"
+#import "GpsDatabaseManager.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RunProtocol>
 
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *menuArray;
+@property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewOverview;
 
 @end

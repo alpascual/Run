@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -17,6 +17,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.30000000000000016" contentMode="scaleToFill" image="MovieTransportBackground.png" id="Vft-cm-YiP">
+                                <rect key="frame" x="20" y="132" width="280" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="Tpc-Pm-wIq" customClass="ASBSparkLineView">
+                                <rect key="frame" x="27" y="144" width="266" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MvH-eA-24g">
                                 <rect key="frame" x="38" y="223" width="245" height="195"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,11 +49,19 @@
                                     <outlet property="delegate" destination="2" id="BqB-Vn-5wW"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Run Analyzer" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="I7g-zM-iqg">
+                                <rect key="frame" x="29" y="48" width="262" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZzT-wb-Hxd"/>
                     <connections>
+                        <outlet property="sparkLineViewOverview" destination="Tpc-Pm-wIq" id="jxg-Br-9jl"/>
                         <outlet property="tableView" destination="MvH-eA-24g" id="isv-86-dOb"/>
                         <segue destination="CK7-2j-Ocb" kind="modal" identifier="selectedMenu" modalTransitionStyle="flipHorizontal" id="38e-Bm-P1A"/>
                         <segue destination="kTN-S4-1ZR" kind="modal" identifier="segueSettings" id="A3c-c4-OYz"/>
@@ -370,6 +387,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.30000000000000016" contentMode="scaleToFill" image="GradientFill.png" id="xgA-U1-iGp">
+                                <rect key="frame" x="13" y="108" width="294" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="Zxp-ot-hlK" customClass="ASBSparkLineView">
+                                <rect key="frame" x="27" y="124" width="266" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" image="GradientFill.png" id="3qx-zD-wNY">
+                                <rect key="frame" x="13" y="216" width="294" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="5Ky-wf-upl" customClass="ASBSparkLineView">
+                                <rect key="frame" x="27" y="233" width="266" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" image="GradientFill.png" id="yvP-NZ-cOw">
+                                <rect key="frame" x="13" y="325" width="294" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="Uvw-MI-W9f" customClass="ASBSparkLineView">
+                                <rect key="frame" x="27" y="342" width="266" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" barStyle="blackTranslucent" id="pLs-Hm-Xtv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -381,9 +425,21 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Summary TODO" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="6Iy-m4-mY9">
+                                <rect key="frame" x="20" y="65" width="280" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="sparkLineViewAltitude" destination="Zxp-ot-hlK" id="IYH-ts-s5V"/>
+                        <outlet property="sparkLineViewShake" destination="Uvw-MI-W9f" id="OWP-71-x1N"/>
+                        <outlet property="sparkLineViewSpeed" destination="5Ky-wf-upl" id="jol-Gh-PTS"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1348" y="1220"/>
@@ -411,6 +467,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share" lineBreakMode="tailTruncation" minimumFontSize="10" id="iSp-D0-Tq6">
+                                <rect key="frame" x="20" y="68" width="65" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -462,6 +525,7 @@
     </scenes>
     <resources>
         <image name="GradientFill.png" width="320" height="222"/>
+        <image name="MovieTransportBackground.png" width="314" height="93"/>
         <image name="UITableSelection.png" width="320" height="43"/>
         <image name="baby-blue-solid.jpg" width="1366" height="768"/>
     </resources>
@@ -474,6 +538,11 @@
         </class>
         <class className="DetailsAnalyzeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsAnalyzeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="sparkLineViewShake" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="sparkLineViewSpeed" candidateClass="ASBSparkLineView"/>
+            </relationships>
         </class>
         <class className="DetailsMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsMapViewController.h"/>
@@ -512,6 +581,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="sparkLineViewOverview" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

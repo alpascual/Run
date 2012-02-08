@@ -12,6 +12,7 @@
 
 @synthesize tableView = _tableView;
 @synthesize menuArray = _menuArray;
+@synthesize sparkLineViewOverview = _sparkLineViewOverview;
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,6 +32,7 @@
     [self.menuArray addObject:@"Settings"];
     [self.menuArray addObject:@"About"];
     
+    //TODO call database manager and create the chart if data
 }
 
 - (void)viewDidUnload

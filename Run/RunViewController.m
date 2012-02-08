@@ -24,6 +24,7 @@
 @synthesize speedArray = _speedArray;
 @synthesize saveButton = _saveButton;
 @synthesize delegate = _delegate;
+@synthesize database = _database;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,6 +60,7 @@
     [super viewDidLoad];
     
     self.saveButton.hidden = YES;
+    self.database = [[GpsDatabaseManager alloc] init];
     
     self.trackingManager = [[TrackingManager alloc] init];
     self.trackingManager.bStarted = NO;
@@ -225,12 +227,12 @@
 
 
 - (IBAction)savePressed:(id)sender {
+    
+    self.saveButton.hidden = YES;
     [SVStatusHUD showWithoutImage:@"Saving..."];
     
     // save all to the database
-    
-    GpsDatabaseManager *database = [[GpsDatabaseManager alloc] init];
-    [database saveSession:self.trackingManager.gpsTotals];
+    [self.database saveSession:self.trackingManager.gpsTotals];
     
 }
 

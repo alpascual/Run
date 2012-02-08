@@ -18,6 +18,7 @@
 		76310BE914D7B1770084D06A /* TrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76310BE814D7B1770084D06A /* TrackingManager.m */; };
 		76310BEF14D7B2350084D06A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BEE14D7B2350084D06A /* SystemConfiguration.framework */; };
 		76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76310BF014D7B2550084D06A /* CoreLocation.framework */; };
+		7631F1A614E1FE12005CF2C2 /* SessionRunWithPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631F1A514E1FE12005CF2C2 /* SessionRunWithPoints.m */; };
 		763D849714DDDFE6008ECB99 /* MovieTransportBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */; };
 		763D849A14DDE734008ECB99 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 763D849914DDE734008ECB99 /* README */; };
 		763D84A114DDFAE4008ECB99 /* GpsDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A014DDFAE4008ECB99 /* GpsDatabaseManager.m */; };
@@ -67,6 +68,8 @@
 		76310BE814D7B1770084D06A /* TrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingManager.m; sourceTree = "<group>"; };
 		76310BEE14D7B2350084D06A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		76310BF014D7B2550084D06A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7631F1A414E1FE12005CF2C2 /* SessionRunWithPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionRunWithPoints.h; sourceTree = "<group>"; };
+		7631F1A514E1FE12005CF2C2 /* SessionRunWithPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRunWithPoints.m; sourceTree = "<group>"; };
 		763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MovieTransportBackground.png; sourceTree = "<group>"; };
 		763D849914DDE734008ECB99 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		763D849F14DDFAE4008ECB99 /* GpsDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsDatabaseManager.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				761849CA14DB808B00F84561 /* DistancePoint.m */,
 				761849CC14DB851600F84561 /* GpsTotals.h */,
 				761849CD14DB851600F84561 /* GpsTotals.m */,
+				7631F1A414E1FE12005CF2C2 /* SessionRunWithPoints.h */,
+				7631F1A514E1FE12005CF2C2 /* SessionRunWithPoints.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				8874B40B14E1BAF100ADA7C3 /* DetailsMapViewController.m in Sources */,
 				8874B40E14E1BB0900ADA7C3 /* DetailsAnalyzeViewController.m in Sources */,
 				8874B41114E1BB2500ADA7C3 /* DetailsShareViewController.m in Sources */,
+				7631F1A614E1FE12005CF2C2 /* SessionRunWithPoints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

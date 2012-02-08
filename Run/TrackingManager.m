@@ -40,7 +40,7 @@
     self.gpsTotals.altitudeMax = 0;
     self.gpsTotals.altitudeMin = 9999;
     
-    self.database = [[GpsDatabaseManager alloc] init];
+    self.database = [[GpsDatabaseManager alloc] init];    
 }
 
 - (void) stopTracking

@@ -14,6 +14,7 @@
 #import "GpsTotals.h"
 #import "Points.h"
 #import "SessionRun.h"
+#import "SessionRunWithPoints.h"
 
 @interface GpsDatabaseManager : NSObject
 

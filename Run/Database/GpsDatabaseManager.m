@@ -16,6 +16,16 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 
+- (id)init
+{
+    self = [super init];
+    if ( self != nil) {
+        NSPersistentStoreCoordinator *check = [self persistentStoreCoordinator];
+        NSLog(@"Async persistent check %@", check);
+    }
+    
+    return self;
+}
 /*- (NSManagedObjectContext *)getManagedObjectContext {
     
     if ( self.managedObjectContext == nil ) {        
@@ -67,91 +77,92 @@
 }
 
 
-/**
- Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
-//- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-//	
-//    if (_persistentStoreCoordinator != nil) {
-//        return _persistentStoreCoordinator;
-//    }
-//    
-//    // assign the PSC to our app delegate ivar before adding the persistent store in the background
-//    // this leverages a behavior in Core Data where you can create NSManagedObjectContext and fetch requests
-//    // even if the PSC has no stores.  Fetch requests return empty arrays until the persistent store is added
-//    // so it's possible to bring up the UI and then fill in the results later
-//    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-//    
-//    
-//    // prep the store path and bundle stuff here since NSBundle isn't totally thread safe
-//    NSPersistentStoreCoordinator* psc = _persistentStoreCoordinator;
-//	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"History.sqlite"];
-//    
-//    // do this asynchronously since if this is the first time this particular device is syncing with preexisting
-//    // iCloud content it may take a long long time to download
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        NSFileManager *fileManager = [NSFileManager defaultManager];
-//        
-//        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
-//        // this needs to match the entitlements and provisioning profile
-//        NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
-//        if (cloudURL) {
-//            NSLog(@"iCloud access at %@", cloudURL);
-//            // TODO: Load document...
-//            
-//            NSString* coreDataCloudContent = [[cloudURL path] stringByAppendingPathComponent:@"run_v3"];
-//            cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
-//            
-//            //  The API to turn on Core Data iCloud support here.
-//            NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:@"com.alpascualcloud.run.3", NSPersistentStoreUbiquitousContentNameKey, cloudURL, NSPersistentStoreUbiquitousContentURLKey, [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,nil];
-//            
-//            NSError *error = nil;
-//            
-//            [psc lock];
-//            if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
-//                /*
-//                 Replace this implementation with code to handle the error appropriately.
-//                 
-//                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-//                 
-//                 Typical reasons for an error here include:
-//                 * The persistent store is not accessible
-//                 * The schema for the persistent store is incompatible with current managed object model
-//                 Check the error message to determine what the actual problem was.
-//                 */
-//                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//                abort();
-//            }    
-//            [psc unlock];
-//        } 
-//        
-//        else {
-//            NSLog(@"No iCloud access");
-//            
-//            _persistentStoreCoordinator = nil;
-//            _persistentStoreCoordinator = [self persistentStoreCoordinatorNoCloud];
-//        }
-//        
-//        
-//        // tell the UI on the main thread we finally added the store and then
-//        // post a custom notification to make your views do whatever they need to such as tell their
-//        // NSFetchedResultsController to -performFetch again now there is a real store
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            NSLog(@"asynchronously added persistent store!");
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefetchAllDatabaseData" object:self userInfo:nil];
-//        });
-//    });
-//    
-//    return _persistentStoreCoordinator;
-//}
-
 
 /**
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
  */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+	
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    
+    // assign the PSC to our app delegate ivar before adding the persistent store in the background
+    // this leverages a behavior in Core Data where you can create NSManagedObjectContext and fetch requests
+    // even if the PSC has no stores.  Fetch requests return empty arrays until the persistent store is added
+    // so it's possible to bring up the UI and then fill in the results later
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    
+    
+    // prep the store path and bundle stuff here since NSBundle isn't totally thread safe
+    NSPersistentStoreCoordinator* psc = _persistentStoreCoordinator;
+	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"History.sqlite"];
+    
+    // do this asynchronously since if this is the first time this particular device is syncing with preexisting
+    // iCloud content it may take a long long time to download
+    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+        // this needs to match the entitlements and provisioning profile
+        NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
+        if (cloudURL) {
+            NSLog(@"iCloud access at %@", cloudURL);
+            // TODO: Load document...
+            
+            NSString* coreDataCloudContent = [[cloudURL path] stringByAppendingPathComponent:@"run_v3"];
+            cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
+            
+            //  The API to turn on Core Data iCloud support here.
+            NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:@"com.alpascualcloud.run.3", NSPersistentStoreUbiquitousContentNameKey, cloudURL, NSPersistentStoreUbiquitousContentURLKey, [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,nil];
+            
+            NSError *error = nil;
+            
+            //[psc lock];
+            if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+                /*
+                 Replace this implementation with code to handle the error appropriately.
+                 
+                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+                 
+                 Typical reasons for an error here include:
+                 * The persistent store is not accessible
+                 * The schema for the persistent store is incompatible with current managed object model
+                 Check the error message to determine what the actual problem was.
+                 */
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                abort();
+            }    
+            //[psc unlock];
+        } 
+        
+        else {
+            NSLog(@"No iCloud access");
+            
+            _persistentStoreCoordinator = nil;
+            _persistentStoreCoordinator = [self persistentStoreCoordinatorNoCloud];
+        }
+        
+        
+        // tell the UI on the main thread we finally added the store and then
+        // post a custom notification to make your views do whatever they need to such as tell their
+        // NSFetchedResultsController to -performFetch again now there is a real store
+        /*dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"asynchronously added persistent store!");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefetchAllDatabaseData" object:self userInfo:nil];
+        });*/
+   // });
+    
+    return _persistentStoreCoordinator;
+}
+
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinatorNoCloud {
 	
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
@@ -271,6 +282,22 @@
         NSManagedObject *details = [info valueForKey:@"details"];
         NSLog(@"Zip: %@", [details valueForKey:@"zip"]);
     }  */      
+}
+
+- (SessionRunWithPoints *) getOneSessionRun:(NSString *) uniqueId {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription 
+                                   entityForName:@"SessionRun" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:<#(NSPredicate *)#>:uniqueId];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects;
+    
+    return nil;
 }
 
 

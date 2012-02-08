@@ -9,12 +9,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Run/Database/GpsDatabaseManager.m"
-         timestampString = "350287419.0374"
+         timestampString = "350352858.25119"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
-         landmarkName = "-saveSession:"
+         startingLineNumber = "181"
+         endingLineNumber = "181"
+         landmarkName = "-persistentStoreCoordinatorNoCloud"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
