@@ -12,6 +12,9 @@
 
 @synthesize uniqueID = _uniqueID;
 @synthesize delegate = _delegate;
+@synthesize sparkLineViewAltitude = _sparkLineViewAltitude;
+@synthesize sparkLineViewShake = _sparkLineViewShake;
+@synthesize sparkLineViewSpeed = _sparkLineViewSpeed;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

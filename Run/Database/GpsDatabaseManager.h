@@ -33,4 +33,7 @@
 - (NSArray *) getAllSessions;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinatorNoCloud;
 
+- ( NSManagedObject*) getOneSessionRun:(NSString *) uniqueId;
+- (SessionRunWithPoints *) getOneSessionRunWithChildren:(NSString *) uniqueId;
+
 @end

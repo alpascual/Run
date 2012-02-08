@@ -284,20 +284,45 @@
     }  */      
 }
 
-- (SessionRunWithPoints *) getOneSessionRun:(NSString *) uniqueId {
-    
+- ( NSManagedObject*) getOneSessionRun:(NSString *) uniqueId {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription 
                                    entityForName:@"SessionRun" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:<#(NSPredicate *)#>:uniqueId];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uniqueID == %@", uniqueId]];
     
     NSError *error;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    return fetchedObjects;
+    if ( fetchedObjects.count > 0 ) {
+        NSManagedObject *sessionRun = [fetchedObjects objectAtIndex:0];
+        return sessionRun;
+    }
     
     return nil;
+}
+
+- (SessionRunWithPoints *) getOneSessionRunWithChildren:(NSString *) uniqueId {
+    
+    NSManagedObject *sessionRun = [self getOneSessionRun:uniqueId];
+    if ( sessionRun == nil )
+        return nil;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription 
+                                   entityForName:@"Points" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uniqueID == %@", uniqueId]];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    SessionRunWithPoints *points = [[SessionRunWithPoints alloc] init];
+    points.sessionRun = (SessionRun*) sessionRun;
+    points.points = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+    
+    return points;
 }
 
 

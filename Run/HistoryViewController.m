@@ -44,7 +44,18 @@
     self.database = [[GpsDatabaseManager alloc] init];
     self.historyRaw = [self.database getAllSessions];
     
+    self.historyRaw = [self reversedArray:self.historyRaw];
+    
     [self.tableView reloadData];
+}
+
+- (NSArray *)reversedArray:(NSArray*)origin {
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[origin count]];
+    NSEnumerator *enumerator = [origin reverseObjectEnumerator];
+    for (id element in enumerator) {
+        [array addObject:element];
+    }
+    return array;
 }
 
 - (void)viewDidUnload

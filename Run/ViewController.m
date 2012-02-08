@@ -13,6 +13,7 @@
 @synthesize tableView = _tableView;
 @synthesize menuArray = _menuArray;
 @synthesize sparkLineViewOverview = _sparkLineViewOverview;
+@synthesize totalTime = _totalTime;
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,6 +34,30 @@
     [self.menuArray addObject:@"About"];
     
     //TODO call database manager and create the chart if data
+    GpsDatabaseManager *database = [[GpsDatabaseManager alloc] init];
+    NSArray *allSessions = [database getAllSessions];
+    if ( allSessions.count > 0)
+    {
+        self.totalTime = [[NSMutableArray alloc] init];
+        for (NSManagedObject *info in allSessions) {
+            //TODO get each objects and added to a list?
+            NSNumber *dTotalDistance = [info valueForKey:@"totalDistance"];
+            NSLog(@"total distance: %@", dTotalDistance);
+            
+            [self.totalTime addObject:dTotalDistance];
+        }  
+        
+        self.sparkLineViewOverview.dataValues = self.totalTime;
+        self.sparkLineViewOverview.labelText = @"Progress";
+        self.sparkLineViewOverview.currentValueColor = [UIColor redColor];
+        self.sparkLineViewOverview.penColor = [UIColor whiteColor];
+        self.sparkLineViewOverview.penWidth = 3.0f;
+        self.sparkLineViewOverview.rangeOverlayLowerLimit = nil;
+        self.sparkLineViewOverview.rangeOverlayUpperLimit = nil;
+    }
+    else
+        self.sparkLineViewOverview.hidden = YES;
+
 }
 
 - (void)viewDidUnload

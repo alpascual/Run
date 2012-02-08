@@ -21,5 +21,6 @@
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *menuArray;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewOverview;
+@property (nonatomic, strong) NSMutableArray *totalTime;
 
 @end

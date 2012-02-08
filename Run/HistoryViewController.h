@@ -19,4 +19,6 @@
 @property (nonatomic, strong) NSArray *historyRaw;
 @property (nonatomic, strong) NSString *uniqueIDForSegue;
 
+- (NSArray *)reversedArray:(NSArray*)origin;
+
 @end
