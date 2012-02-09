@@ -27,6 +27,7 @@
 @synthesize database = _database;
 @synthesize acceleration = _acceleration;
 @synthesize accelerationArray = _accelerationArray;
+@synthesize sparkLineViewAcceleration = _sparkLineViewAcceleration;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -163,7 +164,7 @@
     else {
         dSpeed = -dSpeed;
         NSNumber * iSpeed = [[NSNumber alloc] initWithDouble:dSpeed];
-        self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", iSpeed];
+        self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", dSpeed];
         [self.speedArray addObject:iSpeed];
         NSLog(@"Speed values is %@", iSpeed);
     }
@@ -204,6 +205,7 @@
     
     
     //For line chart add accelerometer and acceleration TODO
+    [self.accelerationArray addObject:[[NSNumber alloc] initWithDouble: self.acceleration.X + self.acceleration.Y + self.acceleration.Z]];
     
     [self setupLineGraphics];
 }
@@ -213,7 +215,7 @@
     self.sparkLineViewAltitude.labelText = @"Altitude";
     self.sparkLineViewAltitude.currentValueColor = [UIColor redColor];
     self.sparkLineViewAltitude.penColor = [UIColor whiteColor];
-    self.sparkLineViewAltitude.penWidth = 3.0f;
+    self.sparkLineViewAltitude.penWidth = 4.0f;
     self.sparkLineViewAltitude.rangeOverlayLowerLimit = nil;
     self.sparkLineViewAltitude.rangeOverlayUpperLimit = nil;
     
@@ -222,9 +224,17 @@
     self.sparkLineViewSpeed.currentValueColor = [UIColor greenColor];
     self.sparkLineViewSpeed.currentValueFormat = @"%.0f";
     self.sparkLineViewSpeed.penColor = [UIColor redColor];
-    self.sparkLineViewSpeed.penWidth = 3.0f;
+    self.sparkLineViewSpeed.penWidth = 4.0f;
     self.sparkLineViewSpeed.rangeOverlayLowerLimit = [[NSNumber alloc] initWithInt:0];
-    self.sparkLineViewSpeed.rangeOverlayUpperLimit = [[NSNumber alloc] initWithInt:10];;
+    self.sparkLineViewSpeed.rangeOverlayUpperLimit = [[NSNumber alloc] initWithInt:10];
+    
+    self.sparkLineViewAcceleration.dataValues = self.altitudeArray;
+    self.sparkLineViewAcceleration.labelText = @"Movement";
+    self.sparkLineViewAcceleration.currentValueColor = [UIColor grayColor];
+    self.sparkLineViewAcceleration.penColor = [UIColor whiteColor];
+    self.sparkLineViewAcceleration.penWidth = 4.0f;
+    self.sparkLineViewAcceleration.rangeOverlayLowerLimit = nil;
+    self.sparkLineViewAcceleration.rangeOverlayUpperLimit = nil;
     
     [self.sparkLineViewAltitude reloadInputViews];
     [self.sparkLineViewSpeed reloadInputViews];

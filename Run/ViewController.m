@@ -14,6 +14,7 @@
 @synthesize menuArray = _menuArray;
 @synthesize sparkLineViewOverview = _sparkLineViewOverview;
 @synthesize totalTime = _totalTime;
+@synthesize backGroundImageChart = _backGroundImageChart;
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,8 +56,10 @@
         self.sparkLineViewOverview.rangeOverlayLowerLimit = nil;
         self.sparkLineViewOverview.rangeOverlayUpperLimit = nil;
     }
-    else
+    else {
         self.sparkLineViewOverview.hidden = YES;
+        self.backGroundImageChart.hidden = YES;
+    }
 
 }
 

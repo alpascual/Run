@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;
+@property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAcceleration;
 @property (nonatomic, strong) NSMutableArray *altitudeArray;
 @property (nonatomic, strong) NSMutableArray *speedArray;
 @property (nonatomic, strong) NSMutableArray *accelerationArray;

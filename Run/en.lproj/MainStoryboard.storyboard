@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -61,6 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZzT-wb-Hxd"/>
                     <connections>
+                        <outlet property="backGroundImageChart" destination="Vft-cm-YiP" id="jyR-td-JBX"/>
                         <outlet property="sparkLineViewOverview" destination="Tpc-Pm-wIq" id="jxg-Br-9jl"/>
                         <outlet property="tableView" destination="MvH-eA-24g" id="isv-86-dOb"/>
                         <segue destination="CK7-2j-Ocb" kind="modal" identifier="selectedMenu" modalTransitionStyle="flipHorizontal" id="38e-Bm-P1A"/>
@@ -143,7 +144,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="qUQ-Zv-ZCr" customClass="ASBSparkLineView">
-                                <rect key="frame" x="33" y="278" width="266" height="59"/>
+                                <rect key="frame" x="33" y="272" width="266" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="V1a-Nl-TfI" customClass="ASBSparkLineView">
+                                <rect key="frame" x="34" y="287" width="266" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -182,6 +188,7 @@
                         <outlet property="gpsAccuracy" destination="wBw-eO-4ui" id="tOf-7T-hZZ"/>
                         <outlet property="miles" destination="06E-Sm-nqd" id="Z9i-Qt-RxE"/>
                         <outlet property="saveButton" destination="Ec3-vW-4mk" id="GCa-QU-sYJ"/>
+                        <outlet property="sparkLineViewAcceleration" destination="V1a-Nl-TfI" id="hbN-al-kQy"/>
                         <outlet property="sparkLineViewAltitude" destination="sUy-um-Rn4" id="fhS-5y-iFr"/>
                         <outlet property="sparkLineViewSpeed" destination="qUQ-Zv-ZCr" id="nu2-UM-lhc"/>
                         <outlet property="speed" destination="gLn-U0-qr9" id="OX8-DL-M1g"/>
@@ -569,6 +576,7 @@
                 <relationship kind="outlet" name="gpsAccuracy" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="miles" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sparkLineViewAcceleration" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewSpeed" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="speed" candidateClass="UILabel"/>
@@ -581,6 +589,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="backGroundImageChart" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="sparkLineViewOverview" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
