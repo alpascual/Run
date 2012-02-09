@@ -230,7 +230,7 @@
     
     self.sparkLineViewAcceleration.dataValues = self.altitudeArray;
     self.sparkLineViewAcceleration.labelText = @"Movement";
-    self.sparkLineViewAcceleration.currentValueColor = [UIColor grayColor];
+    self.sparkLineViewAcceleration.currentValueColor = [UIColor yellowColor];
     self.sparkLineViewAcceleration.penColor = [UIColor whiteColor];
     self.sparkLineViewAcceleration.penWidth = 4.0f;
     self.sparkLineViewAcceleration.rangeOverlayLowerLimit = nil;
