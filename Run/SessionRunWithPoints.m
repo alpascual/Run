@@ -12,5 +12,6 @@
 
 @synthesize sessionRun = _sessionRun;
 @synthesize points = _points;
+@synthesize acceleration = _acceleration;
 
 @end

@@ -10,6 +10,9 @@
 
 #import "DetailsProtocol.h"
 #import "ASBSparkLineView.h"
+#import "GpsDatabaseManager.h"
+#import "Acceleration.h"
+#import "Points.h"
 
 @interface DetailsAnalyzeViewController : UIViewController
 
@@ -19,5 +22,7 @@
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewShake;
+
+@property (nonatomic, strong) GpsDatabaseManager *database;
 
 @end

@@ -123,6 +123,7 @@
     // that you own
     NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
     self.trackingManager.uniqueID = uuidString;
+    self.trackingManager.gpsTotals.uniqueID = uuidString;
     
     self.acceleration = [[MyAccelerometer alloc] init];
     self.acceleration.uniqueId = uuidString;
@@ -145,6 +146,7 @@
     
     self.saveButton.hidden = NO;
     
+    [self.acceleration stop];
     self.acceleration.uniqueId = nil;
     self.acceleration = nil;
 }

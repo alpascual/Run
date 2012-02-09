@@ -251,7 +251,7 @@
     [mySession setTotalDistance:[[NSNumber alloc] initWithDouble:totals.distanceTotal ]];
     [mySession setAltitudeMax:[[NSNumber alloc] initWithDouble:totals.altitudeMax ]];
     [mySession setAltitudeMin:[[NSNumber alloc] initWithDouble:totals.altitudeMin ]];
-    [mySession setUniqueID:totals.uniqueID];
+    [mySession setUniqueID:totals.uniqueID];    
     [mySession setCalories:[[NSNumber alloc] initWithDouble:totals.calories ]];
     [mySession setWhen:[NSDate date]];    
     [mySession setTotalTimeHours:[[NSNumber alloc] initWithDouble:totals.totalTimeHours]];
@@ -265,7 +265,7 @@
 }
 
 -(void) addMovement:(UIAcceleration *)acceleration : (NSString *) uniqueId {
-    NSLog(@"move x %.2f y %.2f z %.2f", acceleration.x , acceleration.y, acceleration.z );
+    //NSLog(@"move x %.2f y %.2f z %.2f", acceleration.x , acceleration.y, acceleration.z );
     
     Acceleration *accel = [NSEntityDescription
                              insertNewObjectForEntityForName:@"Acceleration" 
@@ -321,25 +321,45 @@
     return nil;
 }
 
-- (SessionRunWithPoints *) getOneSessionRunWithChildren:(NSString *) uniqueId {
-    
-    NSManagedObject *sessionRun = [self getOneSessionRun:uniqueId];
-    if ( sessionRun == nil )
-        return nil;
+- (NSMutableArray *) getArrayOfPoints:(NSString *) uniqueId {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription 
                                    entityForName:@"Points" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uniqueID == %@", uniqueId]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uniqueId == %@", uniqueId]];
     
     NSError *error;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    return [[NSMutableArray alloc] initWithArray:fetchedObjects];
+}
+
+- (NSMutableArray *) getArrayOfAcceleration:(NSString *)uniqueId {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription 
+                                   entityForName:@"Acceleration" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uniqueId == %@", uniqueId]];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    return [[NSMutableArray alloc] initWithArray:fetchedObjects];
+}
+
+- (SessionRunWithPoints *) getOneSessionRunWithChildren:(NSString *) uniqueId {
+    
+    NSManagedObject *sessionRun = [self getOneSessionRun:uniqueId];
+    if ( sessionRun == nil )
+        return nil;
+    
     SessionRunWithPoints *points = [[SessionRunWithPoints alloc] init];
     points.sessionRun = (SessionRun*) sessionRun;
-    points.points = [[NSMutableArray alloc] initWithArray:fetchedObjects];
+    points.points = [self getArrayOfPoints:uniqueId];
+    points.acceleration = [self getArrayOfAcceleration:uniqueId];
     
     return points;
 }

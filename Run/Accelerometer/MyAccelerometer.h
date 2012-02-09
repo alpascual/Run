@@ -26,4 +26,6 @@
 @property (nonatomic) double Y;
 @property (nonatomic) double Z;
 
+- (void) stop;
+
 @end

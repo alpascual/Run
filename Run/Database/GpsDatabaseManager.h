@@ -37,5 +37,7 @@
 
 - ( NSManagedObject*) getOneSessionRun:(NSString *) uniqueId;
 - (SessionRunWithPoints *) getOneSessionRunWithChildren:(NSString *) uniqueId;
+- (NSMutableArray *) getArrayOfPoints:(NSString *) uniqueId;
+- (NSMutableArray *) getArrayOfAcceleration:(NSString *)uniqueId;
 
 @end

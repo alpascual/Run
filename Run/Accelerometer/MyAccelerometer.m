@@ -25,13 +25,15 @@
         self.database = [[GpsDatabaseManager alloc] init];
         
         self.accelerometerManager = [UIAccelerometer sharedAccelerometer];
-        self.accelerometerManager.delegate = self; 
-        
+        self.accelerometerManager.delegate = self;
         
     }
     return self;
 }
 
+- (void) stop {
+    self.accelerometerManager.delegate = nil;
+}
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
 	

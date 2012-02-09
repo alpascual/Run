@@ -100,7 +100,7 @@
     NSUInteger row = [indexPath row]; 
     
     NSManagedObject *info = [self.historyRaw objectAtIndex:row];
-    
+    NSLog(@"ID %@", [info valueForKey:@"uniqueID"]);
     
     NSDateFormatter* theDateFormatter = [[NSDateFormatter alloc] init];
     [theDateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
@@ -116,11 +116,13 @@
     cell.textLabel.text = [[NSString alloc] initWithFormat:@"%@ %@", weekDay, theTime];
     cell.detailTextLabel.numberOfLines = 5;     
     
-    cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"Distance: %@\nTime: %@:%@:%@\nMax. Speed %@", [info valueForKey:@"totalDistance"], 
+    double dDistance = [[info valueForKey:@"totalDistance"] doubleValue];
+    double dMaxSpeed = [[info valueForKey:@"speedMax"] doubleValue];
+    cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"Distance: %.2f\nTime: %@:%@:%@\nMax. Speed %.2f", dDistance, 
                                  [info valueForKey:@"totalTimeHours"],
                                  [info valueForKey:@"totalTimeMinutes"],
                                  [info valueForKey:@"totalTimeSeconds"],
-                                 [info valueForKey:@"speedMax"]];
+                                 dMaxSpeed];
     
     
     cell.textLabel.textColor = [UIColor blackColor];

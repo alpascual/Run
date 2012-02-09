@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) SessionRun *sessionRun;
 @property (nonatomic, strong) NSMutableArray *points;
+@property (nonatomic, strong) NSMutableArray *acceleration;
 
 @end
