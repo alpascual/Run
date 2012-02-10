@@ -106,6 +106,7 @@
         
         NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
         // this needs to match the entitlements and provisioning profile
+        //@"PW6XKXEGA2.com.alpascualCloudPro.Run"
         NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
         if (cloudURL) {
             NSLog(@"iCloud access at %@", cloudURL);
@@ -257,6 +258,7 @@
     [mySession setTotalTimeHours:[[NSNumber alloc] initWithDouble:totals.totalTimeHours]];
     [mySession setTotalTimeMinutes:[[NSNumber alloc] initWithDouble:totals.totalTimeMinutes]];
     [mySession setTotalTimeSeconds:[[NSNumber alloc] initWithDouble:totals.totalTimeSeconds]];
+    [mySession setAvgSpeed:[[NSNumber alloc] initWithDouble:totals.avgSpeed]];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

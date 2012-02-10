@@ -16,6 +16,7 @@
 @synthesize sparkLineViewShake = _sparkLineViewShake;
 @synthesize sparkLineViewSpeed = _sparkLineViewSpeed;
 @synthesize database = _database;
+@synthesize summaryLabel = _summaryLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -93,6 +94,11 @@
     self.sparkLineViewShake.penWidth = 4.0f;
     self.sparkLineViewShake.rangeOverlayLowerLimit = nil;
     self.sparkLineViewShake.rangeOverlayUpperLimit = nil;
+    
+    self.summaryLabel.text = [[NSString alloc] initWithFormat:@"Distance: %@ Time %@:%@:%@", sessionWithChildren.sessionRun.totalDistance, 
+                              sessionWithChildren.sessionRun.totalTimeHours,
+                              sessionWithChildren.sessionRun.totalTimeMinutes,
+                              sessionWithChildren.sessionRun.totalTimeSeconds];
 }
 
 

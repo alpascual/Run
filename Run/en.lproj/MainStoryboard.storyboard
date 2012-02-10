@@ -110,14 +110,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="time: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="5AP-Ab-8bB">
-                                <rect key="frame" x="194" y="139" width="116" height="40"/>
+                                <rect key="frame" x="194" y="136" width="116" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="speed: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="gLn-U0-qr9">
-                                <rect key="frame" x="25" y="139" width="121" height="40"/>
+                                <rect key="frame" x="25" y="138" width="121" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,6 +179,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stopped" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ce6-8n-waK">
+                                <rect key="frame" x="57" y="162" width="55" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -193,6 +200,7 @@
                         <outlet property="sparkLineViewSpeed" destination="qUQ-Zv-ZCr" id="nu2-UM-lhc"/>
                         <outlet property="speed" destination="gLn-U0-qr9" id="OX8-DL-M1g"/>
                         <outlet property="time" destination="5AP-Ab-8bB" id="e3x-Xy-gv1"/>
+                        <outlet property="walkLabel" destination="ce6-8n-waK" id="FrR-dg-YhT"/>
                     </connections>
                 </viewController>
             </objects>
@@ -446,6 +454,7 @@
                         <outlet property="sparkLineViewAltitude" destination="Zxp-ot-hlK" id="IYH-ts-s5V"/>
                         <outlet property="sparkLineViewShake" destination="Uvw-MI-W9f" id="OWP-71-x1N"/>
                         <outlet property="sparkLineViewSpeed" destination="5Ky-wf-upl" id="jol-Gh-PTS"/>
+                        <outlet property="summaryLabel" destination="6Iy-m4-mY9" id="4tH-b5-2NB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -549,6 +558,7 @@
                 <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewShake" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewSpeed" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="summaryLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="DetailsMapViewController" superclassName="UIViewController">
@@ -581,6 +591,7 @@
                 <relationship kind="outlet" name="sparkLineViewSpeed" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="speed" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="time" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="walkLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">

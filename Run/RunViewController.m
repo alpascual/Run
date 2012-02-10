@@ -28,6 +28,8 @@
 @synthesize acceleration = _acceleration;
 @synthesize accelerationArray = _accelerationArray;
 @synthesize sparkLineViewAcceleration = _sparkLineViewAcceleration;
+@synthesize walkLabel = _walkLabel;
+@synthesize avgSpeed = _avgSpeed;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -158,6 +160,7 @@
     double dSpeed = self.trackingManager.gpsTotals.speed * 2.2369;
     
     if ( dSpeed >= 0 ) {
+        self.avgSpeed += dSpeed;
         self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", dSpeed];
         NSNumber *tempSpeed = [[NSNumber alloc] initWithDouble:dSpeed];
         [self.speedArray addObject:tempSpeed];
@@ -165,11 +168,23 @@
     }
     else {
         dSpeed = -dSpeed;
+        self.avgSpeed += dSpeed;
         NSNumber * iSpeed = [[NSNumber alloc] initWithDouble:dSpeed];
         self.speed.text = [[NSString alloc] initWithFormat:@"%.2f mph", dSpeed];
         [self.speedArray addObject:iSpeed];
         NSLog(@"Speed values is %@", iSpeed);
     }
+    
+    // calculate the avg speed
+    self.trackingManager.gpsTotals.avgSpeed = dSpeed / self.speedArray.count;
+    if ( dSpeed == 0 )
+        self.walkLabel.text = @"Stopped";
+    else if ( dSpeed > 0 && dSpeed <= 2.0)
+        self.walkLabel.text = @"Walking";
+    else if ( dSpeed > 2.0 && dSpeed <= 3.0)
+        self.walkLabel.text = @"Jogging";
+    else
+        self.walkLabel.text = @"Running";
     
     self.altitude.text = [[NSString alloc] initWithFormat:@"%.2f alt.", self.trackingManager.gpsTotals.altitude];
     

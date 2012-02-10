@@ -22,6 +22,7 @@
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewShake;
+@property (nonatomic, strong) IBOutlet UILabel *summaryLabel;
 
 @property (nonatomic, strong) GpsDatabaseManager *database;
 

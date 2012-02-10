@@ -129,7 +129,11 @@
     cell.detailTextLabel.textColor = [UIColor blackColor];
         
     // add a picture or route
-    cell.imageView.image = [UIImage imageNamed:@"route61logo1.jpg"];
+    cell.imageView.image = [UIImage imageNamed:@"102-walk.png"];
+    NSNumber *avgSpeed = [info valueForKey:@"avgSpeed"];
+    double dAvgSpeed = [avgSpeed doubleValue];
+    if ( dAvgSpeed > 3 )
+        cell.imageView.image = [UIImage imageNamed:@"63-runner.png"];
     
     /*UIImage *backImage = [UIImage imageNamed:@"UITableSelection.png"];
      UIImageView *imageView = [[UIImageView alloc] initWithImage:backImage];    

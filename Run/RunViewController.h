@@ -27,6 +27,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *altitude;
 @property (nonatomic, strong) IBOutlet UILabel *miles;
 @property (nonatomic, strong) IBOutlet UIButton *saveButton;
+@property (nonatomic, strong) IBOutlet UILabel *walkLabel;
 
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;
@@ -38,6 +39,7 @@
 @property (nonatomic, strong) id <RunProtocol> delegate;
 @property (nonatomic, strong) GpsDatabaseManager *database;
 @property (nonatomic, strong) MyAccelerometer *acceleration;
+@property (nonatomic) double avgSpeed;
 
 
 - (void) startRun;

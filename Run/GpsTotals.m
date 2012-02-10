@@ -22,5 +22,6 @@
 @synthesize totalTimeHours = _totalTimeHours;
 @synthesize totalTimeMinutes = _totalTimeMinutes;
 @synthesize totalTimeSeconds = _totalTimeSeconds;
+@synthesize avgSpeed = _avgSpeed;
 
 @end
