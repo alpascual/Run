@@ -1,19 +1,21 @@
 //
-//  SettingsViewController.m
+//  SettingsItemViewController.m
 //  Run
 //
-//  Created by Albert Pascual on 2/5/12.
+//  Created by Albert Pascual on 2/10/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "SettingsItemViewController.h"
 
-@implementation SettingsViewController
+@implementation SettingsItemViewController
 
+@synthesize list = _list;
+@synthesize showLabel = _showLabel;
 @synthesize delegate = _delegate;
+@synthesize menuNumber = _menuNumber;
 @synthesize tableView = _tableView;
-@synthesize settingList = _settingList;
-@synthesize lastMenuSelected = _lastMenuSelected;
+@synthesize selectedString = _selectedString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,15 +49,13 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Settings";
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    if ( [userDefaults objectForKey:[[NSString alloc] initWithFormat:@"setting%d", self.menuNumber]] != nil) {
+        self.selectedString = [userDefaults objectForKey:[[NSString alloc] initWithFormat:@"setting%d", self.menuNumber]];
     
-    self.settingList = [[NSMutableArray alloc] init];
-    [self.settingList addObject:@"Music Playlist"];
-    [self.settingList addObject:@"Voice Feedback by Distance"];
-    [self.settingList addObject:@"Voice Feedback by Time"];
-    [self.settingList addObject:@"Distance Units"];
-    [self.settingList addObject:@"Alert if I am too slow"];
-    [self.settingList addObject:@"Stop music if I stop"];
+    }
+    else
+        self.selectedString = nil;
     
     [self.tableView reloadData];
 }
@@ -74,12 +74,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)backPressed:(id)sender {
-    [self.delegate FinishSettings];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.settingList.count;
+    return self.list.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -93,61 +89,36 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
     
     // Configure the cell.
-    cell.textLabel.text = [self.settingList objectAtIndex:indexPath.row];
-    cell.textLabel.numberOfLines = 2;
-    cell.textLabel.font = [UIFont fontWithName: @"Arial" size: 14.0 ];
+    cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
+    
+    if ( self.selectedString != nil ) {
+        if ( [self.selectedString isEqualToString:cell.textLabel.text] ) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }            
+    }
     
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{   
-    NSMutableArray *subMenu = [[NSMutableArray alloc] init];
-    
-    SettingsItemViewController  *item = [segue destinationViewController];
-    item.delegate = self;
-    if ( self.lastMenuSelected == 0 ) {
-        [subMenu addObject:@"none"];
-        item.list = subMenu;
-        item.showLabel.text = @"Select the playlist of music you want to play while running";
-        item.menuNumber = self.lastMenuSelected;
-    }
-    else if (self.lastMenuSelected == 1 ) {
-        [subMenu addObject:@"none"];
-        [subMenu addObject:@"every 1 mile"];
-        [subMenu addObject:@"every 5K"];
-        [subMenu addObject:@"every 5 miles"];
-        item.list = subMenu;
-        item.showLabel.text = @"Select when you want an status of your run";
-        item.menuNumber = self.lastMenuSelected;
-    }
-
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
-    self.lastMenuSelected = selectedPath.row;
+    NSString *selectedItem = [self.list objectAtIndex:selectedPath.row];
+    NSLog(@"Item Selected %@", selectedItem);
     
-    [self performSegueWithIdentifier:@"segueSettingsItems" sender:self];
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    [userDefaults setObject:selectedItem forKey:[[NSString alloc] initWithFormat:@"setting%d", self.menuNumber]];
+    [userDefaults synchronize];
+    
+    [self.delegate SelectedDone];
     
 }
 
-/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-{   
-    return 100;
-}*/
-
-
--(void)SelectedDone {
-    [self dismissModalViewControllerAnimated:YES];
-    
-    [self.tableView reloadData];
-}
 
 @end

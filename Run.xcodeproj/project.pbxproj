@@ -30,6 +30,7 @@
 		76AA03D914E4ECE100700B8C /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA03D814E4ECE100700B8C /* SessionRun.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
+		76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFC714E63987001EED6E /* SettingsItemViewController.m */; };
 		76CA2A0C14DF7AF9000C6B4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */; };
 		76CA2A1014DF7DD0000C6B4F /* GradientFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */; };
 		76CA2A1114DF7DD0000C6B4F /* UITableSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */; };
@@ -93,8 +94,10 @@
 		76C4E34814DEF363009AF75F /* RunProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
 		76C7EFB914E5FE17001EED6E /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
-		76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		76C7EFC614E63987001EED6E /* SettingsItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsItemViewController.h; sourceTree = "<group>"; };
+		76C7EFC714E63987001EED6E /* SettingsItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsItemViewController.m; sourceTree = "<group>"; };
+		76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Run/SettingsViewController.h; sourceTree = SOURCE_ROOT; };
+		76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Run/SettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientFill.png; sourceTree = "<group>"; };
 		76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableSelection.png; sourceTree = "<group>"; };
 		76CA2A1214DF7F78000C6B4F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -198,6 +201,17 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		76C7EFC514E632C1001EED6E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */,
+				76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */,
+				76C7EFC614E63987001EED6E /* SettingsItemViewController.h */,
+				76C7EFC714E63987001EED6E /* SettingsItemViewController.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		8874B40814E1B9F700ADA7C3 /* History Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,8 +293,7 @@
 				76C4E34214DEECA1009AF75F /* HistoryViewController.h */,
 				76C4E34314DEECA1009AF75F /* HistoryViewController.m */,
 				76C4E34814DEF363009AF75F /* RunProtocol.h */,
-				76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */,
-				76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */,
+				76C7EFC514E632C1001EED6E /* Settings */,
 				76CA2A1214DF7F78000C6B4F /* AboutViewController.h */,
 				76CA2A1314DF7F78000C6B4F /* AboutViewController.m */,
 				8874B40814E1B9F700ADA7C3 /* History Details */,
@@ -417,6 +430,7 @@
 				7631F1B214E24B87005CF2C2 /* Acceleration.m in Sources */,
 				76AA03D914E4ECE100700B8C /* SessionRun.m in Sources */,
 				76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */,
+				76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

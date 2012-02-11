@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "RunProtocol.h"
+#import "SettingsItemViewController.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <ItemProtocol>
 
 @property (nonatomic, strong) id <RunProtocol> delegate;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *settingList;
+@property (nonatomic) NSInteger lastMenuSelected;
 
 @end

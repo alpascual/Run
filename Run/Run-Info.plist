@@ -15,7 +15,7 @@
 		<string>Icon@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.alpascualCloudPro.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>PW6XKXEGA2.com.alpascualCloudPro.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
