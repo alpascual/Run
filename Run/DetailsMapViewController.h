@@ -13,7 +13,7 @@
 #import "GpsDatabaseManager.h"
 #import "SessionRunWithPoints.h"
 
-@interface DetailsMapViewController : UIViewController
+@interface DetailsMapViewController : UIViewController <MKMapViewDelegate, MKOverlay>
 
 @property (nonatomic, strong) NSString *uniqueID;
 @property (nonatomic, strong) id <DetailsProtocol> delegate;
@@ -22,5 +22,7 @@
 
 @property (nonatomic, strong) NSTimer *uiTimer;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activity;
+@property (nonatomic, strong) MKPolyline *line;
+@property (nonatomic, strong) MKPolylineView *routeLineView;
 
 @end

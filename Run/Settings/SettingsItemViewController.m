@@ -16,6 +16,7 @@
 @synthesize menuNumber = _menuNumber;
 @synthesize tableView = _tableView;
 @synthesize selectedString = _selectedString;
+@synthesize mydescription = _mydescription;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,10 +50,13 @@
 {
     [super viewDidLoad];
     
+    self.showLabel.text = self.mydescription;
+    
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
     if ( [userDefaults objectForKey:[[NSString alloc] initWithFormat:@"setting%d", self.menuNumber]] != nil) {
         self.selectedString = [userDefaults objectForKey:[[NSString alloc] initWithFormat:@"setting%d", self.menuNumber]];
     
+        NSLog(@"Selected String %@", self.selectedString);
     }
     else
         self.selectedString = nil;
@@ -97,9 +101,14 @@
     cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
     
     if ( self.selectedString != nil ) {
+         NSLog(@"Selected String %@ and cell %@", self.selectedString, cell.textLabel.text);
+        
         if ( [self.selectedString isEqualToString:cell.textLabel.text] ) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        }            
+        }  
+        
+        if ( [self.selectedString isEqualToString:@"0"] && indexPath.row == 0 )
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
     return cell;

@@ -14,6 +14,10 @@
 @synthesize delegate = _delegate;
 @synthesize mapView = _mapView;
 @synthesize database = _database;
+@synthesize activity = _activity;
+@synthesize uiTimer = _uiTimer;
+@synthesize line = _line;
+@synthesize routeLineView = _routeLineView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,6 +62,7 @@
 - (void)refreshTimer:(NSTimer *)timer { 
     // Add the points to the map
     self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.delegate = self;
     
 	MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
     
@@ -65,26 +70,27 @@
     self.database = [[GpsDatabaseManager alloc] init];
     SessionRunWithPoints *sessionWithChildren = [self.database getOneSessionRunWithChildren:self.uniqueID];
     
-    //NSMutableArray *pointArr = [[NSMutableArray alloc] init];
     MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * sessionWithChildren.points.count);
     NSLog(@"How many points %d", sessionWithChildren.points.count);
     int i=0;
     for ( Points *point in sessionWithChildren.points)
     { 
-        CLLocationCoordinate2D location;
-        location.latitude = [point.y doubleValue];
-        location.longitude = [point.x doubleValue];
-        NSLog(@"Coordinates %f %f at %d", location.latitude, location.longitude, i);
+
         
-        MKMapPoint pointSimple = MKMapPointForCoordinate(location);
+        // create our coordinate and add it to the correct spot in the array 
+		CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([point.y doubleValue], [point.x doubleValue]);
+        
+		MKMapPoint pointSimple = MKMapPointForCoordinate(coordinate);
+        
         pointArr[i] = pointSimple;
         
         if ( i == 0 )
         {
-            region.center.latitude = location.latitude;
-            region.center.longitude = location.longitude;
-            region.span.latitudeDelta = 0;
-            region.span.longitudeDelta = 0;	
+            region.center.latitude = coordinate.latitude;
+            region.center.longitude = coordinate.longitude;
+            region.span.latitudeDelta = 0.01;
+            region.span.longitudeDelta = 0.01;	
+            
             
             [self.mapView setRegion:region];
             //self.mapView.showsUserLocation = YES;   
@@ -102,8 +108,35 @@
         
     }
     
-    MKPolyline *line = [MKPolyline polylineWithPoints:pointArr count:sessionWithChildren.points.count];
-	[self.mapView addOverlay:line];
+    self.line = [MKPolyline polylineWithPoints:pointArr count:sessionWithChildren.points.count];
+	[self.mapView addOverlay:self.line];
+    free(pointArr);
+    
+    [self.activity stopAnimating];
+    self.activity.hidden = YES;
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id )overlay
+{
+    MKOverlayView* overlayView = nil;
+    
+    if(overlay == self.line)
+    {
+        //if we have not yet created an overlay view for this overlay, create it now.
+        if(nil == self.line)
+        {
+            self.routeLineView = [[MKPolylineView alloc] initWithPolyline:self.line];
+            self.routeLineView.fillColor = [UIColor redColor];
+            self.routeLineView.strokeColor = [UIColor redColor];
+            self.routeLineView.lineWidth = 3;
+        }
+        
+        overlayView = self.routeLineView;
+        
+    }
+    
+    return overlayView;
+    
 }
 
 

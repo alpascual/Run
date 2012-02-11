@@ -106,7 +106,7 @@
     self.sparkLineViewShake.rangeOverlayLowerLimit = nil;
     self.sparkLineViewShake.rangeOverlayUpperLimit = nil;
     
-    self.summaryLabel.text = [[NSString alloc] initWithFormat:@"Distance: %@ Time %@:%@:%@", sessionWithChildren.sessionRun.totalDistance, 
+    self.summaryLabel.text = [[NSString alloc] initWithFormat:@"Distance: %l.2f Time %@:%@:%@", [sessionWithChildren.sessionRun.totalDistance doubleValue] , 
                               sessionWithChildren.sessionRun.totalTimeHours,
                               sessionWithChildren.sessionRun.totalTimeMinutes,
                               sessionWithChildren.sessionRun.totalTimeSeconds];

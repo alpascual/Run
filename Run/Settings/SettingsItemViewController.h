@@ -22,5 +22,6 @@
 @property (nonatomic,strong) id <ItemProtocol> delegate;
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSString *selectedString;
+@property (nonatomic, strong) NSString *mydescription;
 
 @end

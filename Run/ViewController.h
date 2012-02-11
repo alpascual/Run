@@ -15,6 +15,7 @@
 #import "AboutViewController.h"
 #import "ASBSparkLineView.h"
 #import "GpsDatabaseManager.h"
+#import "ProgressViewController.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RunProtocol>
 

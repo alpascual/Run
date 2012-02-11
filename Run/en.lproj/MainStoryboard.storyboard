@@ -18,16 +18,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.30000000000000016" contentMode="scaleToFill" image="MovieTransportBackground.png" id="Vft-cm-YiP">
-                                <rect key="frame" x="20" y="132" width="280" height="81"/>
+                                <rect key="frame" x="20" y="97" width="280" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="Tpc-Pm-wIq" customClass="ASBSparkLineView">
-                                <rect key="frame" x="27" y="144" width="266" height="59"/>
+                                <rect key="frame" x="27" y="109" width="266" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MvH-eA-24g">
-                                <rect key="frame" x="38" y="223" width="245" height="195"/>
+                                <rect key="frame" x="38" y="186" width="245" height="232"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -50,7 +50,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Run Analyzer" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="I7g-zM-iqg">
-                                <rect key="frame" x="29" y="48" width="262" height="41"/>
+                                <rect key="frame" x="29" y="42" width="262" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,10 +67,41 @@
                         <segue destination="CK7-2j-Ocb" kind="modal" identifier="selectedMenu" modalTransitionStyle="flipHorizontal" id="38e-Bm-P1A"/>
                         <segue destination="kTN-S4-1ZR" kind="modal" identifier="segueSettings" id="A3c-c4-OYz"/>
                         <segue destination="aEj-gL-yVi" kind="modal" identifier="segueAbout" modalTransitionStyle="crossDissolve" id="56v-ko-fek"/>
+                        <segue destination="Zad-Wj-Yhe" kind="modal" identifier="segueProgress" modalTransitionStyle="coverVertical" id="umR-0F-n9c"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="88" y="156"/>
+        </scene>
+        <scene sceneID="Jhd-k5-cf2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJK-P2-JQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Zad-Wj-Yhe" customClass="ProgressViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BUP-1E-tCe">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" image="baby-blue-solid.jpg" id="LQJ-mT-oRj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" barStyle="blackTranslucent" id="ysu-OF-Pkn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" id="rGz-3K-iLg">
+                                        <connections>
+                                            <action selector="backPressed:" destination="Zad-Wj-Yhe" id="7qa-du-whK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-269" y="581"/>
         </scene>
         <scene sceneID="KtQ-hI-dnS">
             <objects>
@@ -104,13 +135,6 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="alt: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="OnS-Fq-bia">
                                 <rect key="frame" x="184" y="38" width="116" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="time: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="5AP-Ab-8bB">
-                                <rect key="frame" x="194" y="136" width="116" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,6 +203,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="time: 0.00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="5AP-Ab-8bB">
+                                <rect key="frame" x="109" y="7" width="116" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stopped" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ce6-8n-waK">
                                 <rect key="frame" x="57" y="162" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -186,10 +217,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance per Time" lineBreakMode="tailTruncation" minimumFontSize="10" id="RKp-5x-9SL">
-                                <rect key="frame" x="98" y="10" width="129" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Minutes per Mile" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="RKp-5x-9SL">
+                                <rect key="frame" x="176" y="143" width="129" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -699,6 +730,9 @@
             <relationships>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="ProgressViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgressViewController.h"/>
         </class>
         <class className="RunViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RunViewController.h"/>

@@ -32,6 +32,7 @@
     [self.menuArray addObject:@"Run"];
     [self.menuArray addObject:@"History"];
     [self.menuArray addObject:@"Settings"];
+    [self.menuArray addObject:@"Progress"];
     [self.menuArray addObject:@"About"];
     
     //TODO call database manager and create the chart if data
@@ -61,6 +62,20 @@
         self.backGroundImageChart.hidden = YES;
     }
 
+    // Init the user defaults if none exist
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    if ( [userDefaults objectForKey:@"setting1"] == nil &&
+         [userDefaults objectForKey:@"setting2"] == nil)
+    {
+        [userDefaults setObject:@"0" forKey:@"setting1"];
+        [userDefaults setObject:@"0" forKey:@"setting2"];
+        [userDefaults setObject:@"0" forKey:@"setting3"];
+        [userDefaults setObject:@"0" forKey:@"setting4"];
+        [userDefaults setObject:@"0" forKey:@"setting5"];
+        [userDefaults setObject:@"0" forKey:@"setting6"];
+        [userDefaults setObject:@"0" forKey:@"setting7"];
+        [userDefaults synchronize];
+    }
 }
 
 - (void)viewDidUnload
@@ -138,6 +153,11 @@
         SettingsViewController *controller =[segue destinationViewController];
         controller.delegate=self;
     }
+    else if ([[segue identifier] isEqualToString:@"segueProgress"])
+    {
+        ProgressViewController *controller =[segue destinationViewController];
+        controller.delegate=self;
+    }
     else if ([[segue identifier] isEqualToString:@"segueAbout"])
     {
         AboutViewController *controller =[segue destinationViewController];
@@ -159,6 +179,9 @@
         
     else if ( [menuString isEqualToString:@"Settings"] )
         [self performSegueWithIdentifier:@"segueSettings" sender:self];
+    
+    else if ( [menuString isEqualToString:@"Progress"])
+        [self performSegueWithIdentifier:@"segueProgress" sender:self];
     
     else if ( [menuString isEqualToString:@"About"] )
         [self performSegueWithIdentifier:@"segueAbout" sender:self];
