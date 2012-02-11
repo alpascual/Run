@@ -126,6 +126,37 @@
         item.showLabel.text = @"Select when you want an status of your run";
         item.menuNumber = self.lastMenuSelected;
     }
+    else if (self.lastMenuSelected == 2 ) {
+        [subMenu addObject:@"none"];
+        [subMenu addObject:@"every 10 minutes"];
+        [subMenu addObject:@"every 20 minutes"];
+        [subMenu addObject:@"every 30 minutes"];
+        [subMenu addObject:@"every 1 hour"];
+        item.list = subMenu;
+        item.showLabel.text = @"Select when you want an status of your run";
+        item.menuNumber = self.lastMenuSelected;
+    }
+    else if (self.lastMenuSelected == 3 ) {
+        [subMenu addObject:@"miles"];
+        [subMenu addObject:@"kilometers"];
+        item.list = subMenu;
+        item.showLabel.text = @"Select if you like miles or kilometers";
+        item.menuNumber = self.lastMenuSelected;
+    }
+    else if (self.lastMenuSelected == 4 ) {
+        [subMenu addObject:@"no"];
+        [subMenu addObject:@"yes"];
+        item.list = subMenu;
+        item.showLabel.text = @"If you are just walking or jogging instead of running, your iphone will vibrate";
+        item.menuNumber = self.lastMenuSelected;
+    }
+    else if (self.lastMenuSelected == 5 ) {
+        [subMenu addObject:@"no"];
+        [subMenu addObject:@"yes"];
+        item.list = subMenu;
+        item.showLabel.text = @"If you stop running or jogging, the music will pause until you resume";
+        item.menuNumber = self.lastMenuSelected;
+    }
 
 }
 
