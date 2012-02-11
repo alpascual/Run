@@ -23,5 +23,6 @@
 @synthesize totalTimeMinutes = _totalTimeMinutes;
 @synthesize totalTimeSeconds = _totalTimeSeconds;
 @synthesize avgSpeed = _avgSpeed;
+@synthesize distancePerTime = _distancePerTime;
 
 @end

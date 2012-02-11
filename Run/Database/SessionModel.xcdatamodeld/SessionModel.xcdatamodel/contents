@@ -22,6 +22,7 @@
         <attribute name="altitudeMin" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="avgSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="distancePerTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="speedMax" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="totalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="totalTimeHours" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -33,6 +34,6 @@
     <elements>
         <element name="Acceleration" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Points" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="SessionRun" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="SessionRun" positionX="160" positionY="192" width="128" height="225"/>
     </elements>
 </model>

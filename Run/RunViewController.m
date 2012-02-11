@@ -30,6 +30,7 @@
 @synthesize sparkLineViewAcceleration = _sparkLineViewAcceleration;
 @synthesize walkLabel = _walkLabel;
 @synthesize avgSpeed = _avgSpeed;
+@synthesize distancePerTime = _distancePerTime;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -82,8 +83,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    return NO;
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma Start and Actions
@@ -106,7 +108,7 @@
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.9) target:self selector:
+    self.gpsTimer = [NSTimer scheduledTimerWithTimeInterval:(0.8) target:self selector:
                      @selector(refreshTimer:) userInfo:nil repeats:YES];
     
     self.start = [NSDate date];
@@ -224,6 +226,16 @@
     //For line chart add accelerometer and acceleration TODO
     [self.accelerationArray addObject:[[NSNumber alloc] initWithDouble: self.acceleration.X + self.acceleration.Y + self.acceleration.Z]];
     
+    //Calculate the distance per time
+    if ( minutes > 0 && self.trackingManager.gpsTotals.distanceTotal > 0) {
+        self.trackingManager.gpsTotals.distancePerTime = self.trackingManager.gpsTotals.distanceTotal / ((hours) + (minutes / 60));        
+        NSLog(@"Distance per time %f", self.trackingManager.gpsTotals.distancePerTime);
+    }
+    else
+        self.trackingManager.gpsTotals.distancePerTime = 0;
+    
+    self.distancePerTime.text = [[NSString alloc] initWithFormat:@"%l.2f per mile", self.trackingManager.gpsTotals.distancePerTime];        
+    
     [self setupLineGraphics];
 }
 
@@ -245,7 +257,7 @@
     self.sparkLineViewSpeed.rangeOverlayLowerLimit = [[NSNumber alloc] initWithInt:0];
     self.sparkLineViewSpeed.rangeOverlayUpperLimit = [[NSNumber alloc] initWithInt:10];
     
-    self.sparkLineViewAcceleration.dataValues = self.altitudeArray;
+    self.sparkLineViewAcceleration.dataValues = self.accelerationArray;
     self.sparkLineViewAcceleration.labelText = @"Movement";
     self.sparkLineViewAcceleration.currentValueColor = [UIColor yellowColor];
     self.sparkLineViewAcceleration.penColor = [UIColor whiteColor];
@@ -257,11 +269,14 @@
     [self.sparkLineViewSpeed reloadInputViews];
     
     //reset the arrays if they are too big
-    if ( self.altitudeArray.count > 1000 )
-        [self.altitudeArray removeAllObjects];
-    
-    if ( self.speedArray.count > 1000 )
-        [self.speedArray removeAllObjects];
+//    if ( self.altitudeArray.count > 1000 )
+//        [self.altitudeArray removeAllObjects];
+//    
+//    if ( self.speedArray.count > 1000 )
+//        [self.speedArray removeAllObjects];
+//    
+//    if ( self.accelerationArray.count > 1000 )
+//        [self.accelerationArray removeAllObjects];
 }
 
 

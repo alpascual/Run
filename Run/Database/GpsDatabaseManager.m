@@ -259,6 +259,7 @@
     [mySession setTotalTimeMinutes:[[NSNumber alloc] initWithDouble:totals.totalTimeMinutes]];
     [mySession setTotalTimeSeconds:[[NSNumber alloc] initWithDouble:totals.totalTimeSeconds]];
     [mySession setAvgSpeed:[[NSNumber alloc] initWithDouble:totals.avgSpeed]];
+    [mySession setDistancePerTime:[[NSNumber alloc] initWithDouble:totals.distancePerTime]];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

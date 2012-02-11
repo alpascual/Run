@@ -47,6 +47,15 @@
 {
     [super viewDidLoad];
     
+    [self.activity startAnimating];
+    
+    self.uiTimer = [NSTimer scheduledTimerWithTimeInterval:(0.1) target:self selector:
+                    @selector(refreshTimer:) userInfo:nil repeats:NO];   
+    
+	
+}
+
+- (void)refreshTimer:(NSTimer *)timer { 
     // Add the points to the map
     self.mapView.mapType = MKMapTypeStandard;
     
@@ -66,7 +75,7 @@
         location.latitude = [point.y doubleValue];
         location.longitude = [point.x doubleValue];
         NSLog(@"Coordinates %f %f at %d", location.latitude, location.longitude, i);
-    
+        
         MKMapPoint pointSimple = MKMapPointForCoordinate(location);
         pointArr[i] = pointSimple;
         
@@ -83,19 +92,18 @@
         
         i++;
         
-    // Set annotation to the map
+        // Set annotation to the map
         /*MyAnnotation *addAnnotation = [[MyAnnotation alloc] init];
-        
-        [addAnnotation setCoordinate:location];
-        [addAnnotation setSpeed:[[NSString alloc] initWithFormat:@"%@", point.speed]];
-        [addAnnotation setElevation:[[NSString alloc] initWithFormat:@"%@", point.altitude]];*/    
+         
+         [addAnnotation setCoordinate:location];
+         [addAnnotation setSpeed:[[NSString alloc] initWithFormat:@"%@", point.speed]];
+         [addAnnotation setElevation:[[NSString alloc] initWithFormat:@"%@", point.altitude]];*/    
         
         
     }
     
     MKPolyline *line = [MKPolyline polylineWithPoints:pointArr count:sessionWithChildren.points.count];
 	[self.mapView addOverlay:line];
-	
 }
 
 

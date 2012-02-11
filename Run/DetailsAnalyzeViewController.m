@@ -17,6 +17,8 @@
 @synthesize sparkLineViewSpeed = _sparkLineViewSpeed;
 @synthesize database = _database;
 @synthesize summaryLabel = _summaryLabel;
+@synthesize uiTimer = _uiTimer;
+@synthesize activity = _activity;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +52,15 @@
 {
     [super viewDidLoad];
     
+    [self.activity startAnimating];
+    
+    self.uiTimer = [NSTimer scheduledTimerWithTimeInterval:(0.1) target:self selector:
+                     @selector(refreshTimer:) userInfo:nil repeats:NO];
+    
+    
+}
+
+- (void)refreshTimer:(NSTimer *)timer { 
     // load data and show it
     self.database = [[GpsDatabaseManager alloc] init];
     SessionRunWithPoints *sessionWithChildren = [self.database getOneSessionRunWithChildren:self.uniqueID];
@@ -99,6 +110,9 @@
                               sessionWithChildren.sessionRun.totalTimeHours,
                               sessionWithChildren.sessionRun.totalTimeMinutes,
                               sessionWithChildren.sessionRun.totalTimeSeconds];
+    
+    [self.activity stopAnimating];
+    self.activity.hidden = YES;
 }
 
 

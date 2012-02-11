@@ -186,12 +186,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance per Time" lineBreakMode="tailTruncation" minimumFontSize="10" id="RKp-5x-9SL">
+                                <rect key="frame" x="98" y="10" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="79G-95-0vW"/>
                     <connections>
                         <outlet property="altitude" destination="OnS-Fq-bia" id="0hw-T9-s9u"/>
+                        <outlet property="distancePerTime" destination="RKp-5x-9SL" id="a4x-hi-h88"/>
                         <outlet property="gpsAccuracy" destination="wBw-eO-4ui" id="tOf-7T-hZZ"/>
                         <outlet property="miles" destination="06E-Sm-nqd" id="Z9i-Qt-RxE"/>
                         <outlet property="saveButton" destination="Ec3-vW-4mk" id="GCa-QU-sYJ"/>
@@ -542,10 +550,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="hqg-IR-8M5">
+                                <rect key="frame" x="265" y="3" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="hqg-IR-8M5" id="UZ1-se-JWH"/>
                         <outlet property="sparkLineViewAltitude" destination="Zxp-ot-hlK" id="IYH-ts-s5V"/>
                         <outlet property="sparkLineViewShake" destination="Uvw-MI-W9f" id="OWP-71-x1N"/>
                         <outlet property="sparkLineViewSpeed" destination="5Ky-wf-upl" id="jol-Gh-PTS"/>
@@ -626,10 +639,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="cx9-wU-4Lu">
+                                <rect key="frame" x="272" y="3" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="cx9-wU-4Lu" id="iiS-nl-9Qm"/>
                         <outlet property="mapView" destination="8Jy-uR-tft" id="3Kj-HD-JVR"/>
                     </connections>
                 </viewController>
@@ -653,6 +671,7 @@
         <class className="DetailsAnalyzeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsAnalyzeViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewShake" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewSpeed" candidateClass="ASBSparkLineView"/>
@@ -662,6 +681,7 @@
         <class className="DetailsMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsMapViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
@@ -684,6 +704,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RunViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="altitude" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distancePerTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gpsAccuracy" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="miles" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>

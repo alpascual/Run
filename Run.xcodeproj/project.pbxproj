@@ -27,7 +27,7 @@
 		763D84A414DDFB3B008ECB99 /* SessionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A214DDFB3B008ECB99 /* SessionModel.xcdatamodeld */; };
 		763D84AA14DE028A008ECB99 /* Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 763D84A914DE028A008ECB99 /* Points.m */; };
 		763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D84AB14DE057A008ECB99 /* CoreData.framework */; };
-		76AA03D914E4ECE100700B8C /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA03D814E4ECE100700B8C /* SessionRun.m */; };
+		76452BDA14E6E90500376465 /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BD914E6E90500376465 /* SessionRun.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
 		76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFC714E63987001EED6E /* SettingsItemViewController.m */; };
@@ -86,9 +86,9 @@
 		763D84A814DE028A008ECB99 /* Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Points.h; sourceTree = "<group>"; };
 		763D84A914DE028A008ECB99 /* Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Points.m; sourceTree = "<group>"; };
 		763D84AB14DE057A008ECB99 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		76452BD814E6E90500376465 /* SessionRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionRun.h; sourceTree = "<group>"; };
+		76452BD914E6E90500376465 /* SessionRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRun.m; sourceTree = "<group>"; };
 		76AA03D114E4E0B600700B8C /* Run.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Run.entitlements; sourceTree = "<group>"; };
-		76AA03D714E4ECE100700B8C /* SessionRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionRun.h; sourceTree = "<group>"; };
-		76AA03D814E4ECE100700B8C /* SessionRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRun.m; sourceTree = "<group>"; };
 		76C4E34214DEECA1009AF75F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		76C4E34314DEECA1009AF75F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		76C4E34814DEF363009AF75F /* RunProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
@@ -195,8 +195,8 @@
 				763D84A914DE028A008ECB99 /* Points.m */,
 				7631F1B014E24B87005CF2C2 /* Acceleration.h */,
 				7631F1B114E24B87005CF2C2 /* Acceleration.m */,
-				76AA03D714E4ECE100700B8C /* SessionRun.h */,
-				76AA03D814E4ECE100700B8C /* SessionRun.m */,
+				76452BD814E6E90500376465 /* SessionRun.h */,
+				76452BD914E6E90500376465 /* SessionRun.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -428,9 +428,9 @@
 				7631F1A614E1FE12005CF2C2 /* SessionRunWithPoints.m in Sources */,
 				7631F1AB14E2435F005CF2C2 /* MyAccelerometer.m in Sources */,
 				7631F1B214E24B87005CF2C2 /* Acceleration.m in Sources */,
-				76AA03D914E4ECE100700B8C /* SessionRun.m in Sources */,
 				76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */,
 				76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */,
+				76452BDA14E6E90500376465 /* SessionRun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

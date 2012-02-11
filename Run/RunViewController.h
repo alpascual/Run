@@ -28,6 +28,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *miles;
 @property (nonatomic, strong) IBOutlet UIButton *saveButton;
 @property (nonatomic, strong) IBOutlet UILabel *walkLabel;
+@property (nonatomic, strong) IBOutlet UILabel *distancePerTime;
 
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewAltitude;
 @property (nonatomic, strong) IBOutlet ASBSparkLineView *sparkLineViewSpeed;

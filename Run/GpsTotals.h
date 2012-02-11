@@ -23,5 +23,6 @@
 @property (nonatomic) double totalTimeMinutes;
 @property (nonatomic) double totalTimeSeconds;
 @property (nonatomic) double avgSpeed;
+@property (nonatomic) double distancePerTime;
 
 @end

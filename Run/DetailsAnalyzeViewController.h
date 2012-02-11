@@ -26,4 +26,7 @@
 
 @property (nonatomic, strong) GpsDatabaseManager *database;
 
+@property (nonatomic, strong) NSTimer *uiTimer;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activity;
+
 @end
