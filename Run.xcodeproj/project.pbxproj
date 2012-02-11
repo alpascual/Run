@@ -29,6 +29,7 @@
 		763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D84AB14DE057A008ECB99 /* CoreData.framework */; };
 		76AA03D914E4ECE100700B8C /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AA03D814E4ECE100700B8C /* SessionRun.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
+		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
 		76CA2A0C14DF7AF9000C6B4F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */; };
 		76CA2A1014DF7DD0000C6B4F /* GradientFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */; };
 		76CA2A1114DF7DD0000C6B4F /* UITableSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */; };
@@ -90,6 +91,8 @@
 		76C4E34214DEECA1009AF75F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		76C4E34314DEECA1009AF75F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		76C4E34814DEF363009AF75F /* RunProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
+		76C7EFB914E5FE17001EED6E /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		76CA2A0A14DF7AF9000C6B4F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		76CA2A0B14DF7AF9000C6B4F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientFill.png; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 		8874B40814E1B9F700ADA7C3 /* History Details */ = {
 			isa = PBXGroup;
 			children = (
+				76C7EFB914E5FE17001EED6E /* MyAnnotation.h */,
+				76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */,
 				8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */,
 				8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */,
 				8874B40914E1BAF100ADA7C3 /* DetailsMapViewController.h */,
@@ -411,6 +416,7 @@
 				7631F1AB14E2435F005CF2C2 /* MyAccelerometer.m in Sources */,
 				7631F1B214E24B87005CF2C2 /* Acceleration.m in Sources */,
 				76AA03D914E4ECE100700B8C /* SessionRun.m in Sources */,
+				76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
