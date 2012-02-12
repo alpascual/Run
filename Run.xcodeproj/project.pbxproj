@@ -29,6 +29,8 @@
 		763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D84AB14DE057A008ECB99 /* CoreData.framework */; };
 		76452BDA14E6E90500376465 /* SessionRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BD914E6E90500376465 /* SessionRun.m */; };
 		76452BE114E707E100376465 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BE014E707E100376465 /* ProgressViewController.m */; };
+		76452BEC14E735E300376465 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BEB14E735E300376465 /* SoundManager.m */; };
+		76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76452BED14E7362D00376465 /* AudioToolbox.framework */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
 		76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFC714E63987001EED6E /* SettingsItemViewController.m */; };
@@ -91,6 +93,12 @@
 		76452BD914E6E90500376465 /* SessionRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionRun.m; sourceTree = "<group>"; };
 		76452BDF14E707E100376465 /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
 		76452BE014E707E100376465 /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		76452BE914E735E300376465 /* SoundDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundDelegate.h; sourceTree = "<group>"; };
+		76452BEA14E735E300376465 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		76452BEB14E735E300376465 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		76452BED14E7362D00376465 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		76452BEF14E7363F00376465 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		76452BF114E7364C00376465 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		76AA03D114E4E0B600700B8C /* Run.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Run.entitlements; sourceTree = "<group>"; };
 		76C4E34214DEECA1009AF75F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		76C4E34314DEECA1009AF75F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
@@ -143,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */,
 				8874B41414E1C57300ADA7C3 /* MapKit.framework in Frameworks */,
 				763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */,
 				76310BF114D7B2550084D06A /* CoreLocation.framework in Frameworks */,
@@ -204,6 +213,16 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		76452BE214E734DE00376465 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				76452BE914E735E300376465 /* SoundDelegate.h */,
+				76452BEA14E735E300376465 /* SoundManager.h */,
+				76452BEB14E735E300376465 /* SoundManager.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		76C7EFC514E632C1001EED6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +264,9 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				76452BF114E7364C00376465 /* AudioUnit.framework */,
+				76452BEF14E7363F00376465 /* CoreAudio.framework */,
+				76452BED14E7362D00376465 /* AudioToolbox.framework */,
 				8874B41314E1C57300ADA7C3 /* MapKit.framework */,
 				763D84AB14DE057A008ECB99 /* CoreData.framework */,
 				76310BF014D7B2550084D06A /* CoreLocation.framework */,
@@ -276,6 +298,7 @@
 		88F76ADD14D73EE900587116 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				76452BE214E734DE00376465 /* Audio */,
 				76AA03D114E4E0B600700B8C /* Run.entitlements */,
 				7631F1A814E2435F005CF2C2 /* Accelerometer */,
 				763D849814DDE734008ECB99 /* Database */,
@@ -437,6 +460,7 @@
 				76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */,
 				76452BDA14E6E90500376465 /* SessionRun.m in Sources */,
 				76452BE114E707E100376465 /* ProgressViewController.m in Sources */,
+				76452BEC14E735E300376465 /* SoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
