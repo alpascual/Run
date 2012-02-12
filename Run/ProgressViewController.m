@@ -72,8 +72,12 @@
     
     for (SessionRun *runItem in self.historyRaw)
     {
-        //TODO
-        [self.timeArray addObject:runItem.aa];
+        double totalHours = 0;
+        if (  [runItem.totalTimeHours doubleValue] > 0 )
+            totalHours += [runItem.totalTimeHours doubleValue];
+        if ( [runItem.totalTimeMinutes doubleValue] > 0 )
+            totalHours += ([runItem.totalTimeMinutes doubleValue] /60);
+        [self.timeArray addObject:[[NSNumber alloc] initWithDouble:totalHours]];
         [self.speedArray addObject:runItem.avgSpeed];
         [self.distanceArray addObject:runItem.totalDistance];
         [self.timePerMileArray addObject:runItem.distancePerTime];
