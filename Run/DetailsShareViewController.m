@@ -39,13 +39,21 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Send to twitter
+    
+//    TWTweetComposeViewController *twitterView = [[TWTweetComposeViewController alloc] init];
+//    
+//    [twitterView setInitialText:[[NSString alloc] initWithFormat:@"Connect with me at Weather with Friends: %@  #weatherfriends http://sprinkleware.com", myUsername]];
+//    
+//    [self presentModalViewController:twitterView animated:YES];
 }
-*/
+
 
 - (void)viewDidUnload
 {

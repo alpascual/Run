@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		761849CB14DB808B00F84561 /* DistancePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 761849CA14DB808B00F84561 /* DistancePoint.m */; };
 		761849CE14DB851600F84561 /* GpsTotals.m in Sources */ = {isa = PBXBuildFile; fileRef = 761849CD14DB851600F84561 /* GpsTotals.m */; };
-		761849DB14DBA82000F84561 /* BigOn512.png in Resources */ = {isa = PBXBuildFile; fileRef = 761849D714DBA82000F84561 /* BigOn512.png */; };
 		761849DC14DBA82000F84561 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 761849D814DBA82000F84561 /* Icon-72.png */; };
 		761849DD14DBA82000F84561 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 761849D914DBA82000F84561 /* Icon.png */; };
 		761849DE14DBA82000F84561 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 761849DA14DBA82000F84561 /* Icon@2x.png */; };
@@ -64,7 +63,6 @@
 		761849CA14DB808B00F84561 /* DistancePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePoint.m; sourceTree = "<group>"; };
 		761849CC14DB851600F84561 /* GpsTotals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsTotals.h; sourceTree = "<group>"; };
 		761849CD14DB851600F84561 /* GpsTotals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsTotals.m; sourceTree = "<group>"; };
-		761849D714DBA82000F84561 /* BigOn512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BigOn512.png; sourceTree = "<group>"; };
 		761849D814DBA82000F84561 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		761849D914DBA82000F84561 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		761849DA14DBA82000F84561 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 				76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */,
 				76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */,
 				763D849614DDDFE6008ECB99 /* MovieTransportBackground.png */,
-				761849D714DBA82000F84561 /* BigOn512.png */,
 				761849D814DBA82000F84561 /* Icon-72.png */,
 				761849D914DBA82000F84561 /* Icon.png */,
 				761849DA14DBA82000F84561 /* Icon@2x.png */,
@@ -415,7 +412,6 @@
 				88F76AF914D73F9C00587116 /* 63-runner.png in Resources */,
 				88F76AFA14D73F9C00587116 /* baby-blue-solid.jpg in Resources */,
 				76310BDD14D7AD7D0084D06A /* redgradient.jpg in Resources */,
-				761849DB14DBA82000F84561 /* BigOn512.png in Resources */,
 				761849DC14DBA82000F84561 /* Icon-72.png in Resources */,
 				761849DD14DBA82000F84561 /* Icon.png in Resources */,
 				761849DE14DBA82000F84561 /* Icon@2x.png in Resources */,

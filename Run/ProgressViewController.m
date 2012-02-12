@@ -15,6 +15,16 @@
 @synthesize database = _database;
 @synthesize historyRaw = _historyRaw;
 
+@synthesize time = _time;
+@synthesize distance = _distance;
+@synthesize timePerMile = _timePerMile;
+@synthesize speed = _speed;
+
+@synthesize timeArray = _timeArray;
+@synthesize distanceArray = _distanceArray;
+@synthesize speedArray = _speedArray;
+@synthesize timePerMileArray = _timePerMileArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,7 +65,20 @@
     self.database = [[GpsDatabaseManager alloc] init];
     self.historyRaw = [self.database getAllSessions];
     
-    //self.historyRaw = [self reversedArray:self.historyRaw];
+    self.timeArray = [[NSMutableArray alloc] init]; 
+    self.distanceArray = [[NSMutableArray alloc] init]; 
+    self.speedArray = [[NSMutableArray alloc] init]; 
+    self.timePerMileArray = [[NSMutableArray alloc] init]; 
+    
+    for (SessionRun *runItem in self.historyRaw)
+    {
+        //TODO
+        [self.timeArray addObject:runItem.aa];
+        [self.speedArray addObject:runItem.avgSpeed];
+        [self.distanceArray addObject:runItem.totalDistance];
+        [self.timePerMileArray addObject:runItem.distancePerTime];
+    }
+    
 }
 
 - (void)viewDidUnload

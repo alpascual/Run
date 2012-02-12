@@ -96,9 +96,63 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance" lineBreakMode="tailTruncation" minimumFontSize="10" id="GZv-E4-X0c">
+                                <rect key="frame" x="20" y="63" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time" lineBreakMode="tailTruncation" minimumFontSize="10" id="cZ3-UX-gcB">
+                                <rect key="frame" x="20" y="154" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Avg Speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="7tA-2m-cgb">
+                                <rect key="frame" x="20" y="246" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Minutes per mile" lineBreakMode="tailTruncation" minimumFontSize="10" id="VhR-y5-JSz">
+                                <rect key="frame" x="20" y="351" width="110" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="oxK-02-SDs" customClass="ASBSparkLineView">
+                                <rect key="frame" x="20" y="85" width="286" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="4ol-ox-9cF" customClass="ASBSparkLineView">
+                                <rect key="frame" x="20" y="180" width="286" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="8Jl-ng-P7R" customClass="ASBSparkLineView">
+                                <rect key="frame" x="20" y="275" width="286" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Bpo-4h-ZMP" customClass="ASBSparkLineView">
+                                <rect key="frame" x="20" y="380" width="286" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="distance" destination="oxK-02-SDs" id="UWy-Ag-znE"/>
+                        <outlet property="speed" destination="8Jl-ng-P7R" id="7Be-gl-iiC"/>
+                        <outlet property="time" destination="4ol-ox-9cF" id="yXo-2X-pFE"/>
+                        <outlet property="timePerMile" destination="Bpo-4h-ZMP" id="142-KS-nVi"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-269" y="581"/>
@@ -733,6 +787,12 @@
         </class>
         <class className="ProgressViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgressViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="distance" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="speed" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="time" candidateClass="ASBSparkLineView"/>
+                <relationship kind="outlet" name="timePerMile" candidateClass="ASBSparkLineView"/>
+            </relationships>
         </class>
         <class className="RunViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RunViewController.h"/>
