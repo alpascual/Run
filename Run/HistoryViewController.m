@@ -177,7 +177,8 @@
         NSLog(@"ID %@", [info valueForKey:@"uniqueID"]);
         // Delete this unique id
         NSString * uniqueID =  [info valueForKey:@"uniqueID"];
-        // TODO delete here and here
+        //  delete session
+        [self.database deleteSessionWithChildren:uniqueID];
         
         [self.tableView reloadData];
     }    

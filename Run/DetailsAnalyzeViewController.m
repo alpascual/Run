@@ -70,9 +70,13 @@
     NSMutableArray *accelerationArray = [[NSMutableArray alloc] init];
     NSMutableArray *altitudeArray = [[NSMutableArray alloc] init];
     
+    int iLimit = 0;
     for ( Acceleration *acc in sessionWithChildren.acceleration)
     {
         [accelerationArray addObject:[[NSNumber alloc] initWithDouble:[acc.x doubleValue] + [acc.y doubleValue] + [acc.z doubleValue]]];
+        iLimit++;
+        if ( iLimit > 500 )
+            break;
     }
     for ( Points *point in sessionWithChildren.points)
     {
@@ -106,13 +110,14 @@
     self.sparkLineViewShake.rangeOverlayLowerLimit = nil;
     self.sparkLineViewShake.rangeOverlayUpperLimit = nil;
     
-    self.summaryLabel.text = [[NSString alloc] initWithFormat:@"Distance: %l.2f Time %@:%@:%@", [sessionWithChildren.sessionRun.totalDistance doubleValue] , 
+    self.summaryLabel.text = [[NSString alloc] initWithFormat:@"Miles: %l.2f Time %@:%@:%@", [sessionWithChildren.sessionRun.totalDistance doubleValue] , 
                               sessionWithChildren.sessionRun.totalTimeHours,
                               sessionWithChildren.sessionRun.totalTimeMinutes,
                               sessionWithChildren.sessionRun.totalTimeSeconds];
     
     [self.activity stopAnimating];
     self.activity.hidden = YES;
+    
 }
 
 

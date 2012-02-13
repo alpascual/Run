@@ -105,7 +105,7 @@
     mypoint.altitude = newPoint.altitude;
     
     // Make sure we don't get bad points
-    if ( newPoint.speed > -1 ) {
+    if ( newPoint.speed > 0 ) {
         self.gpsTotals.speed = newPoint.speed;
         self.gpsTotals.avgSpeed += newPoint.speed;
     }

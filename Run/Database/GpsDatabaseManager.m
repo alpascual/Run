@@ -367,5 +367,28 @@
     return points;
 }
 
+- (void) deleteSessionWithChildren:(NSString *) uniqueId {
+    [self deletePointsFor:uniqueId];
+    [self deleteAccelerationFor:uniqueId];
+    
+    [self.managedObjectContext deleteObject:[self getOneSessionRun:uniqueId]];
+}
+
+- (void) deletePointsFor:(NSString *) uniqueId {
+    
+    NSArray *alltoDelete = [self getArrayOfPoints:uniqueId];
+      
+    for (Points *point in alltoDelete) {
+        [self.managedObjectContext deleteObject:point];
+    }    
+}
+
+- (void) deleteAccelerationFor:(NSString *) uniqueId {
+    NSArray *alltoDelete =  [self getArrayOfAcceleration:uniqueId];
+    
+    for (Acceleration *acce in alltoDelete) {
+        [self.managedObjectContext deleteObject:acce];
+    } 
+}
 
 @end

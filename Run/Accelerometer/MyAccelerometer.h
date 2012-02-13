@@ -26,6 +26,9 @@
 @property (nonatomic) double Y;
 @property (nonatomic) double Z;
 
+@property (nonatomic,strong) UIAcceleration *lastAcceleration;
+@property (nonatomic, strong) NSTimer *accTimer;
+
 - (void) stop;
 
 @end

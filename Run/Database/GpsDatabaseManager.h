@@ -39,5 +39,9 @@
 - (SessionRunWithPoints *) getOneSessionRunWithChildren:(NSString *) uniqueId;
 - (NSMutableArray *) getArrayOfPoints:(NSString *) uniqueId;
 - (NSMutableArray *) getArrayOfAcceleration:(NSString *)uniqueId;
+//Delete methods
+- (void) deletePointsFor:(NSString *) uniqueId;
+- (void) deleteSessionWithChildren:(NSString *) uniqueId;
+- (void) deleteAccelerationFor:(NSString *) uniqueId;
 
 @end

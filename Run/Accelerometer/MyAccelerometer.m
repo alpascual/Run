@@ -17,6 +17,8 @@
 @synthesize X = _X;
 @synthesize Y = _Y;
 @synthesize Z = _Z;
+@synthesize lastAcceleration = _lastAcceleration;
+@synthesize accTimer = _accTimer;
 
 - (id) init {
     self = [super init];
@@ -27,16 +29,38 @@
         self.accelerometerManager = [UIAccelerometer sharedAccelerometer];
         self.accelerometerManager.delegate = self;
         
+        self.accTimer = [NSTimer scheduledTimerWithTimeInterval:(5.0) target:self selector:
+                         @selector(refreshTimer:) userInfo:nil repeats:YES];
+        
     }
     return self;
 }
 
 - (void) stop {
     self.accelerometerManager.delegate = nil;
+    [self.accTimer invalidate];
+    self.accTimer = nil;
+}
+
+- (void)refreshTimer:(NSTimer *)timer {
+    if ( self.lastAcceleration != nil) {
+        if ( self.uniqueId != nil && self.uniqueId.length > 0 ) {
+            [self.database addMovement:self.lastAcceleration:self.uniqueId];
+        }
+        
+        self.X = self.lastAcceleration.x;
+        self.Y = self.lastAcceleration.y;
+        self.Z = self.lastAcceleration.z;
+    }
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
 	
+    // Record it only once every 5 seconds
+    
+    self.lastAcceleration = acceleration;
+    return;
+    
     // record the numbers here and the database
     if ( self.uniqueId != nil && self.uniqueId.length > 0 ) {
         [self.database addMovement:acceleration:self.uniqueId];

@@ -159,7 +159,7 @@
 
 - (void)refreshTimer:(NSTimer *)timer {
     
-    double dSpeed = self.trackingManager.gpsTotals.speed * 2.2369;
+    double dSpeed = self.trackingManager.gpsTotals.speed * 0.00062137119; //* 2.2369;
     
     if ( dSpeed >= 0 ) {
         self.avgSpeed += dSpeed;
@@ -180,7 +180,7 @@
     // calculate the avg speed
     self.trackingManager.gpsTotals.avgSpeed = dSpeed / self.speedArray.count;
     if ( dSpeed == 0 )
-        self.walkLabel.text = @"Stopped";
+        self.walkLabel.text = @"Too slow";
     else if ( dSpeed > 0 && dSpeed <= 2.0)
         self.walkLabel.text = @"Walking";
     else if ( dSpeed > 2.0 && dSpeed <= 3.0)
@@ -221,14 +221,18 @@
     // with a divisor of 10.    
     NSLog(@"%d:%d:%d", hours, minutes, seconds);
     self.time.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
-    
-    
+        
     //For line chart add accelerometer and acceleration TODO
     [self.accelerationArray addObject:[[NSNumber alloc] initWithDouble: self.acceleration.X + self.acceleration.Y + self.acceleration.Z]];
     
     //Calculate the distance per time
     if ( minutes > 0 && self.trackingManager.gpsTotals.distanceTotal > 0) {
-        self.trackingManager.gpsTotals.distancePerTime = self.trackingManager.gpsTotals.distanceTotal / ((hours) + (minutes / 60));        
+        
+        double totalMinutes = (hours * 60) + minutes;
+        if ( seconds > 0 )
+            totalMinutes += seconds / 60;
+        
+        self.trackingManager.gpsTotals.distancePerTime = totalMinutes / self.trackingManager.gpsTotals.distanceTotal;        
         NSLog(@"Distance per time %f", self.trackingManager.gpsTotals.distancePerTime);
     }
     else
