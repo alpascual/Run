@@ -254,6 +254,7 @@
     self.sparkLineViewAltitude.penWidth = 4.0f;
     self.sparkLineViewAltitude.rangeOverlayLowerLimit = nil;
     self.sparkLineViewAltitude.rangeOverlayUpperLimit = nil;
+    self.sparkLineViewAltitude.showCurrentValue = NO;
     
     self.sparkLineViewSpeed.dataValues = self.speedArray;
     self.sparkLineViewSpeed.labelText = @"Speed";
@@ -263,6 +264,7 @@
     self.sparkLineViewSpeed.penWidth = 4.0f;
     self.sparkLineViewSpeed.rangeOverlayLowerLimit = [[NSNumber alloc] initWithInt:0];
     self.sparkLineViewSpeed.rangeOverlayUpperLimit = [[NSNumber alloc] initWithInt:10];
+    self.sparkLineViewSpeed.showCurrentValue = NO;
     
     self.sparkLineViewAcceleration.dataValues = self.accelerationArray;
     self.sparkLineViewAcceleration.labelText = @"Movement";
@@ -271,6 +273,7 @@
     self.sparkLineViewAcceleration.penWidth = 4.0f;
     self.sparkLineViewAcceleration.rangeOverlayLowerLimit = nil;
     self.sparkLineViewAcceleration.rangeOverlayUpperLimit = nil;
+    self.sparkLineViewAcceleration.showCurrentValue = NO;
     
     [self.sparkLineViewAltitude reloadInputViews];
     [self.sparkLineViewSpeed reloadInputViews];

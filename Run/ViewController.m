@@ -56,6 +56,9 @@
         self.sparkLineViewOverview.penWidth = 3.0f;
         self.sparkLineViewOverview.rangeOverlayLowerLimit = nil;
         self.sparkLineViewOverview.rangeOverlayUpperLimit = nil;
+        self.sparkLineViewOverview.showCurrentValue = NO;
+        
+        
     }
     else {
         self.sparkLineViewOverview.hidden = YES;
