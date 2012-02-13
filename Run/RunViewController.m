@@ -31,6 +31,7 @@
 @synthesize walkLabel = _walkLabel;
 @synthesize avgSpeed = _avgSpeed;
 @synthesize distancePerTime = _distancePerTime;
+@synthesize myToolbar = _myToolbar;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -132,7 +133,7 @@
     self.acceleration = [[MyAccelerometer alloc] init];
     self.acceleration.uniqueId = uuidString;
     
-    //TODO UI change and reset counter
+    self.myToolbar.hidden = YES;
     
     
 }
@@ -153,6 +154,8 @@
     [self.acceleration stop];
     self.acceleration.uniqueId = nil;
     self.acceleration = nil;
+    
+    self.myToolbar.hidden = NO;
 }
 
 

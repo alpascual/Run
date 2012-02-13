@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSString *uniqueIDForSegue;
 
 - (NSArray *)reversedArray:(NSArray*)origin;
+- (void) loadData;
 
 @end

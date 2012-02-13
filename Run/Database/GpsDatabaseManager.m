@@ -372,6 +372,7 @@
     [self deleteAccelerationFor:uniqueId];
     
     [self.managedObjectContext deleteObject:[self getOneSessionRun:uniqueId]];
+     [self.managedObjectContext save:nil];
 }
 
 - (void) deletePointsFor:(NSString *) uniqueId {
@@ -381,6 +382,7 @@
     for (Points *point in alltoDelete) {
         [self.managedObjectContext deleteObject:point];
     }    
+    [self.managedObjectContext save:nil];
 }
 
 - (void) deleteAccelerationFor:(NSString *) uniqueId {
@@ -389,6 +391,7 @@
     for (Acceleration *acce in alltoDelete) {
         [self.managedObjectContext deleteObject:acce];
     } 
+     [self.managedObjectContext save:nil];
 }
 
 @end

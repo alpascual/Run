@@ -41,6 +41,10 @@
     
     self.title = @"History";
     
+    [self loadData];
+}
+
+- (void) loadData {
     self.database = [[GpsDatabaseManager alloc] init];
     self.historyRaw = [self.database getAllSessions];
     
@@ -180,7 +184,8 @@
         //  delete session
         [self.database deleteSessionWithChildren:uniqueID];
         
-        [self.tableView reloadData];
+        // Load data and tableview
+        [self loadData];
     }    
 }
 

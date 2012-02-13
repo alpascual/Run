@@ -287,6 +287,7 @@
                         <outlet property="distancePerTime" destination="RKp-5x-9SL" id="a4x-hi-h88"/>
                         <outlet property="gpsAccuracy" destination="wBw-eO-4ui" id="tOf-7T-hZZ"/>
                         <outlet property="miles" destination="06E-Sm-nqd" id="Z9i-Qt-RxE"/>
+                        <outlet property="myToolbar" destination="RzI-ef-yvY" id="y7T-cM-luK"/>
                         <outlet property="saveButton" destination="Ec3-vW-4mk" id="GCa-QU-sYJ"/>
                         <outlet property="sparkLineViewAcceleration" destination="V1a-Nl-TfI" id="hbN-al-kQy"/>
                         <outlet property="sparkLineViewAltitude" destination="sUy-um-Rn4" id="fhS-5y-iFr"/>
@@ -454,7 +455,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Version 0.1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="tzg-Bi-qVa">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Version 0.2" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="tzg-Bi-qVa">
                                 <rect key="frame" x="51" y="375" width="229" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -714,7 +715,7 @@
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="8Jy-uR-tft">
-                                <rect key="frame" x="9" y="98" width="304" height="349"/>
+                                <rect key="frame" x="9" y="98" width="304" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Ozp-uv-tOh">
@@ -728,12 +729,17 @@
                                 <rect key="frame" x="272" y="3" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="0KT-HA-gGR">
+                                <rect key="frame" x="7" y="438" width="304" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="activity" destination="cx9-wU-4Lu" id="iiS-nl-9Qm"/>
                         <outlet property="mapView" destination="8Jy-uR-tft" id="3Kj-HD-JVR"/>
+                        <outlet property="summary" destination="Ozp-uv-tOh" id="qHd-rL-nDV"/>
                     </connections>
                 </viewController>
             </objects>
@@ -768,6 +774,8 @@
             <relationships>
                 <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="summary" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
             </relationships>
         </class>
         <class className="DetailsMenuViewController" superclassName="UIViewController">
@@ -801,6 +809,7 @@
                 <relationship kind="outlet" name="distancePerTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gpsAccuracy" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="miles" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myToolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sparkLineViewAcceleration" candidateClass="ASBSparkLineView"/>
                 <relationship kind="outlet" name="sparkLineViewAltitude" candidateClass="ASBSparkLineView"/>

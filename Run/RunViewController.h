@@ -41,6 +41,7 @@
 @property (nonatomic, strong) GpsDatabaseManager *database;
 @property (nonatomic, strong) MyAccelerometer *acceleration;
 @property (nonatomic) double avgSpeed;
+@property (nonatomic, strong) IBOutlet UIToolbar *myToolbar;
 
 
 - (void) startRun;

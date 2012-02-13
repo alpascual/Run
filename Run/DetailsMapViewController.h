@@ -25,4 +25,7 @@
 @property (nonatomic, strong) MKPolyline *line;
 @property (nonatomic, strong) MKPolylineView *routeLineView;
 
+@property (nonatomic, strong) IBOutlet UILabel *summary;
+@property (nonatomic, strong) IBOutlet UISlider *timeSlider;
+
 @end

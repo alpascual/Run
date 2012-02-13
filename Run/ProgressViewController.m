@@ -83,6 +83,40 @@
         [self.timePerMileArray addObject:runItem.distancePerTime];
     }
     
+    //Load the graphics
+    self.distance.dataValues = self.distanceArray;
+    self.distance.labelText = @"Distance";
+    self.distance.currentValueColor = [UIColor redColor];
+    self.distance.penColor = [UIColor whiteColor];
+    self.distance.penWidth = 4.0f;
+    self.distance.rangeOverlayLowerLimit = nil;
+    self.distance.rangeOverlayUpperLimit = nil;
+    
+    self.time.dataValues = self.timeArray;
+    self.time.labelText = @"Time";
+    self.time.currentValueColor = [UIColor greenColor];
+    self.time.currentValueFormat = @"%.0f";
+    self.time.penColor = [UIColor redColor];
+    self.time.penWidth = 4.0f;
+    self.time.rangeOverlayLowerLimit = nil;
+    self.time.rangeOverlayUpperLimit = nil;
+    
+    self.speed.dataValues = self.speedArray;
+    self.speed.labelText = @"Speed";
+    self.speed.currentValueColor = [UIColor yellowColor];
+    self.speed.penColor = [UIColor whiteColor];
+    self.speed.penWidth = 4.0f;
+    self.speed.rangeOverlayLowerLimit = nil;
+    self.speed.rangeOverlayUpperLimit = nil;
+    
+    self.timePerMile.dataValues = self.timePerMileArray;
+    self.timePerMile.labelText = @"Time Per Mile";
+    self.timePerMile.currentValueColor = [UIColor whiteColor];
+    self.timePerMile.penColor = [UIColor whiteColor];
+    self.timePerMile.penWidth = 4.0f;
+    self.timePerMile.rangeOverlayLowerLimit = nil;
+    self.timePerMile.rangeOverlayUpperLimit = nil;
+    
 }
 
 - (void)viewDidUnload
