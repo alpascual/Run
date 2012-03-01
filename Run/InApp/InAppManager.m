@@ -74,6 +74,13 @@
         }
         
     }
+    else {
+        UIAlertView *noProduct = [[UIAlertView alloc] initWithTitle:@"In-App Purchase" message:@"No feature set up, sorry" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        [noProduct show];
+        
+        [self enableFeature];
+    }
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
@@ -102,9 +109,7 @@
     /*[self recordTransaction:transaction];
      [self provideContent:transaction.payment.productIdentifier];*/
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:@"1" forKey:self.productCode];
-    [defaults synchronize];
+    [self enableFeature];
     
     // Remove the transaction from the payment queue.
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
@@ -112,6 +117,12 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"In-App Purchase Completed" message:@"You now have access to that feature, thanks." delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
     
     [alert show];
+}
+
+- (void) enableFeature {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"1" forKey:self.productCode];
+    [defaults synchronize];
 }
 
 - (void) failedTransaction:  (SKPaymentTransaction *)transaction {

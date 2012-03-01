@@ -14,6 +14,7 @@
 @synthesize uniqueID = _uniqueID;
 @synthesize menuArray = _menuArray;
 @synthesize tableView = _tableView;
+@synthesize inApp = _inApp;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -132,12 +133,12 @@
     else if ( [menuString isEqualToString:@"Analyze"] ) {
         
         // In-App purchasing 
-        InAppManager *inApp = [[InAppManager alloc] init];
-        if ( [inApp alreadyPurchased:@"analyze"] == YES ) {
+        self.inApp = [[InAppManager alloc] init];
+        if ( [self.inApp alreadyPurchased:@"analyze"] == YES ) {
             [self performSegueWithIdentifier:@"segueDetailsAnalyze" sender:self];
         }
         else {
-            [inApp tryPurchase:@"analyze"];
+            [self.inApp tryPurchase:@"analyze"];
         }
     }
     

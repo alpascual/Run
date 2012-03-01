@@ -25,5 +25,6 @@
 @property (nonatomic, strong) NSString *uniqueID;
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *menuArray;
+@property (nonatomic,strong) InAppManager *inApp;
 
 @end

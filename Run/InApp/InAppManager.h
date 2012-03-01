@@ -16,6 +16,7 @@
 
 - (BOOL) alreadyPurchased:(NSString*)productCode;
 - (void) tryPurchase:(NSString*)productCode;
+- (void) enableFeature;
 
 - (void) completeTransaction:(SKPaymentTransaction *)transaction;
 - (void) failedTransaction:  (SKPaymentTransaction *)transaction;
