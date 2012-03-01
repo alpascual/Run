@@ -37,6 +37,8 @@
 		76CA2A1014DF7DD0000C6B4F /* GradientFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0E14DF7DD0000C6B4F /* GradientFill.png */; };
 		76CA2A1114DF7DD0000C6B4F /* UITableSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */; };
 		76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A1314DF7F78000C6B4F /* AboutViewController.m */; };
+		76D13AC214FEF7A700D4C610 /* InAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D13AC114FEF7A700D4C610 /* InAppManager.m */; };
+		76D13AC814FEF84300D4C610 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D13AC714FEF84300D4C610 /* StoreKit.framework */; };
 		8874B3FD14E0B57600ADA7C3 /* route61logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */; };
 		8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */; };
 		8874B40B14E1BAF100ADA7C3 /* DetailsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40A14E1BAF100ADA7C3 /* DetailsMapViewController.m */; };
@@ -111,6 +113,9 @@
 		76CA2A0F14DF7DD0000C6B4F /* UITableSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableSelection.png; sourceTree = "<group>"; };
 		76CA2A1214DF7F78000C6B4F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		76CA2A1314DF7F78000C6B4F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		76D13AC014FEF7A700D4C610 /* InAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppManager.h; sourceTree = "<group>"; };
+		76D13AC114FEF7A700D4C610 /* InAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppManager.m; sourceTree = "<group>"; };
+		76D13AC714FEF84300D4C610 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route61logo1.jpg; sourceTree = "<group>"; };
 		8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMenuViewController.h; sourceTree = "<group>"; };
 		8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMenuViewController.m; sourceTree = "<group>"; };
@@ -149,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D13AC814FEF84300D4C610 /* StoreKit.framework in Frameworks */,
 				76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */,
 				8874B41414E1C57300ADA7C3 /* MapKit.framework in Frameworks */,
 				763D84AC14DE057A008ECB99 /* CoreData.framework in Frameworks */,
@@ -232,6 +238,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		76D13ABE14FEF78D00D4C610 /* InApp */ = {
+			isa = PBXGroup;
+			children = (
+				76D13AC014FEF7A700D4C610 /* InAppManager.h */,
+				76D13AC114FEF7A700D4C610 /* InAppManager.m */,
+			);
+			path = InApp;
+			sourceTree = "<group>";
+		};
 		8874B40814E1B9F700ADA7C3 /* History Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +277,7 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				76D13AC714FEF84300D4C610 /* StoreKit.framework */,
 				76452BF114E7364C00376465 /* AudioUnit.framework */,
 				76452BEF14E7363F00376465 /* CoreAudio.framework */,
 				76452BED14E7362D00376465 /* AudioToolbox.framework */,
@@ -296,6 +312,7 @@
 		88F76ADD14D73EE900587116 /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				76D13ABE14FEF78D00D4C610 /* InApp */,
 				76452BE214E734DE00376465 /* Audio */,
 				76AA03D114E4E0B600700B8C /* Run.entitlements */,
 				7631F1A814E2435F005CF2C2 /* Accelerometer */,
@@ -457,6 +474,7 @@
 				76452BDA14E6E90500376465 /* SessionRun.m in Sources */,
 				76452BE114E707E100376465 /* ProgressViewController.m in Sources */,
 				76452BEC14E735E300376465 /* SoundManager.m in Sources */,
+				76D13AC214FEF7A700D4C610 /* InAppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

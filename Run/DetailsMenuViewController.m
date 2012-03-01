@@ -106,7 +106,7 @@
         controller.uniqueID = self.uniqueID;
     }
     else if ([[segue identifier] isEqualToString:@"segueDetailsAnalyze"])
-    {
+    {        
         DetailsAnalyzeViewController *controller=[segue destinationViewController];
         controller.delegate=self;
         controller.uniqueID = self.uniqueID;
@@ -129,8 +129,17 @@
     if ( [menuString isEqualToString:@"View Map"] )    
         [self performSegueWithIdentifier:@"segueDetailsMap" sender:self];
     
-    else if ( [menuString isEqualToString:@"Analyze"] )
-        [self performSegueWithIdentifier:@"segueDetailsAnalyze" sender:self];
+    else if ( [menuString isEqualToString:@"Analyze"] ) {
+        
+        // In-App purchasing 
+        InAppManager *inApp = [[InAppManager alloc] init];
+        if ( [inApp alreadyPurchased:@"analyze"] == YES ) {
+            [self performSegueWithIdentifier:@"segueDetailsAnalyze" sender:self];
+        }
+        else {
+            [inApp tryPurchase:@"analyze"];
+        }
+    }
     
     else if ( [menuString isEqualToString:@"Share"] )
         [self performSegueWithIdentifier:@"segueDetailsShare" sender:self];    

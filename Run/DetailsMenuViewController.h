@@ -11,6 +11,7 @@
 #import "DetailsMapViewController.h"
 #import "DetailsAnalyzeViewController.h"
 #import "DetailsShareViewController.h"
+#import "InAppManager.h"
 
 @protocol DetailsMenuViewControllerProtocol <NSObject>
 
