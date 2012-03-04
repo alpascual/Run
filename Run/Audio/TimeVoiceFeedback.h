@@ -14,7 +14,7 @@
 @property (nonatomic) NSTimeInterval nextTimeMark;
 @property (nonatomic,strong) SoundManager *soundManager;
 
-- (void) needToProvideFeedback:(NSString *)setting:(NSTimeInterval)distance;
+- (void) needToProvideFeedback:(NSString *)setting:(NSTimeInterval)timeInterval;
 - (void) setUpMark:(NSTimeInterval)newMark:(BOOL)force;
 
 @end
