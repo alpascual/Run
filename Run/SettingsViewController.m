@@ -120,7 +120,7 @@
     else if (self.lastMenuSelected == 1 ) {
         [subMenu addObject:@"none"];
         [subMenu addObject:@"every 1 mile"];
-        [subMenu addObject:@"every 5K"];
+        //[subMenu addObject:@"every 5K"];
         [subMenu addObject:@"every 5 miles"];
         item.list = subMenu;
         item.mydescription = @"Select when you want an status of your run";

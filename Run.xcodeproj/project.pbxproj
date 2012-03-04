@@ -51,6 +51,7 @@
 		76452BE114E707E100376465 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BE014E707E100376465 /* ProgressViewController.m */; };
 		76452BEC14E735E300376465 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BEB14E735E300376465 /* SoundManager.m */; };
 		76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76452BED14E7362D00376465 /* AudioToolbox.framework */; };
+		76BB0D101503E9FC00BF70FA /* TimeVoiceFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
 		76C7EFC814E63987001EED6E /* SettingsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFC714E63987001EED6E /* SettingsItemViewController.m */; };
@@ -143,6 +144,8 @@
 		76452BEF14E7363F00376465 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		76452BF114E7364C00376465 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		76AA03D114E4E0B600700B8C /* Run.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Run.entitlements; sourceTree = "<group>"; };
+		76BB0D0E1503E9FC00BF70FA /* TimeVoiceFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeVoiceFeedback.h; sourceTree = "<group>"; };
+		76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVoiceFeedback.m; sourceTree = "<group>"; };
 		76C4E34214DEECA1009AF75F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		76C4E34314DEECA1009AF75F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		76C4E34814DEF363009AF75F /* RunProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				76452BEB14E735E300376465 /* SoundManager.m */,
 				763C76BC150326F000E6284B /* DistanceVoiceFeedback.h */,
 				763C76BD150326F000E6284B /* DistanceVoiceFeedback.m */,
+				76BB0D0E1503E9FC00BF70FA /* TimeVoiceFeedback.h */,
+				76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				76452BEC14E735E300376465 /* SoundManager.m in Sources */,
 				76D13AC214FEF7A700D4C610 /* InAppManager.m in Sources */,
 				763C76BE150326F000E6284B /* DistanceVoiceFeedback.m in Sources */,
+				76BB0D101503E9FC00BF70FA /* TimeVoiceFeedback.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

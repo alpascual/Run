@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SoundManager.h"
 
 @interface DistanceVoiceFeedback : NSObject
 
-@property (nonatomic,strong) NSMutableArray *distanceTimeArray;
+@property (nonatomic) double nextDistanceMark;
+@property (nonatomic,strong) SoundManager *soundManager;
 
 - (void) needToProvideFeedback:(NSString *)setting:(double)distance;
+- (void) setUpMark:(double)newMark:(BOOL)force;
 
 @end
