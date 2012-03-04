@@ -101,7 +101,12 @@
     cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
     
     if ( self.selectedString != nil ) {
-         NSLog(@"Selected String %@ and cell %@", self.selectedString, cell.textLabel.text);
+         NSLog(@"Selected String %@ and cell %@ for menu %d", self.selectedString, cell.textLabel.text, self.menuNumber);
+        
+        // Store the menu and the selected item
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.selectedString forKey:[[NSString alloc] initWithFormat:@"%d", self.menuNumber]];
+        [defaults synchronize];
         
         if ( [self.selectedString isEqualToString:cell.textLabel.text] ) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;

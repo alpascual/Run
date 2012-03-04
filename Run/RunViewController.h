@@ -13,6 +13,7 @@
 #import "GpsDatabaseManager.h"
 #import "RunProtocol.h"
 #import "MyAccelerometer.h"
+#import "DistanceVoiceFeedback.h"
 
 @interface RunViewController : UIViewController
 
@@ -42,6 +43,8 @@
 @property (nonatomic, strong) MyAccelerometer *acceleration;
 @property (nonatomic) double avgSpeed;
 @property (nonatomic, strong) IBOutlet UIToolbar *myToolbar;
+
+@property (nonatomic, strong) DistanceVoiceFeedback *voiceFeedback;
 
 
 - (void) startRun;

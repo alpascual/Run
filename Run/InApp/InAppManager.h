@@ -13,6 +13,7 @@
 
 @property (nonatomic,strong) NSString *productCode;
 @property (nonatomic,strong) UIAlertView *alert;
+@property (nonatomic,strong) SKProductsRequest *request;
 
 - (BOOL) alreadyPurchased:(NSString*)productCode;
 - (void) tryPurchase:(NSString*)productCode;

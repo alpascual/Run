@@ -12,6 +12,7 @@
 
 @synthesize productCode = _productCode;
 @synthesize alert = _alert;
+@synthesize request = _request;
 
 - (BOOL) alreadyPurchased:(NSString*)productCode
 {
@@ -49,10 +50,10 @@
     else
     {        
         // Purchase from the store In-App
-        SKProductsRequest *request= [[SKProductsRequest alloc] initWithProductIdentifiers:
+        self.request= [[SKProductsRequest alloc] initWithProductIdentifiers:
                                      [NSSet setWithObject:self.productCode]];
-        request.delegate = self;
-        [request start];        
+        self.request.delegate = self;
+        [self.request start];        
     }
 }
 

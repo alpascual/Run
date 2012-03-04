@@ -32,6 +32,7 @@
 @synthesize avgSpeed = _avgSpeed;
 @synthesize distancePerTime = _distancePerTime;
 @synthesize myToolbar = _myToolbar;
+@synthesize voiceFeedback = _voiceFeedback;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -204,6 +205,12 @@
     NSLog(@"Altitude values is %@", tempAltitude);
     
     self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
+    
+    // voice commands per distance TODO
+    if ( self.voiceFeedback == nil )
+        self.voiceFeedback = [[DistanceVoiceFeedback alloc] init];
+    
+    [self.voiceFeedback needToProvideFeedback:@"1" :self.trackingManager.gpsTotals.distanceTotal];
     
     self.gpsAccuracy.text = [[NSString alloc] initWithFormat:@"%.2f gps acc.", self.trackingManager.gpsTotals.accuracy];
     
