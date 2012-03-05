@@ -33,6 +33,7 @@
 @synthesize distancePerTime = _distancePerTime;
 @synthesize myToolbar = _myToolbar;
 @synthesize voiceFeedback = _voiceFeedback;
+@synthesize timeFeedback = _timeFeedback;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -206,7 +207,7 @@
     
     self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
     
-    // voice commands per distance TODO
+    // voice commands per distance
     if ( self.voiceFeedback == nil )
         self.voiceFeedback = [[DistanceVoiceFeedback alloc] init];
     
@@ -222,6 +223,12 @@
     minutes = -minutes;
     NSInteger hours = (ti / 3600);
     hours = -hours;
+    
+    // voice time feedback
+    if ( self.timeFeedback == nil )
+        self.timeFeedback = [[TimeVoiceFeedback alloc] init];
+    
+    [self.timeFeedback needToProvideFeedback:@"2" :timeInterval];
     
     // For saving
     self.trackingManager.gpsTotals.totalTimeHours = hours;

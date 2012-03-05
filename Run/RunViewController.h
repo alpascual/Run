@@ -14,6 +14,7 @@
 #import "RunProtocol.h"
 #import "MyAccelerometer.h"
 #import "DistanceVoiceFeedback.h"
+#import "TimeVoiceFeedback.h"
 
 @interface RunViewController : UIViewController
 
@@ -45,6 +46,7 @@
 @property (nonatomic, strong) IBOutlet UIToolbar *myToolbar;
 
 @property (nonatomic, strong) DistanceVoiceFeedback *voiceFeedback;
+@property (nonatomic, strong) TimeVoiceFeedback *timeFeedback;
 
 
 - (void) startRun;
