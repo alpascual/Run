@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MPMediaQuery.h>
+#import <MediaPlayer/MPMediaPlaylist.h>
 
 #import "RunProtocol.h"
 #import "SettingsItemViewController.h"
+
 
 @interface SettingsViewController : UIViewController <ItemProtocol>
 

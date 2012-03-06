@@ -113,6 +113,13 @@
     item.delegate = self;
     if ( self.lastMenuSelected == 0 ) {
         [subMenu addObject:@"none"];
+        //grab the list of playlists
+        MPMediaQuery *playlistsQuery = [MPMediaQuery playlistsQuery];
+        NSArray *tmpPlaylist = [[NSArray alloc] initWithArray:[playlistsQuery collections]];
+        NSLog(@"Playlist items %d", tmpPlaylist.count);
+        for (MPMediaPlaylist *item in tmpPlaylist) {             
+             [subMenu addObject:[item valueForProperty: MPMediaPlaylistPropertyName]];
+        }        
         item.list = subMenu;
         item.mydescription = @"Select the playlist of music you want to play while running";
         item.menuNumber = self.lastMenuSelected;
