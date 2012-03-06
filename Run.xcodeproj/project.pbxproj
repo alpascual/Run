@@ -62,6 +62,7 @@
 		76CA2A1414DF7F79000C6B4F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA2A1314DF7F78000C6B4F /* AboutViewController.m */; };
 		76D13AC214FEF7A700D4C610 /* InAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D13AC114FEF7A700D4C610 /* InAppManager.m */; };
 		76D13AC814FEF84300D4C610 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D13AC714FEF84300D4C610 /* StoreKit.framework */; };
+		76F6F2F21505D12C003B0D9F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76452BEF14E7363F00376465 /* CoreAudio.framework */; };
 		8874B3FD14E0B57600ADA7C3 /* route61logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */; };
 		8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */; };
 		8874B40B14E1BAF100ADA7C3 /* DetailsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40A14E1BAF100ADA7C3 /* DetailsMapViewController.m */; };
@@ -111,6 +112,7 @@
 		761849D814DBA82000F84561 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		761849D914DBA82000F84561 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		761849DA14DBA82000F84561 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		761FF4E01505CCEF002E3C22 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		76310BDC14D7AD7D0084D06A /* redgradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redgradient.jpg; sourceTree = "<group>"; };
 		76310BE414D7AFAE0084D06A /* ASBSparkLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBSparkLineView.h; sourceTree = "<group>"; };
 		76310BE514D7AFAE0084D06A /* ASBSparkLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBSparkLineView.m; sourceTree = "<group>"; };
@@ -201,6 +203,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F6F2F21505D12C003B0D9F /* CoreAudio.framework in Frameworks */,
+				761FF4E11505CCEF002E3C22 /* MediaPlayer.framework in Frameworks */,
 				76D13AC814FEF84300D4C610 /* StoreKit.framework in Frameworks */,
 				76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */,
 				8874B41414E1C57300ADA7C3 /* MapKit.framework in Frameworks */,
@@ -355,6 +359,7 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				761FF4E01505CCEF002E3C22 /* MediaPlayer.framework */,
 				76D13AC714FEF84300D4C610 /* StoreKit.framework */,
 				76452BF114E7364C00376465 /* AudioUnit.framework */,
 				76452BEF14E7363F00376465 /* CoreAudio.framework */,
