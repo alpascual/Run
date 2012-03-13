@@ -132,14 +132,15 @@
     
     else if ( [menuString isEqualToString:@"Analyze"] ) {
         
+        // TODO enable it back
         // In-App purchasing 
-        self.inApp = [[InAppManager alloc] init];
-        if ( [self.inApp alreadyPurchased:@"analyze"] == YES ) {
+        //self.inApp = [[InAppManager alloc] init];
+        //if ( [self.inApp alreadyPurchased:@"analyze"] == YES ) {
             [self performSegueWithIdentifier:@"segueDetailsAnalyze" sender:self];
-        }
-        else {
-            [self.inApp tryPurchase:@"analyze"];
-        }
+        //}
+        //else {
+        //    [self.inApp tryPurchase:@"analyze"];
+        //}
     }
     
     else if ( [menuString isEqualToString:@"Share"] )

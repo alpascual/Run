@@ -16,5 +16,6 @@
 
 - (void) needToProvideFeedback:(NSString *)setting:(NSTimeInterval)timeInterval;
 - (void) setUpMark:(NSTimeInterval)newMark:(BOOL)force;
+- (void) checkInternal:(double)mark newInterval:(NSTimeInterval)interval;
 
 @end

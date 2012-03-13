@@ -16,5 +16,6 @@
 
 - (void) needToProvideFeedback:(NSString *)setting:(double)distance;
 - (void) setUpMark:(double)newMark:(BOOL)force;
+- (void) playInternal:(int)minutes newDistance:(double)distance;
 
 @end

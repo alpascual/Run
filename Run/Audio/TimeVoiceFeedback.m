@@ -34,60 +34,34 @@
     //@"every 20 minutes"
     //@"every 30 minutes"
     //@"every 1 hour"
-    
-    //TODO
+   
     if ( [settingsValue isEqualToString:@"every 10 minutes"] == YES ) {
-        [self setUpMark:10 :NO];
-        
-        // Need to talk 
-        if ( timeInterval > self.nextTimeMark ) {
-            // Send the correct audio file 
-            [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextTimeMark ]];
-            [self.soundManager addSoundToQueue:@"minutes"];
-            [self.soundManager playQueue];
-            
-            //set the new mark
-            [self setUpMark:self.nextTimeMark+10 :YES];
-        }
+        [self checkInternal:10 newInterval:timeInterval];
     }
     else if ( [settingsValue isEqualToString:@"every 20 minutes"] == YES ) {
-        [self setUpMark:20 :NO];
-        
-        if ( timeInterval > self.nextTimeMark ) {
-            // Send the correct audio file 
-            [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextTimeMark ]];
-            [self.soundManager addSoundToQueue:@"minutes"];
-            [self.soundManager playQueue];
-            
-            //set the new mark
-            [self setUpMark:self.nextTimeMark+20 :YES];
-        }
+        [self checkInternal:20 newInterval:timeInterval];
     }
     else if ( [settingsValue isEqualToString:@"every 30 minutes"] == YES ) {
-        [self setUpMark:30 :NO];
-        
-        if ( timeInterval > self.nextTimeMark ) {
-            // Send the correct audio file 
-            [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextTimeMark ]];
-            [self.soundManager addSoundToQueue:@"minutes"];
-            [self.soundManager playQueue];
-            
-            //set the new mark
-            [self setUpMark:self.nextTimeMark+30 :YES];
-        }
+        [self checkInternal:30 newInterval:timeInterval];
     }
     else if ( [settingsValue isEqualToString:@"every 60 minutes"] == YES ) {
-        [self setUpMark:60 :NO];
+        [self checkInternal:60 newInterval:timeInterval];
+    }
+}
+
+- (void) checkInternal:(double)mark newInterval:(NSTimeInterval)interval
+{
+    [self setUpMark:mark :NO];
+    
+    // Need to talk 
+    if ( interval > self.nextTimeMark ) {
+        // Send the correct audio file 
+        [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextTimeMark ]];
+        [self.soundManager addSoundToQueue:@"minutes"];
+        [self.soundManager playQueue];
         
-        if ( timeInterval > self.nextTimeMark ) {
-            // Send the correct audio file 
-            [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextTimeMark ]];
-            [self.soundManager addSoundToQueue:@"minutes"];
-            [self.soundManager playQueue];
-            
-            //set the new mark
-            [self setUpMark:self.nextTimeMark+60 :YES];
-        }
+        //set the new mark
+        [self setUpMark:self.nextTimeMark+mark :YES];
     }
 }
 

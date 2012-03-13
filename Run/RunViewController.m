@@ -34,6 +34,7 @@
 @synthesize myToolbar = _myToolbar;
 @synthesize voiceFeedback = _voiceFeedback;
 @synthesize timeFeedback = _timeFeedback;
+@synthesize playlistFeedback = _playlistFeedback;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -137,7 +138,10 @@
     
     self.myToolbar.hidden = YES;
     
+    if ( self.playlistFeedback == nil)
+        self.playlistFeedback = [[playListFeedback alloc] init];
     
+    [self.playlistFeedback playIfNeeded];
 }
 
 - (void) stopRun {    
@@ -158,6 +162,8 @@
     self.acceleration = nil;
     
     self.myToolbar.hidden = NO;
+    
+    [self.playlistFeedback stopIfNeeded];
 }
 
 
@@ -211,7 +217,7 @@
     if ( self.voiceFeedback == nil )
         self.voiceFeedback = [[DistanceVoiceFeedback alloc] init];
     
-    [self.voiceFeedback needToProvideFeedback:@"1" :self.trackingManager.gpsTotals.distanceTotal];
+    [self.voiceFeedback needToProvideFeedback:@"setting1" :self.trackingManager.gpsTotals.distanceTotal];
     
     self.gpsAccuracy.text = [[NSString alloc] initWithFormat:@"%.2f gps acc.", self.trackingManager.gpsTotals.accuracy];
     
@@ -228,7 +234,7 @@
     if ( self.timeFeedback == nil )
         self.timeFeedback = [[TimeVoiceFeedback alloc] init];
     
-    [self.timeFeedback needToProvideFeedback:@"2" :timeInterval];
+    [self.timeFeedback needToProvideFeedback:@"setting2" :timeInterval];
     
     // For saving
     self.trackingManager.gpsTotals.totalTimeHours = hours;

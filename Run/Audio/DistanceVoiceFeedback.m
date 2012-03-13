@@ -36,35 +36,27 @@
     //@"every 5 miles"
     
     if ( [settingsValue isEqualToString:@"every 1 mile"] == YES ) {
-        [self setUpMark:1 :NO];
-        
-        // Need to talk 
-        if ( distance > self.nextDistanceMark ) {
-            // Send the correct audio file 
-            [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextDistanceMark ]];
-            [self.soundManager addSoundToQueue:@"miles"];
-            [self.soundManager playQueue];
-            
-            //set the new mark
-            [self setUpMark:self.nextDistanceMark+1 :YES];
-        }
+        [self playInternal:1 newDistance:distance];
     }
     else if ( [settingsValue isEqualToString:@"every 5 miles"] == YES ) {
-        [self setUpMark:5 :NO];
-        
-        if ( distance > self.nextDistanceMark ) {
-            // Send the correct audio file 
-            [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextDistanceMark ]];
-            [self.soundManager addSoundToQueue:@"miles"];
-            [self.soundManager playQueue];
-            
-            //set the new mark
-            [self setUpMark:self.nextDistanceMark+5 :YES];
-        }
+        [self playInternal:5 newDistance:distance];
     }
     
 }
 
+- (void) playInternal:(int)minutes newDistance:(double)distance {
+    [self setUpMark:minutes :NO];
+    
+    if ( distance > self.nextDistanceMark ) {
+        // Send the correct audio file 
+        [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextDistanceMark ]];
+        [self.soundManager addSoundToQueue:@"miles"];
+        [self.soundManager playQueue];
+        
+        //set the new mark
+        [self setUpMark:self.nextDistanceMark+minutes :YES];
+    }
+}
 
 - (void) setUpMark:(double)newMark:(BOOL)force {
     if ( self.nextDistanceMark == 0 )

@@ -53,9 +53,9 @@
     [self.settingList addObject:@"Music Playlist"];
     [self.settingList addObject:@"Voice Feedback by Distance"];
     [self.settingList addObject:@"Voice Feedback by Time"];
-    [self.settingList addObject:@"Distance Units"];
-    [self.settingList addObject:@"Alert if I am too slow"];
-    [self.settingList addObject:@"Stop music if I stop"];
+    //[self.settingList addObject:@"Distance Units"];
+    //[self.settingList addObject:@"Alert if I am too slow"];
+    //[self.settingList addObject:@"Stop music if I stop"];
     
     [self.tableView reloadData];
 }
@@ -113,13 +113,9 @@
     item.delegate = self;
     if ( self.lastMenuSelected == 0 ) {
         [subMenu addObject:@"none"];
-        //grab the list of playlists
-        MPMediaQuery *playlistsQuery = [MPMediaQuery playlistsQuery];
-        NSArray *tmpPlaylist = [[NSArray alloc] initWithArray:[playlistsQuery collections]];
-        NSLog(@"Playlist items %d", tmpPlaylist.count);
-        for (MPMediaPlaylist *item in tmpPlaylist) {             
-             [subMenu addObject:[item valueForProperty: MPMediaPlaylistPropertyName]];
-        }        
+        // TODO, list playlist
+        playListFeedback *playlist = [[playListFeedback alloc] init];
+        [subMenu addObjectsFromArray:[playlist rerieveList]];
         item.list = subMenu;
         item.mydescription = @"Select the playlist of music you want to play while running";
         item.menuNumber = self.lastMenuSelected;

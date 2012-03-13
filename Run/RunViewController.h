@@ -15,6 +15,7 @@
 #import "MyAccelerometer.h"
 #import "DistanceVoiceFeedback.h"
 #import "TimeVoiceFeedback.h"
+#import "playListFeedback.h"
 
 @interface RunViewController : UIViewController
 
@@ -47,6 +48,7 @@
 
 @property (nonatomic, strong) DistanceVoiceFeedback *voiceFeedback;
 @property (nonatomic, strong) TimeVoiceFeedback *timeFeedback;
+@property (nonatomic, strong) playListFeedback *playlistFeedback;
 
 
 - (void) startRun;
