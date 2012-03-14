@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MPMediaQuery.h>
 #import <MediaPlayer/MPMediaPlaylist.h>
+#import <MediaPlayer/MPMusicPlayerController.h>
 
 @interface playListFeedback : NSObject
 
-- (void) needToStartMusic:(NSString *)setting;
+@property (nonatomic, strong) MPMusicPlayerController *appPlayer;
+
+- (void) needToStartMusicPrivate:(NSString *)setting;
 - (void) playIfNeeded;
 - (void) stopIfNeeded;
 - (NSString *) whatPlaylist;

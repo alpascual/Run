@@ -63,6 +63,9 @@
 		76D13AC214FEF7A700D4C610 /* InAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D13AC114FEF7A700D4C610 /* InAppManager.m */; };
 		76D13AC814FEF84300D4C610 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D13AC714FEF84300D4C610 /* StoreKit.framework */; };
 		76DCAD6C150F107D00EB2024 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DCAD6B150F107D00EB2024 /* MediaPlayer.framework */; };
+		76F118BF151048F3007841B1 /* 30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BC151048F3007841B1 /* 30.wav */; };
+		76F118C0151048F3007841B1 /* 40.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BD151048F3007841B1 /* 40.wav */; };
+		76F118C1151048F3007841B1 /* 50.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BE151048F3007841B1 /* 50.wav */; };
 		8874B3FD14E0B57600ADA7C3 /* route61logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */; };
 		8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */; };
 		8874B40B14E1BAF100ADA7C3 /* DetailsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40A14E1BAF100ADA7C3 /* DetailsMapViewController.m */; };
@@ -167,6 +170,9 @@
 		76D13AC114FEF7A700D4C610 /* InAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppManager.m; sourceTree = "<group>"; };
 		76D13AC714FEF84300D4C610 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		76DCAD6B150F107D00EB2024 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		76F118BC151048F3007841B1 /* 30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 30.wav; sourceTree = "<group>"; };
+		76F118BD151048F3007841B1 /* 40.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 40.wav; sourceTree = "<group>"; };
+		76F118BE151048F3007841B1 /* 50.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 50.wav; sourceTree = "<group>"; };
 		8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route61logo1.jpg; sourceTree = "<group>"; };
 		8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMenuViewController.h; sourceTree = "<group>"; };
 		8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMenuViewController.m; sourceTree = "<group>"; };
@@ -224,6 +230,9 @@
 		760F98C714FF32CE0027ED83 /* AudioFiles */ = {
 			isa = PBXGroup;
 			children = (
+				76F118BC151048F3007841B1 /* 30.wav */,
+				76F118BD151048F3007841B1 /* 40.wav */,
+				76F118BE151048F3007841B1 /* 50.wav */,
 				760F98C814FF32CE0027ED83 /* 1.wav */,
 				760F98C914FF32CE0027ED83 /* 10.wav */,
 				760F98CA14FF32CE0027ED83 /* 11.wav */,
@@ -544,6 +553,9 @@
 				760F98ED14FF32CE0027ED83 /* 7.wav in Resources */,
 				760F98EE14FF32CE0027ED83 /* 8.wav in Resources */,
 				760F98EF14FF32CE0027ED83 /* 9.wav in Resources */,
+				76F118BF151048F3007841B1 /* 30.wav in Resources */,
+				76F118C0151048F3007841B1 /* 40.wav in Resources */,
+				76F118C1151048F3007841B1 /* 50.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

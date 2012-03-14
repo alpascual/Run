@@ -213,11 +213,7 @@
     
     self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
     
-    // voice commands per distance
-    if ( self.voiceFeedback == nil )
-        self.voiceFeedback = [[DistanceVoiceFeedback alloc] init];
     
-    [self.voiceFeedback needToProvideFeedback:@"setting1" :self.trackingManager.gpsTotals.distanceTotal];
     
     self.gpsAccuracy.text = [[NSString alloc] initWithFormat:@"%.2f gps acc.", self.trackingManager.gpsTotals.accuracy];
     
@@ -230,9 +226,15 @@
     NSInteger hours = (ti / 3600);
     hours = -hours;
     
+    // voice commands per distance
+    if ( self.voiceFeedback == nil )
+        self.voiceFeedback = [[DistanceVoiceFeedback alloc] init];
+    
+    [self.voiceFeedback needToProvideFeedback:@"setting1" :self.trackingManager.gpsTotals.distanceTotal];
+    
     // voice time feedback
     if ( self.timeFeedback == nil )
-        self.timeFeedback = [[TimeVoiceFeedback alloc] init];
+        self.timeFeedback = [[TimeVoiceFeedback alloc] init];  
     
     [self.timeFeedback needToProvideFeedback:@"setting2" :timeInterval];
     
