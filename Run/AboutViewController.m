@@ -63,4 +63,8 @@
     [self.delegate FinishAbout];
 }
 
+- (IBAction)sendFeedback:(id)sender {
+    //TODO send email after pressing the button.
+}
+
 @end
