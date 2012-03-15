@@ -12,6 +12,7 @@
 
 @synthesize nextDistanceMark = _nextDistanceMark;
 @synthesize soundManager = _soundManager;
+@synthesize playInternetSound = _playInternetSound;
 
 - (void) needToProvideFeedback:(NSString *)setting totalDistance:(double)distance totalTime:(NSTimeInterval)mytime {
 
@@ -48,6 +49,14 @@
     [self setUpMark:minutes :NO];
     
     if ( distance > self.nextDistanceMark ) {
+        
+        if ( self.playInternetSound == nil ) {
+            self.playInternetSound = [[PlayInternetSound alloc] init];
+        }
+        [self.playInternetSound playOneSound:[[NSString alloc] initWithFormat:@"http://translate.google.com/translate_tts?q=You runned %d miles with the time of %d minutes", self.nextDistanceMark, minutes]];
+        return;
+        
+        // Disabled for now
         // Send the correct audio file 
         // pass each number char by char
         // Convert to string and get characters

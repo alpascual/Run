@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SoundManager.h"
+#import "PlayInternetSound.h"
 
 @interface DistanceVoiceFeedback : NSObject
 
 @property (nonatomic) double nextDistanceMark;
 @property (nonatomic,strong) SoundManager *soundManager;
+@property (nonatomic,strong) PlayInternetSound *playInternetSound;
 
 - (void) needToProvideFeedback:(NSString *)setting totalDistance:(double)distance totalTime:(NSTimeInterval)mytime;
 - (void) setUpMark:(double)newMark:(BOOL)force;

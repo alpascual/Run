@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "SoundManager.h"
+#import "PlayInternetSound.h"
 
 @interface TimeVoiceFeedback : NSObject
 
 @property (nonatomic) NSTimeInterval nextTimeMark;
 @property (nonatomic,strong) SoundManager *soundManager;
+@property (nonatomic,strong) PlayInternetSound *playInternetSound;
 
 - (void) needToProvideFeedback:(NSString *)setting totalDistance:(double)distance totalTime:(NSTimeInterval)timeInterval;
 - (void) setUpMark:(NSTimeInterval)newMark:(BOOL)force;
-- (void) checkInternal:(double)mark newInterval:(NSTimeInterval)interval;
+- (void) checkInternal:(double)mark newInterval:(NSTimeInterval)interval distance:(double)dis;
 
 @end

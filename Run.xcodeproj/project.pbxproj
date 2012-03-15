@@ -28,6 +28,11 @@
 		760F98ED14FF32CE0027ED83 /* 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 760F98D914FF32CE0027ED83 /* 7.wav */; };
 		760F98EE14FF32CE0027ED83 /* 8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 760F98DA14FF32CE0027ED83 /* 8.wav */; };
 		760F98EF14FF32CE0027ED83 /* 9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 760F98DB14FF32CE0027ED83 /* 9.wav */; };
+		76132D6D1511A8B900AE5FA1 /* PlayInternetSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 76132D6C1511A8B900AE5FA1 /* PlayInternetSound.m */; };
+		76132D701511AD5F00AE5FA1 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76132D6F1511AD5F00AE5FA1 /* AudioStreamer.m */; };
+		76132D7A1511B45F00AE5FA1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76132D791511B45F00AE5FA1 /* CFNetwork.framework */; };
+		76132D7D1511B4C000AE5FA1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76452BEF14E7363F00376465 /* CoreAudio.framework */; };
+		76132D7F1511B4C700AE5FA1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76132D7E1511B4C700AE5FA1 /* AVFoundation.framework */; };
 		761849CB14DB808B00F84561 /* DistancePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 761849CA14DB808B00F84561 /* DistancePoint.m */; };
 		761849CE14DB851600F84561 /* GpsTotals.m in Sources */ = {isa = PBXBuildFile; fileRef = 761849CD14DB851600F84561 /* GpsTotals.m */; };
 		761849DC14DBA82000F84561 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 761849D814DBA82000F84561 /* Icon-72.png */; };
@@ -110,6 +115,12 @@
 		760F98D914FF32CE0027ED83 /* 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.wav; sourceTree = "<group>"; };
 		760F98DA14FF32CE0027ED83 /* 8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8.wav; sourceTree = "<group>"; };
 		760F98DB14FF32CE0027ED83 /* 9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9.wav; sourceTree = "<group>"; };
+		76132D6B1511A8B900AE5FA1 /* PlayInternetSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayInternetSound.h; sourceTree = "<group>"; };
+		76132D6C1511A8B900AE5FA1 /* PlayInternetSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayInternetSound.m; sourceTree = "<group>"; };
+		76132D6E1511AD5F00AE5FA1 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		76132D6F1511AD5F00AE5FA1 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		76132D791511B45F00AE5FA1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		76132D7E1511B4C700AE5FA1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		761849C914DB808B00F84561 /* DistancePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePoint.h; sourceTree = "<group>"; };
 		761849CA14DB808B00F84561 /* DistancePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePoint.m; sourceTree = "<group>"; };
 		761849CC14DB851600F84561 /* GpsTotals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsTotals.h; sourceTree = "<group>"; };
@@ -211,6 +222,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76132D7F1511B4C700AE5FA1 /* AVFoundation.framework in Frameworks */,
+				76132D7D1511B4C000AE5FA1 /* CoreAudio.framework in Frameworks */,
+				76132D7A1511B45F00AE5FA1 /* CFNetwork.framework in Frameworks */,
 				76DCAD6C150F107D00EB2024 /* MediaPlayer.framework in Frameworks */,
 				76D13AC814FEF84300D4C610 /* StoreKit.framework in Frameworks */,
 				76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */,
@@ -308,6 +322,10 @@
 		76452BE214E734DE00376465 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				76132D6E1511AD5F00AE5FA1 /* AudioStreamer.h */,
+				76132D6F1511AD5F00AE5FA1 /* AudioStreamer.m */,
+				76132D6B1511A8B900AE5FA1 /* PlayInternetSound.h */,
+				76132D6C1511A8B900AE5FA1 /* PlayInternetSound.m */,
 				76452BE914E735E300376465 /* SoundDelegate.h */,
 				76452BEA14E735E300376465 /* SoundManager.h */,
 				76452BEB14E735E300376465 /* SoundManager.m */,
@@ -371,6 +389,8 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				76132D7E1511B4C700AE5FA1 /* AVFoundation.framework */,
+				76132D791511B45F00AE5FA1 /* CFNetwork.framework */,
 				76DCAD6B150F107D00EB2024 /* MediaPlayer.framework */,
 				76D13AC714FEF84300D4C610 /* StoreKit.framework */,
 				76452BF114E7364C00376465 /* AudioUnit.framework */,
@@ -597,6 +617,8 @@
 				763C76BE150326F000E6284B /* DistanceVoiceFeedback.m in Sources */,
 				76BB0D101503E9FC00BF70FA /* TimeVoiceFeedback.m in Sources */,
 				76084A34150B120900ED46C4 /* playListFeedback.m in Sources */,
+				76132D6D1511A8B900AE5FA1 /* PlayInternetSound.m in Sources */,
+				76132D701511AD5F00AE5FA1 /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
