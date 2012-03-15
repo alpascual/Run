@@ -229,14 +229,14 @@
     // voice commands per distance
     if ( self.voiceFeedback == nil )
         self.voiceFeedback = [[DistanceVoiceFeedback alloc] init];
-    
-    [self.voiceFeedback needToProvideFeedback:@"setting1" :self.trackingManager.gpsTotals.distanceTotal];
+   
+    [self.voiceFeedback needToProvideFeedback:@"setting1" totalDistance:self.trackingManager.gpsTotals.distanceTotal totalTime:timeInterval];
     
     // voice time feedback
     if ( self.timeFeedback == nil )
         self.timeFeedback = [[TimeVoiceFeedback alloc] init];  
     
-    [self.timeFeedback needToProvideFeedback:@"setting2" :timeInterval];
+    [self.timeFeedback needToProvideFeedback:@"setting2" totalDistance:self.trackingManager.gpsTotals.distanceTotal totalTime:timeInterval];
     
     // For saving
     self.trackingManager.gpsTotals.totalTimeHours = hours;

@@ -14,7 +14,7 @@
 @synthesize soundManager = _soundManager;
 
 
-- (void) needToProvideFeedback:(NSString *)setting:(NSTimeInterval)timeInterval {
+- (void) needToProvideFeedback:(NSString *)setting totalDistance:(double)distance totalTime:(NSTimeInterval)timeInterval {
     // Check if enable on settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ( [defaults objectForKey:setting] == nil )

@@ -13,7 +13,7 @@
 @synthesize nextDistanceMark = _nextDistanceMark;
 @synthesize soundManager = _soundManager;
 
-- (void) needToProvideFeedback:(NSString *)setting:(double)distance {
+- (void) needToProvideFeedback:(NSString *)setting totalDistance:(double)distance totalTime:(NSTimeInterval)mytime {
 
     // Check if enable on settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -49,9 +49,22 @@
     
     if ( distance > self.nextDistanceMark ) {
         // Send the correct audio file 
+        // pass each number char by char
+        // Convert to string and get characters
+        NSString *distanceString = [[NSString alloc] initWithFormat:@"%d", self.nextDistanceMark];
+        for (int i=0; i < distanceString.length; i++) {
+            unichar uChar;            
+            [distanceString getCharacters:&uChar range:NSMakeRange(i, 1)];
+            
+            NSString *toPlay = [[NSString alloc] initWithFormat:@"%c", uChar];
+            NSLog(@"character to play %@", toPlay);
+            [self.soundManager addSoundToQueue:toPlay];            
+        }
         [self.soundManager addSoundToQueue:[[NSString alloc] initWithFormat:@"%d",self.nextDistanceMark ]];
         [self.soundManager addSoundToQueue:@"miles"];
         [self.soundManager playQueue];
+        
+        // TODO play the time here
         
         //set the new mark
         [self setUpMark:self.nextDistanceMark+minutes :YES];

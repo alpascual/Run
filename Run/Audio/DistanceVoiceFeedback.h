@@ -14,7 +14,7 @@
 @property (nonatomic) double nextDistanceMark;
 @property (nonatomic,strong) SoundManager *soundManager;
 
-- (void) needToProvideFeedback:(NSString *)setting:(double)distance;
+- (void) needToProvideFeedback:(NSString *)setting totalDistance:(double)distance totalTime:(NSTimeInterval)mytime;
 - (void) setUpMark:(double)newMark:(BOOL)force;
 - (void) playInternal:(int)minutes newDistance:(double)distance;
 
