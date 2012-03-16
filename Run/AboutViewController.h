@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 #import "RunProtocol.h"
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : UIViewController <MFMailComposeViewControllerDelegate>
     
 @property (nonatomic, strong) id <RunProtocol> delegate;
+@property (nonatomic, strong) MFMailComposeViewController *picker;
 
 @end

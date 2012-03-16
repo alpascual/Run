@@ -71,6 +71,7 @@
 		76F118BF151048F3007841B1 /* 30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BC151048F3007841B1 /* 30.wav */; };
 		76F118C0151048F3007841B1 /* 40.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BD151048F3007841B1 /* 40.wav */; };
 		76F118C1151048F3007841B1 /* 50.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BE151048F3007841B1 /* 50.wav */; };
+		76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7C1181512F65E00C8162F /* MessageUI.framework */; };
 		8874B3FD14E0B57600ADA7C3 /* route61logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */; };
 		8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */; };
 		8874B40B14E1BAF100ADA7C3 /* DetailsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40A14E1BAF100ADA7C3 /* DetailsMapViewController.m */; };
@@ -184,6 +185,7 @@
 		76F118BC151048F3007841B1 /* 30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 30.wav; sourceTree = "<group>"; };
 		76F118BD151048F3007841B1 /* 40.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 40.wav; sourceTree = "<group>"; };
 		76F118BE151048F3007841B1 /* 50.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 50.wav; sourceTree = "<group>"; };
+		76F7C1181512F65E00C8162F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route61logo1.jpg; sourceTree = "<group>"; };
 		8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMenuViewController.h; sourceTree = "<group>"; };
 		8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMenuViewController.m; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */,
 				76132D7F1511B4C700AE5FA1 /* AVFoundation.framework in Frameworks */,
 				76132D7D1511B4C000AE5FA1 /* CoreAudio.framework in Frameworks */,
 				76132D7A1511B45F00AE5FA1 /* CFNetwork.framework in Frameworks */,
@@ -389,6 +392,7 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				76F7C1181512F65E00C8162F /* MessageUI.framework */,
 				76132D7E1511B4C700AE5FA1 /* AVFoundation.framework */,
 				76132D791511B45F00AE5FA1 /* CFNetwork.framework */,
 				76DCAD6B150F107D00EB2024 /* MediaPlayer.framework */,

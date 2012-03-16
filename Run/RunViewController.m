@@ -213,8 +213,6 @@
     
     self.miles.text = [[NSString alloc] initWithFormat:@"%.2f mi", self.trackingManager.gpsTotals.distanceTotal];
     
-    
-    
     self.gpsAccuracy.text = [[NSString alloc] initWithFormat:@"%.2f gps acc.", self.trackingManager.gpsTotals.accuracy];
     
     NSTimeInterval timeInterval = [self.start timeIntervalSinceNow];

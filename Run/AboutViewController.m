@@ -11,6 +11,7 @@
 @implementation AboutViewController
 
 @synthesize delegate = _delegate;
+@synthesize picker = _picker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,6 +66,17 @@
 
 - (IBAction)sendFeedback:(id)sender {
     //TODO send email after pressing the button.
+    
+    self.picker = [[MFMailComposeViewController alloc] init];
+    //self.picker.mailComposeDelegate = self;
+    
+    [self.picker setSubject:@"Run Analyzer Feedback!"];
+    
+    // Set up recipients
+    NSArray *toRecipients = [NSArray arrayWithObject:@"alpascual@gmail.com"]; 
+    [self.picker setToRecipients:toRecipients];
+    
+    [self presentModalViewController:self.picker animated:YES];
 }
 
 @end

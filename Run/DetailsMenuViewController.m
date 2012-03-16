@@ -53,7 +53,7 @@
     self.menuArray = [[NSMutableArray alloc] init];
     [self.menuArray addObject:@"View Map"];
     [self.menuArray addObject:@"Analyze"];
-    [self.menuArray addObject:@"Share"];    
+    //[self.menuArray addObject:@"Share"];    
 }
 
 
@@ -134,13 +134,13 @@
         
         // TODO enable it back
         // In-App purchasing 
-        //self.inApp = [[InAppManager alloc] init];
-        //if ( [self.inApp alreadyPurchased:@"analyze"] == YES ) {
+        /*self.inApp = [[InAppManager alloc] init];
+        if ( [self.inApp alreadyPurchased:@"analyze"] == YES ) {*/
             [self performSegueWithIdentifier:@"segueDetailsAnalyze" sender:self];
-        //}
-        //else {
-        //    [self.inApp tryPurchase:@"analyze"];
-        //}
+        /*}
+        else {
+            [self.inApp tryPurchase:@"analyze"];
+        }*/
     }
     
     else if ( [menuString isEqualToString:@"Share"] )

@@ -113,7 +113,7 @@
     item.delegate = self;
     if ( self.lastMenuSelected == 0 ) {
         [subMenu addObject:@"none"];
-        // TODO, list playlist
+        //playlist
         playListFeedback *playlist = [[playListFeedback alloc] init];
         [subMenu addObjectsFromArray:[playlist rerieveList]];
         item.list = subMenu;
