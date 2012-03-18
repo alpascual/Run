@@ -15,6 +15,7 @@
 @synthesize sparkLineViewOverview = _sparkLineViewOverview;
 @synthesize totalTime = _totalTime;
 @synthesize backGroundImageChart = _backGroundImageChart;
+@synthesize timer = _timer;
 
 - (void)didReceiveMemoryWarning
 {
@@ -35,7 +36,13 @@
     [self.menuArray addObject:@"Progress"];
     [self.menuArray addObject:@"About"];
     
-    //TODO call database manager and create the chart if data
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:(1.0) target:self selector:
+                  @selector(buildGraph:) userInfo:nil repeats:NO];
+}
+
+- (void) buildGraph:(NSTimer *)timer {
+    
+    //call database manager and create the chart if data
     GpsDatabaseManager *database = [[GpsDatabaseManager alloc] init];
     NSArray *allSessions = [database getAllSessions];
     if ( allSessions.count > 0)
@@ -64,11 +71,11 @@
         self.sparkLineViewOverview.hidden = YES;
         self.backGroundImageChart.hidden = YES;
     }
-
+    
     // Init the user defaults if none exist
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
     if ( [userDefaults objectForKey:@"setting1"] == nil &&
-         [userDefaults objectForKey:@"setting2"] == nil)
+        [userDefaults objectForKey:@"setting2"] == nil)
     {
         [userDefaults setObject:@"0" forKey:@"setting1"];
         [userDefaults setObject:@"0" forKey:@"setting2"];

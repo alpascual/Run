@@ -51,8 +51,10 @@
     
     self.settingList = [[NSMutableArray alloc] init];
     [self.settingList addObject:@"Music Playlist"];
+    // TODO create In-App for this
     [self.settingList addObject:@"Voice Feedback by Distance"];
     [self.settingList addObject:@"Voice Feedback by Time"];
+    
     //[self.settingList addObject:@"Distance Units"];
     //[self.settingList addObject:@"Alert if I am too slow"];
     //[self.settingList addObject:@"Stop music if I stop"];

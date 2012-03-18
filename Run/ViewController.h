@@ -25,4 +25,6 @@
 @property (nonatomic, strong) NSMutableArray *totalTime;
 @property (nonatomic, strong) IBOutlet UIImageView *backGroundImageChart;
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
