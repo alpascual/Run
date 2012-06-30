@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <MapKit/MapKit.h>
 
 @implementation AppDelegate
 
@@ -15,6 +16,50 @@
 
 //iCloud info
 //http://goddess-gate.com/dc2/index.php/post/452
+
+
+// For iOS 6
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    // TODO, send to create a route to run?
+    
+    // Are we being launched by Maps to show a route?
+    /*if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
+        
+        MKDirectionsRequest *request = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
+        MKMapItem *startItem = [request source];
+        MKMapItem *endItem = [request destination];
+        
+        AGSPoint *startPoint = nil;
+        AGSPoint *endPoint = nil;
+        
+        if ([startItem isCurrentLocation]) {
+            
+            endPoint = [self convertCoordinatesToPoint:endItem.placemark.coordinate];
+            
+           
+            
+        } else if ([endItem isCurrentLocation]) {
+            
+            startPoint = [self convertCoordinatesToPoint:startItem.placemark.coordinate];
+            
+           
+            
+        } else {
+            
+            endPoint = [self convertCoordinatesToPoint:endItem.placemark.coordinate];            
+            startPoint = [self convertCoordinatesToPoint:startItem.placemark.coordinate];
+            
+                     
+        }
+        
+        [self.routeDelegate appleMapsCalled:startPoint withEnd:endPoint];
+        
+        return YES;
+    }*/
+    
+    return NO;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
