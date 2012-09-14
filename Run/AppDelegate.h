@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TrackingManager.h"
+#import "SVStatusHUD.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

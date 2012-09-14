@@ -207,4 +207,12 @@
 	return retVal;
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+         didEnterRegion:(CLRegion *)region {
+    NSLog(@"Did Enter Region");
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Arrived" message:@"You have arrived to your destination" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+}
+
 @end

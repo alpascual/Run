@@ -75,6 +75,14 @@
     self.trackingManager = [[TrackingManager alloc] init];
     self.trackingManager.bStarted = NO;
     [self.trackingManager startUpTracking];
+    
+    // add region if needed
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    CLRegion *myRegion = [defaults objectForKey:@"endPoint"];
+
+    CLLocationAccuracy accuracy = 1.0;
+    [self.trackingManager.locMgr startMonitoringForRegion:myRegion desiredAccuracy:accuracy];
+    
 }
 
 

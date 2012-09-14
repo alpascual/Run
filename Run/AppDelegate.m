@@ -18,45 +18,59 @@
 //http://goddess-gate.com/dc2/index.php/post/452
 
 
-// For iOS 6
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    // TODO, send to create a route to run?
-    
     // Are we being launched by Maps to show a route?
-    /*if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
+    if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
         
+        // Decode the directions request from the launch URL.
         MKDirectionsRequest *request = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
         MKMapItem *startItem = [request source];
         MKMapItem *endItem = [request destination];
         
-        AGSPoint *startPoint = nil;
-        AGSPoint *endPoint = nil;
+//        AGSPoint *startPoint = nil;
+//        AGSPoint *endPoint = nil;
+        CLLocationCoordinate2D endPoint;
         
         if ([startItem isCurrentLocation]) {
             
-            endPoint = [self convertCoordinatesToPoint:endItem.placemark.coordinate];
+            //endPoint = [self convertCoordinatesToPoint:endItem.placemark.coordinate];
             
-           
+            // Get directions to end place from current location.
+            //            MyPlace *endPlace = [[MyPlace alloc] initWithName:endItem.name coordinate:endItem.placemark.coordinate];
+            //            [self.mapViewController routeFromCurrentLocationToPlace:endPlace];
             
         } else if ([endItem isCurrentLocation]) {
             
-            startPoint = [self convertCoordinatesToPoint:startItem.placemark.coordinate];
+            //startPoint = [self convertCoordinatesToPoint:startItem.placemark.coordinate];
             
-           
+            // Get directions from start place to current location.
+            //            MyPlace *startPlace = [[MyPlace alloc] initWithName:startItem.name coordinate:startItem.placemark.coordinate];
+            //            [self.mapViewController routeFromPlaceToCurrentLocation:startPlace];
             
         } else {
             
-            endPoint = [self convertCoordinatesToPoint:endItem.placemark.coordinate];            
-            startPoint = [self convertCoordinatesToPoint:startItem.placemark.coordinate];
+            endPoint = endItem.placemark.coordinate;
+            //startPoint = [self convertCoordinatesToPoint:startItem.placemark.coordinate];
             
-                     
+            // Get directions between the start and end location.
+            //            MyPlace *startPlace = [[MyPlace alloc] initWithName:startItem.name coordinate:startItem.placemark.coordinate];
+            //            MyPlace *endPlace = [[MyPlace alloc] initWithName:endItem.name coordinate:endItem.placemark.coordinate];
+            //            [self.mapViewController routeFromPlace:startPlace toPlace:endPlace];
         }
         
-        [self.routeDelegate appleMapsCalled:startPoint withEnd:endPoint];
+        // Adding a callout to the user and save the point
+        // Add a Region Here and show a callout
+        CLRegion *myRegion = [[CLRegion alloc] initCircularRegionWithCenter:endPoint radius:2 identifier:@"RunEnd"];
+        [SVStatusHUD showWithoutImage:@"Region saved"];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:myRegion forKey:@"endPoint"];
+        [defaults synchronize];
         
         return YES;
-    }*/
+    }
     
     return NO;
 }
