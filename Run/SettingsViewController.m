@@ -112,7 +112,13 @@
     NSMutableArray *subMenu = [[NSMutableArray alloc] init];
     
     SettingsItemViewController  *item = [segue destinationViewController];
-    item.delegate = self;
+    @try {
+        item.delegate = self;
+    }
+    @catch (NSException *exception) {
+        return;
+    }
+    
     if ( self.lastMenuSelected == 0 ) {
         [subMenu addObject:@"none"];
         //playlist

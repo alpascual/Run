@@ -192,7 +192,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {   
     DetailsMenuViewController *controller=[segue destinationViewController];
-    controller.delegate=self;
+    
+    @try {
+        controller.delegate=self;
+    }
+    @catch (NSException *exception) {
+        return;
+    }
+    
     controller.uniqueID = self.uniqueIDForSegue;
 }
 
