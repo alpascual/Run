@@ -38,6 +38,12 @@
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:(1.0) target:self selector:
                   @selector(buildGraph:) userInfo:nil repeats:NO];
+    
+    // Send them to the map if default exist
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ( [defaults objectForKey:@"endItem"] != nil )
+        [self performSegueWithIdentifier:@"segueMap" sender:self];
+    
 }
 
 - (void) buildGraph:(NSTimer *)timer {

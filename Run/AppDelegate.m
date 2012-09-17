@@ -67,6 +67,7 @@
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:myRegion forKey:@"endPoint"];
+        [defaults setObject:endItem forKey:@"endItem"];
         [defaults synchronize];
         
         return YES;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		76084A34150B120900ED46C4 /* playListFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 76084A33150B120900ED46C4 /* playListFeedback.m */; };
+		760ED9E2160432AE00A98F56 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 760ED9E1160432AE00A98F56 /* MapViewController.m */; };
 		760F98DC14FF32CE0027ED83 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 760F98C814FF32CE0027ED83 /* 1.wav */; };
 		760F98DD14FF32CE0027ED83 /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 760F98C914FF32CE0027ED83 /* 10.wav */; };
 		760F98DE14FF32CE0027ED83 /* 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 760F98CA14FF32CE0027ED83 /* 11.wav */; };
@@ -98,6 +99,8 @@
 /* Begin PBXFileReference section */
 		76084A32150B120900ED46C4 /* playListFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playListFeedback.h; sourceTree = "<group>"; };
 		76084A33150B120900ED46C4 /* playListFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playListFeedback.m; sourceTree = "<group>"; };
+		760ED9E0160432AE00A98F56 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		760ED9E1160432AE00A98F56 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		760F98C814FF32CE0027ED83 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
 		760F98C914FF32CE0027ED83 /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
 		760F98CA14FF32CE0027ED83 /* 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11.wav; sourceTree = "<group>"; };
@@ -464,6 +467,8 @@
 				8874B40814E1B9F700ADA7C3 /* History Details */,
 				76452BDF14E707E100376465 /* ProgressViewController.h */,
 				76452BE014E707E100376465 /* ProgressViewController.m */,
+				760ED9E0160432AE00A98F56 /* MapViewController.h */,
+				760ED9E1160432AE00A98F56 /* MapViewController.m */,
 			);
 			path = Run;
 			sourceTree = "<group>";
@@ -631,6 +636,7 @@
 				76084A34150B120900ED46C4 /* playListFeedback.m in Sources */,
 				76132D6D1511A8B900AE5FA1 /* PlayInternetSound.m in Sources */,
 				76132D701511AD5F00AE5FA1 /* AudioStreamer.m in Sources */,
+				760ED9E2160432AE00A98F56 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

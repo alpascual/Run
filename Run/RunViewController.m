@@ -79,9 +79,13 @@
     // add region if needed
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     CLRegion *myRegion = [defaults objectForKey:@"endPoint"];
-
-    CLLocationAccuracy accuracy = 1.0;
-    [self.trackingManager.locMgr startMonitoringForRegion:myRegion desiredAccuracy:accuracy];
+    if ( myRegion != nil) {        
+        CLLocationAccuracy accuracy = 1.0;
+        [self.trackingManager.locMgr startMonitoringForRegion:myRegion desiredAccuracy:accuracy];
+        
+        [defaults removeObjectForKey:@"endPoint"];
+        [defaults synchronize];
+    }
     
 }
 
