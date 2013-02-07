@@ -68,7 +68,7 @@
     //TODO send email after pressing the button.
     
     self.picker = [[MFMailComposeViewController alloc] init];
-    //self.picker.mailComposeDelegate = self;
+    self.picker.mailComposeDelegate = self;
     
     [self.picker setSubject:@"Run Analyzer Feedback!"];
     
@@ -77,6 +77,11 @@
     [self.picker setToRecipients:toRecipients];
     
     [self presentModalViewController:self.picker animated:YES];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissModalViewControllerAnimated:YES];
 }
 
 @end
