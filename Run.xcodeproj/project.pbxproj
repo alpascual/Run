@@ -75,6 +75,10 @@
 		76F118C0151048F3007841B1 /* 40.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BD151048F3007841B1 /* 40.wav */; };
 		76F118C1151048F3007841B1 /* 50.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76F118BE151048F3007841B1 /* 50.wav */; };
 		76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7C1181512F65E00C8162F /* MessageUI.framework */; };
+		8808335F1794956500CF5C8D /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8808335E1794956500CF5C8D /* PebbleKit.framework */; };
+		880833611794956F00CF5C8D /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880833601794956F00CF5C8D /* PebbleVendor.framework */; };
+		880833631794A4DB00CF5C8D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880833621794A4DB00CF5C8D /* CoreBluetooth.framework */; };
+		880833651794A50000CF5C8D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880833641794A50000CF5C8D /* ExternalAccessory.framework */; };
 		8874B3FD14E0B57600ADA7C3 /* route61logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */; };
 		8874B40514E18BE000ADA7C3 /* DetailsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */; };
 		8874B40B14E1BAF100ADA7C3 /* DetailsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874B40A14E1BAF100ADA7C3 /* DetailsMapViewController.m */; };
@@ -193,6 +197,10 @@
 		76F118BD151048F3007841B1 /* 40.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 40.wav; sourceTree = "<group>"; };
 		76F118BE151048F3007841B1 /* 50.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 50.wav; sourceTree = "<group>"; };
 		76F7C1181512F65E00C8162F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8808335E1794956500CF5C8D /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleKit.framework; sourceTree = "<group>"; };
+		880833601794956F00CF5C8D /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleVendor.framework; sourceTree = "<group>"; };
+		880833621794A4DB00CF5C8D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		880833641794A50000CF5C8D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		8874B3FC14E0B57600ADA7C3 /* route61logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route61logo1.jpg; sourceTree = "<group>"; };
 		8874B40314E18BE000ADA7C3 /* DetailsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMenuViewController.h; sourceTree = "<group>"; };
 		8874B40414E18BE000ADA7C3 /* DetailsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMenuViewController.m; sourceTree = "<group>"; };
@@ -231,7 +239,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880833651794A50000CF5C8D /* ExternalAccessory.framework in Frameworks */,
 				76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */,
+				880833631794A4DB00CF5C8D /* CoreBluetooth.framework in Frameworks */,
+				880833611794956F00CF5C8D /* PebbleVendor.framework in Frameworks */,
+				8808335F1794956500CF5C8D /* PebbleKit.framework in Frameworks */,
 				76132D7F1511B4C700AE5FA1 /* AVFoundation.framework in Frameworks */,
 				76132D7D1511B4C000AE5FA1 /* CoreAudio.framework in Frameworks */,
 				76132D7A1511B45F00AE5FA1 /* CFNetwork.framework in Frameworks */,
@@ -399,6 +411,10 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				880833641794A50000CF5C8D /* ExternalAccessory.framework */,
+				880833621794A4DB00CF5C8D /* CoreBluetooth.framework */,
+				880833601794956F00CF5C8D /* PebbleVendor.framework */,
+				8808335E1794956500CF5C8D /* PebbleKit.framework */,
 				7619381616027FDB00CA6B47 /* Default-568h@2x.png */,
 				76F7C1181512F65E00C8162F /* MessageUI.framework */,
 				76132D7E1511B4C700AE5FA1 /* AVFoundation.framework */,
@@ -692,6 +708,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
@@ -762,6 +782,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
@@ -777,6 +801,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";

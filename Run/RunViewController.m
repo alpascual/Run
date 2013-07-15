@@ -8,6 +8,7 @@
 
 #import "RunViewController.h"
 
+
 @implementation RunViewController
 
 @synthesize sparkLineViewAltitude = _sparkLineViewAltitude;
@@ -95,6 +96,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    self.pebbleSupported = NO;
+    // Set up pebble
+    // We'd like to get called when Pebbles connect and disconnect, so become the delegate of PBPebbleCentral:
+    [[PBPebbleCentral defaultCentral] setDelegate:self];
+    
+    // Initialize with the last connected watch:
+    [self setTargetWatch:[[PBPebbleCentral defaultCentral] lastConnectedWatch]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -154,9 +163,17 @@
         self.playlistFeedback = [[playListFeedback alloc] init];
     
     [self.playlistFeedback playIfNeeded];
+        
+    if ( self.targetWatch && self.pebbleSupported == YES) {    
+        [self.targetWatch sportsAppSetActivityState:SportsAppActivityStateRunning onSent:^(PBWatch *watch, NSError *error) {
+            if (error) {
+                NSLog(@"Pebble: Failed sending activity state: %@\n", error);
+            }         
+        }];
+    }
 }
 
-- (void) stopRun {    
+- (void) stopRun {
     self.trackingManager.bStarted = NO;
     [self.trackingManager stopTracking];
     
@@ -176,6 +193,68 @@
     self.myToolbar.hidden = NO;
     
     [self.playlistFeedback stopIfNeeded];
+    
+    if ( self.targetWatch && self.pebbleSupported == YES) {
+        [self.targetWatch sportsAppSetActivityState:SportsAppActivityStatePaused onSent:^(PBWatch *watch, NSError *error) {
+            if (error) {
+                NSLog(@"Pebble: Failed sending activity state: %@\n", error);
+            }
+        }];
+    }
+}
+
+- (void)setTargetWatch:(PBWatch*)watch {
+    self.targetWatch = watch;
+    
+    // NOTE:
+    // For demonstration purposes, we start communicating with the watch immediately upon connection,
+    // because we are calling -appMessagesGetIsSupported: here, which implicitely opens the communication session.
+    // Real world apps should communicate only if the user is actively using the app, because there
+    // is one communication session that is shared between all 3rd party iOS apps.
+    
+    if ( self.pebbleSupported == YES) {
+        [watch sportsAppAddReceiveUpdateHandler:^BOOL(PBWatch *watch, SportsAppActivityState state) {
+            NSString *newStateString = nil;
+            NSInteger index = 0;
+            switch (state) {
+                case SportsAppActivityStateInit:
+                    newStateString = @"Init";
+                    break;
+                case SportsAppActivityStateRunning:
+                    newStateString = @"Running";
+                    index = 1;
+                    break;
+                case SportsAppActivityStatePaused:
+                    newStateString = @"Paused";
+                    break;
+                case SportsAppActivityStateEnd:
+                    newStateString = @"End";
+                    break;
+            }
+            
+            NSLog(@"Pebble Activity state: %@\n", newStateString);
+            
+            return YES;
+        }];
+    }
+    
+    // Test if the Pebble's firmware supports AppMessages / Sports:
+    [watch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+        if (isAppMessagesSupported) {
+            // Configure our communications channel to target the sports app:
+            [watch appMessagesSetUUID:PBSportsUUID];
+            
+            NSLog(@"Yay! %@ supports AppMessages :D", [watch name]);
+            self.pebbleSupported = YES;
+           
+        } else {
+            
+            NSLog(@"Blegh... %@ does NOT support AppMessages :'(", [watch name]);
+            self.pebbleSupported = NO;
+            
+        }
+    }];
+    
 }
 
 
@@ -214,11 +293,6 @@
     self.altitude.text = [[NSString alloc] initWithFormat:@"%.2f alt.", self.trackingManager.gpsTotals.altitude];
     
     NSNumber *tempAltitude = [[NSNumber alloc] initWithDouble:self.trackingManager.gpsTotals.altitude];
-    
-    // For test only
-    /*int ranNo=  random()%100+1;
-    NSNumber *tempAltitude = [[NSNumber alloc] initWithInt:ranNo];
-     */
     
     [self.altitudeArray addObject:tempAltitude];
     NSLog(@"Altitude values is %@", tempAltitude);
@@ -276,6 +350,19 @@
     self.distancePerTime.text = [[NSString alloc] initWithFormat:@"%l.2f per mile", self.trackingManager.gpsTotals.distancePerTime];        
     
     [self setupLineGraphics];
+    
+    if ( self.targetWatch && self.pebbleSupported == YES) {
+        //Send metrics to the Pebble
+        NSDictionary *updateDict = @{ PBSportsTimeKey : [PBSportsUpdate timeStringFromFloat:timeInterval],
+                                      PBSportsDataKey : [PBSportsUpdate timeStringFromFloat:self.trackingManager.gpsTotals.avgSpeed],
+                                      PBSportsDistanceKey : [NSString stringWithFormat:@"%2.02f", self.trackingManager.gpsTotals.distanceTotal]};
+        
+        [self.targetWatch sportsAppUpdate:updateDict onSent:^(PBWatch *watch, NSError *error) {
+            if (error) {
+                NSLog(@"Pebble Failed sending update: %@\n", error);
+            } 
+        }];
+    }
 }
 
 - (void) setupLineGraphics {
@@ -323,6 +410,14 @@
 
 
 - (IBAction)savePressed:(id)sender {
+    
+    if ( self.targetWatch && self.pebbleSupported == YES) {
+        [self.targetWatch sportsAppSetActivityState:SportsAppActivityStateEnd onSent:^(PBWatch *watch, NSError *error) {
+            if (error) {
+                NSLog(@"Pebble: Failed sending activity state: %@\n", error);
+            }
+        }];
+    }
     
     self.saveButton.hidden = YES;
     [SVStatusHUD showWithoutImage:@"Saving..."];

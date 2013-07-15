@@ -16,8 +16,9 @@
 #import "DistanceVoiceFeedback.h"
 #import "TimeVoiceFeedback.h"
 #import "playListFeedback.h"
+#import <PebbleKit/PebbleKit.h>
 
-@interface RunViewController : UIViewController
+@interface RunViewController : UIViewController <PBPebbleCentralDelegate>
 
 
 @property (nonatomic, strong) TrackingManager *trackingManager;
@@ -49,11 +50,14 @@
 @property (nonatomic, strong) DistanceVoiceFeedback *voiceFeedback;
 @property (nonatomic, strong) TimeVoiceFeedback *timeFeedback;
 @property (nonatomic, strong) playListFeedback *playlistFeedback;
+@property (nonatomic) BOOL pebbleSupported;
+@property (nonatomic, strong) PBWatch *targetWatch;
 
 
 - (void) startRun;
 - (void) stopRun;
 - (void) setupLineGraphics;
+- (void)setTargetWatch:(PBWatch*)watch;
 
 
 @end
