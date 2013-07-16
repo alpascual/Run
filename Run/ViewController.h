@@ -17,6 +17,9 @@
 #import "GpsDatabaseManager.h"
 #import "ProgressViewController.h"
 
+#import "UITableViewCell+FlatUI.h"
+#import "UIColor+FlatUI.h"
+
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RunProtocol>
 
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
