@@ -19,7 +19,9 @@
 #import <PebbleKit/PebbleKit.h>
 
 @interface RunViewController : UIViewController <PBPebbleCentralDelegate>
-
+{
+    PBWatch *_targetWatch;
+}
 
 @property (nonatomic, strong) TrackingManager *trackingManager;
 @property (nonatomic, strong) NSTimer *gpsTimer;
@@ -51,13 +53,13 @@
 @property (nonatomic, strong) TimeVoiceFeedback *timeFeedback;
 @property (nonatomic, strong) playListFeedback *playlistFeedback;
 @property (nonatomic) BOOL pebbleSupported;
-@property (nonatomic, strong) PBWatch *targetWatch;
+
 
 
 - (void) startRun;
 - (void) stopRun;
 - (void) setupLineGraphics;
-- (void)setTargetWatch:(PBWatch*)watch;
+
 
 
 @end

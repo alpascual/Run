@@ -99,6 +99,74 @@
 }
 
 
+- (void)setTargetWatch:(PBWatch*)watch {
+    _targetWatch = watch;
+    
+    // NOTE:
+    // For demonstration purposes, we start communicating with the watch immediately upon connection,
+    // because we are calling -appMessagesGetIsSupported: here, which implicitely opens the communication session.
+    // Real world apps should communicate only if the user is actively using the app, because there
+    // is one communication session that is shared between all 3rd party iOS apps.
+    
+    if ( self.pebbleSupported == YES) {
+        [watch sportsAppAddReceiveUpdateHandler:^BOOL(PBWatch *watch, SportsAppActivityState state) {
+            NSString *newStateString = nil;
+            NSInteger index = 0;
+            switch (state) {
+                case SportsAppActivityStateInit:
+                    newStateString = @"Init";
+                    break;
+                case SportsAppActivityStateRunning:
+                    newStateString = @"Running";
+                    index = 1;
+                    break;
+                case SportsAppActivityStatePaused:
+                    newStateString = @"Paused";
+                    break;
+                case SportsAppActivityStateEnd:
+                    newStateString = @"End";
+                    break;
+            }
+            
+            NSLog(@"Pebble Activity state: %@\n", newStateString);
+            
+            return YES;
+        }];
+    }
+    
+    // Test if the Pebble's firmware supports AppMessages / Sports:
+    [watch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+        if (isAppMessagesSupported) {
+            // Configure our communications channel to target the sports app:
+            [watch appMessagesSetUUID:PBSportsUUID];
+            
+            NSLog(@"Yay! %@ supports AppMessages :D", [watch name]);
+            self.pebbleSupported = YES;
+            
+        } else {
+            
+            NSLog(@"Blegh... %@ does NOT support AppMessages :'(", [watch name]);
+            self.pebbleSupported = NO;
+            
+        }
+    }];
+    
+}
+
+
+// Pebble
+- (void)pebbleCentral:(PBPebbleCentral*)central watchDidConnect:(PBWatch*)watch isNew:(BOOL)isNew {
+    [self setTargetWatch:watch];
+}
+
+- (void)pebbleCentral:(PBPebbleCentral*)central watchDidDisconnect:(PBWatch*)watch {
+    [[[UIAlertView alloc] initWithTitle:@"Disconnected!" message:[watch name] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    if (_targetWatch == watch || [watch isEqual:_targetWatch]) {
+        [self setTargetWatch:nil];
+    }
+}
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -166,8 +234,8 @@
     
     [self.playlistFeedback playIfNeeded];
         
-    if ( self.targetWatch && self.pebbleSupported == YES) {    
-        [self.targetWatch sportsAppSetActivityState:SportsAppActivityStateRunning onSent:^(PBWatch *watch, NSError *error) {
+    if ( _targetWatch && self.pebbleSupported == YES) {
+        [_targetWatch sportsAppSetActivityState:SportsAppActivityStateRunning onSent:^(PBWatch *watch, NSError *error) {
             if (error) {
                 NSLog(@"Pebble: Failed sending activity state: %@\n", error);
             }         
@@ -196,8 +264,8 @@
     
     [self.playlistFeedback stopIfNeeded];
     
-    if ( self.targetWatch && self.pebbleSupported == YES) {
-        [self.targetWatch sportsAppSetActivityState:SportsAppActivityStatePaused onSent:^(PBWatch *watch, NSError *error) {
+    if ( _targetWatch && self.pebbleSupported == YES) {
+        [_targetWatch sportsAppSetActivityState:SportsAppActivityStatePaused onSent:^(PBWatch *watch, NSError *error) {
             if (error) {
                 NSLog(@"Pebble: Failed sending activity state: %@\n", error);
             }
@@ -205,59 +273,6 @@
     }
 }
 
-- (void)setTargetWatch:(PBWatch*)watch {
-    self.targetWatch = watch;
-    
-    // NOTE:
-    // For demonstration purposes, we start communicating with the watch immediately upon connection,
-    // because we are calling -appMessagesGetIsSupported: here, which implicitely opens the communication session.
-    // Real world apps should communicate only if the user is actively using the app, because there
-    // is one communication session that is shared between all 3rd party iOS apps.
-    
-    if ( self.pebbleSupported == YES) {
-        [watch sportsAppAddReceiveUpdateHandler:^BOOL(PBWatch *watch, SportsAppActivityState state) {
-            NSString *newStateString = nil;
-            NSInteger index = 0;
-            switch (state) {
-                case SportsAppActivityStateInit:
-                    newStateString = @"Init";
-                    break;
-                case SportsAppActivityStateRunning:
-                    newStateString = @"Running";
-                    index = 1;
-                    break;
-                case SportsAppActivityStatePaused:
-                    newStateString = @"Paused";
-                    break;
-                case SportsAppActivityStateEnd:
-                    newStateString = @"End";
-                    break;
-            }
-            
-            NSLog(@"Pebble Activity state: %@\n", newStateString);
-            
-            return YES;
-        }];
-    }
-    
-    // Test if the Pebble's firmware supports AppMessages / Sports:
-    [watch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
-        if (isAppMessagesSupported) {
-            // Configure our communications channel to target the sports app:
-            [watch appMessagesSetUUID:PBSportsUUID];
-            
-            NSLog(@"Yay! %@ supports AppMessages :D", [watch name]);
-            self.pebbleSupported = YES;
-           
-        } else {
-            
-            NSLog(@"Blegh... %@ does NOT support AppMessages :'(", [watch name]);
-            self.pebbleSupported = NO;
-            
-        }
-    }];
-    
-}
 
 
 
@@ -353,13 +368,13 @@
     
     [self setupLineGraphics];
     
-    if ( self.targetWatch && self.pebbleSupported == YES) {
+    if ( self.pebbleSupported == YES) {
         //Send metrics to the Pebble
         NSDictionary *updateDict = @{ PBSportsTimeKey : [PBSportsUpdate timeStringFromFloat:timeInterval],
                                       PBSportsDataKey : [PBSportsUpdate timeStringFromFloat:self.trackingManager.gpsTotals.avgSpeed],
                                       PBSportsDistanceKey : [NSString stringWithFormat:@"%2.02f", self.trackingManager.gpsTotals.distanceTotal]};
         
-        [self.targetWatch sportsAppUpdate:updateDict onSent:^(PBWatch *watch, NSError *error) {
+        [_targetWatch sportsAppUpdate:updateDict onSent:^(PBWatch *watch, NSError *error) {
             if (error) {
                 NSLog(@"Pebble Failed sending update: %@\n", error);
             } 
@@ -413,8 +428,8 @@
 
 - (IBAction)savePressed:(id)sender {
     
-    if ( self.targetWatch && self.pebbleSupported == YES) {
-        [self.targetWatch sportsAppSetActivityState:SportsAppActivityStateEnd onSent:^(PBWatch *watch, NSError *error) {
+    if ( _targetWatch && self.pebbleSupported == YES) {
+        [_targetWatch sportsAppSetActivityState:SportsAppActivityStateEnd onSent:^(PBWatch *watch, NSError *error) {
             if (error) {
                 NSLog(@"Pebble: Failed sending activity state: %@\n", error);
             }
