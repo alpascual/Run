@@ -54,6 +54,7 @@
     // TODO create In-App for this
     [self.settingList addObject:@"Voice Feedback by Distance"];
     [self.settingList addObject:@"Voice Feedback by Time"];
+    [self.settingList addObject:@"Enable Pebble Watch"];
     
     //[self.settingList addObject:@"Distance Units"];
     //[self.settingList addObject:@"Alert if I am too slow"];
@@ -147,7 +148,14 @@
         item.mydescription = @"Select when you want an status of your run";
         item.menuNumber = self.lastMenuSelected;
     }
-    else if (self.lastMenuSelected == 3 ) {
+    else if ( self.lastMenuSelected == 3 ) {
+        [subMenu addObject:@"Enabled"];
+        [subMenu addObject:@"Disabled"];
+        item.list = subMenu;
+        item.mydescription = @"Enabled to connect to your pebble";
+        item.menuNumber = self.lastMenuSelected;
+    }
+    else if (self.lastMenuSelected == 4 ) {
         [subMenu addObject:@"miles"];
         [subMenu addObject:@"kilometers"];
         item.list = subMenu;
