@@ -146,7 +146,7 @@
         } else {
             
             NSLog(@"Blegh... %@ does NOT support AppMessages :'(", [watch name]);
-            self.pebbleSupported = NO;
+            self.pebbleSupported = YES;
             
         }
     }];
@@ -235,6 +235,14 @@
     [self.playlistFeedback playIfNeeded];
         
     if ( _targetWatch && self.pebbleSupported == YES) {
+        [_targetWatch sportsAppLaunch:^(PBWatch *watch, NSError *error) {
+            if (error) {
+                NSLog(@"Failed sending launch command.\n");
+            } else {
+                NSLog(@"Launch command sent.\n");
+            }
+        }];
+        
         [_targetWatch sportsAppSetActivityState:SportsAppActivityStateRunning onSent:^(PBWatch *watch, NSError *error) {
             if (error) {
                 NSLog(@"Pebble: Failed sending activity state: %@\n", error);
@@ -370,9 +378,13 @@
     
     if ( self.pebbleSupported == YES) {
         //Send metrics to the Pebble
-        NSDictionary *updateDict = @{ PBSportsTimeKey : [PBSportsUpdate timeStringFromFloat:timeInterval],
+        NSString *stringInterval = [PBSportsUpdate timeStringFromFloat:timeInterval];
+        stringInterval = [stringInterval stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSDictionary *updateDict = @{ PBSportsTimeKey : stringInterval,
                                       PBSportsDataKey : [PBSportsUpdate timeStringFromFloat:self.trackingManager.gpsTotals.avgSpeed],
                                       PBSportsDistanceKey : [NSString stringWithFormat:@"%2.02f", self.trackingManager.gpsTotals.distanceTotal]};
+        
+        NSLog(@"Sent update: t:%2.2f, d:%2.2f, p:%2.1f\n", timeInterval, self.trackingManager.gpsTotals.avgSpeed, self.trackingManager.gpsTotals.distanceTotal);
         
         [_targetWatch sportsAppUpdate:updateDict onSent:^(PBWatch *watch, NSError *error) {
             if (error) {
