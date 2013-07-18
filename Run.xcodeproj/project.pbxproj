@@ -60,6 +60,8 @@
 		76452BEC14E735E300376465 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BEB14E735E300376465 /* SoundManager.m */; };
 		76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76452BED14E7362D00376465 /* AudioToolbox.framework */; };
 		7647F34415159022007E1487 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7647F34315159022007E1487 /* default.png */; };
+		767A5B1717977EB800F4B4F0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A5B1617977EB800F4B4F0 /* CoreMotion.framework */; };
+		767A5B1917977EE400F4B4F0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A5B1817977EE400F4B4F0 /* libz.dylib */; };
 		76BB0D101503E9FC00BF70FA /* TimeVoiceFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
@@ -192,6 +194,8 @@
 		76452BEF14E7363F00376465 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		76452BF114E7364C00376465 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		7647F34315159022007E1487 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		767A5B1617977EB800F4B4F0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		767A5B1817977EE400F4B4F0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		76AA03D114E4E0B600700B8C /* Run.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Run.entitlements; sourceTree = "<group>"; };
 		76BB0D0E1503E9FC00BF70FA /* TimeVoiceFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeVoiceFeedback.h; sourceTree = "<group>"; };
 		76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVoiceFeedback.m; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				767A5B1917977EE400F4B4F0 /* libz.dylib in Frameworks */,
+				767A5B1717977EB800F4B4F0 /* CoreMotion.framework in Frameworks */,
 				883262D61795F3D900CAF767 /* CoreText.framework in Frameworks */,
 				880833651794A50000CF5C8D /* ExternalAccessory.framework in Frameworks */,
 				76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */,
@@ -521,6 +527,8 @@
 		88F76AC814D73EE900587116 = {
 			isa = PBXGroup;
 			children = (
+				767A5B1817977EE400F4B4F0 /* libz.dylib */,
+				767A5B1617977EB800F4B4F0 /* CoreMotion.framework */,
 				883262D51795F3D900CAF767 /* CoreText.framework */,
 				880833641794A50000CF5C8D /* ExternalAccessory.framework */,
 				880833621794A4DB00CF5C8D /* CoreBluetooth.framework */,
@@ -845,6 +853,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -919,6 +928,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -938,6 +948,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
