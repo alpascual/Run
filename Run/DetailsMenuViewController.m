@@ -86,7 +86,7 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell = [UITableViewCell configureFlatCellWithColor:[UIColor peterRiverColor]
+    cell = [UITableViewCell configureFlatCellWithColor:[UIColor silverColor]
                                          selectedColor:[UIColor cloudsColor]
                                                  style:UITableViewCellStyleDefault
                                        reuseIdentifier:CellIdentifier];
