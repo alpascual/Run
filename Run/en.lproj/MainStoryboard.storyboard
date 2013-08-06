@@ -55,13 +55,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="G8V-Fd-pE4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1.6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="G8V-Fd-pE4">
                                 <rect key="frame" x="264" y="36" width="35" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pebble_watch_1x.png" id="5Xa-9s-1NI">
+                                <rect key="frame" x="11" y="7" width="47" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -218,6 +222,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="baby-blue-solid.jpg" id="Y9S-Ra-1A3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pebble_watch_1x.png" id="Utt-gN-UMa">
+                                <rect key="frame" x="8" y="7" width="47" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="1" id="f5K-KJ-bX8" customClass="FUISegmentedControl">
                                 <rect key="frame" x="20" y="366" width="160" height="44"/>
@@ -835,6 +843,7 @@
         <image name="GradientFill.png" width="320" height="222"/>
         <image name="MovieTransportBackground.png" width="314" height="93"/>
         <image name="baby-blue-solid.jpg" width="1366" height="768"/>
+        <image name="pebble_watch_1x.png" width="512" height="512"/>
     </resources>
     <classes>
         <class className="ASBSparkLineView" superclassName="UIView">
@@ -902,6 +911,9 @@
         <class className="RunViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RunViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnBack:"/>
+                <relationship kind="action" name="savePressed:"/>
+                <relationship kind="action" name="switchChanged:"/>
                 <relationship kind="outlet" name="altitude" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="distancePerTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gpsAccuracy" candidateClass="UILabel"/>
@@ -926,7 +938,6 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backPressed:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -945,6 +956,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lJG-2e-e7i"/>
+        <segue reference="QqN-ua-wdV"/>
     </inferredMetricsTieBreakers>
 </document>

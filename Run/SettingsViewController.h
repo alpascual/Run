@@ -25,6 +25,7 @@
 #import "UIBarButtonItem+FlatUI.h"
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
+#import "UITableViewCell+FlatUI.h"
 #import "UIPopoverController+FlatUI.h"
 
 #import <UIKit/UIKit.h>

@@ -96,6 +96,10 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell = [UITableViewCell configureFlatCellWithColor:[UIColor greenSeaColor]
+                                         selectedColor:[UIColor cloudsColor]
+                                                 style:UITableViewCellStyleDefault
+                                       reuseIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
