@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlatUIKit.h"
-#import "UITableViewCell+FlatUI.h"
+//#import "FlatUIKit.h"
+//#import "UITableViewCell+FlatUI.h"
 
 @protocol ItemProtocol <NSObject>
 

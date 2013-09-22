@@ -12,8 +12,8 @@
 #import "DetailsAnalyzeViewController.h"
 #import "DetailsShareViewController.h"
 #import "InAppManager.h"
-#import "FlatUIKit.h"
-#import "UITableViewCell+FlatUI.h"
+//#import "FlatUIKit.h"
+//#import "UITableViewCell+FlatUI.h"
 
 @protocol DetailsMenuViewControllerProtocol <NSObject>
 

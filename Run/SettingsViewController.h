@@ -12,7 +12,7 @@
 #import "SettingsItemViewController.h"
 #import "playListFeedback.h"
 
-#import "FlatUIKit.h"
+/*#import "FlatUIKit.h"
 #import "UIColor+FlatUI.h"
 #import "UISlider+FlatUI.h"
 #import "UIStepper+FlatUI.h"
@@ -26,7 +26,7 @@
 #import "UIProgressView+FlatUI.h"
 #import "FUISegmentedControl.h"
 #import "UITableViewCell+FlatUI.h"
-#import "UIPopoverController+FlatUI.h"
+#import "UIPopoverController+FlatUI.h"*/
 
 #import <UIKit/UIKit.h>
 
