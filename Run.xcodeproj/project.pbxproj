@@ -62,6 +62,8 @@
 		7647F34415159022007E1487 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7647F34315159022007E1487 /* default.png */; };
 		767A5B1717977EB800F4B4F0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A5B1617977EB800F4B4F0 /* CoreMotion.framework */; };
 		767A5B1917977EE400F4B4F0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A5B1817977EE400F4B4F0 /* libz.dylib */; };
+		767FAFF219440B2200262A3F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767FAFF119440B2200262A3F /* HealthKit.framework */; };
+		767FAFF519440B8C00262A3F /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 767FAFF419440B8C00262A3F /* HealthKitManager.m */; };
 		76BB0D101503E9FC00BF70FA /* TimeVoiceFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */; };
 		76C4E34514DEECA1009AF75F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C4E34314DEECA1009AF75F /* HistoryViewController.m */; };
 		76C7EFBB14E5FE18001EED6E /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C7EFBA14E5FE17001EED6E /* MyAnnotation.m */; };
@@ -180,6 +182,9 @@
 		7647F34315159022007E1487 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		767A5B1617977EB800F4B4F0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		767A5B1817977EE400F4B4F0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		767FAFF119440B2200262A3F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		767FAFF319440B8C00262A3F /* HealthKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManager.h; sourceTree = "<group>"; };
+		767FAFF419440B8C00262A3F /* HealthKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthKitManager.m; sourceTree = "<group>"; };
 		76AA03D114E4E0B600700B8C /* Run.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Run.entitlements; sourceTree = "<group>"; };
 		76BB0D0E1503E9FC00BF70FA /* TimeVoiceFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeVoiceFeedback.h; sourceTree = "<group>"; };
 		76BB0D0F1503E9FC00BF70FA /* TimeVoiceFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeVoiceFeedback.m; sourceTree = "<group>"; };
@@ -249,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				767FAFF219440B2200262A3F /* HealthKit.framework in Frameworks */,
 				767A5B1917977EE400F4B4F0 /* libz.dylib in Frameworks */,
 				767A5B1717977EB800F4B4F0 /* CoreMotion.framework in Frameworks */,
 				883262D61795F3D900CAF767 /* CoreText.framework in Frameworks */,
@@ -460,6 +466,7 @@
 		88F76AD614D73EE900587116 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				767FAFF119440B2200262A3F /* HealthKit.framework */,
 				76FFDBFA17EE9ACD00C3FF65 /* StoreKit.framework */,
 				88F76AD714D73EE900587116 /* UIKit.framework */,
 				88F76AD914D73EE900587116 /* Foundation.framework */,
@@ -502,6 +509,8 @@
 				760ED9E0160432AE00A98F56 /* MapViewController.h */,
 				760ED9E1160432AE00A98F56 /* MapViewController.m */,
 				76FFDBF817EE93BB00C3FF65 /* Images.xcassets */,
+				767FAFF319440B8C00262A3F /* HealthKitManager.h */,
+				767FAFF419440B8C00262A3F /* HealthKitManager.m */,
 			);
 			path = Run;
 			sourceTree = "<group>";
@@ -564,7 +573,7 @@
 		88F76ACA14D73EE900587116 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				TargetAttributes = {
 					88F76AD214D73EE900587116 = {
 						DevelopmentTeam = L6RR26WWDD;
@@ -679,6 +688,7 @@
 				76D13AC214FEF7A700D4C610 /* InAppManager.m in Sources */,
 				763C76BE150326F000E6284B /* DistanceVoiceFeedback.m in Sources */,
 				76BB0D101503E9FC00BF70FA /* TimeVoiceFeedback.m in Sources */,
+				767FAFF519440B8C00262A3F /* HealthKitManager.m in Sources */,
 				76084A34150B120900ED46C4 /* playListFeedback.m in Sources */,
 				76132D6D1511A8B900AE5FA1 /* PlayInternetSound.m in Sources */,
 				76132D701511AD5F00AE5FA1 /* AudioStreamer.m in Sources */,
@@ -718,9 +728,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -770,9 +782,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -805,9 +819,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

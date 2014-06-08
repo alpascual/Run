@@ -17,6 +17,8 @@
 #import "TimeVoiceFeedback.h"
 #import "playListFeedback.h"
 #import <PebbleKit/PebbleKit.h>
+
+#import "HealthKitManager.h"
 //#import "FlatUIKit.h"
 //#import "UIColor+FlatUI.h"
 //#import "UISlider+FlatUI.h"

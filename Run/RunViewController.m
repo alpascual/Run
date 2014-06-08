@@ -376,6 +376,10 @@
     
     [self setupLineGraphics];
     
+    // Health
+    HealthKitManager *managerHealth = [[HealthKitManager alloc] init];
+    [managerHealth save:dSpeed];
+    
     if ( self.pebbleSupported == YES) {
         //Send metrics to the Pebble
         NSString *stringInterval = [PBSportsUpdate timeStringFromFloat:timeInterval];
