@@ -376,9 +376,9 @@
     
     [self setupLineGraphics];
     
-    // Health
+    // HealthKit TODO test
     HealthKitManager *managerHealth = [[HealthKitManager alloc] init];
-    [managerHealth save:dSpeed];
+    [managerHealth save:dSpeed]; //self.trackingManager.gpsTotals.distancePerTime 
     
     if ( self.pebbleSupported == YES) {
         //Send metrics to the Pebble
