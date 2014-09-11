@@ -16,9 +16,9 @@
     
    // Save the user's height into HealthKit.
     
-    HKQuantityType *activityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    HKQuantityType *activityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning];
     
-    HKQuantity *quantity = [HKQuantity quantityWithUnit:[HKUnit inchUnit] doubleValue:activityValue];
+    HKQuantity *quantity = [HKQuantity quantityWithUnit:[HKUnit mileUnit] doubleValue:activityValue];
     HKQuantitySample *sleepSample = [HKQuantitySample quantitySampleWithType:activityType quantity:quantity startDate:[NSDate date] endDate:[NSDate date]];
     
     self.healthStore = [[HKHealthStore alloc] init];
