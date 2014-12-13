@@ -60,6 +60,7 @@
 		76452BEC14E735E300376465 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452BEB14E735E300376465 /* SoundManager.m */; };
 		76452BF414E7369B00376465 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76452BED14E7362D00376465 /* AudioToolbox.framework */; };
 		7647F34415159022007E1487 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7647F34315159022007E1487 /* default.png */; };
+		7679BEB51A3AA06F0047C30C /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7679BEB41A3AA06F0047C30C /* Icon-120.png */; };
 		767A5B1717977EB800F4B4F0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A5B1617977EB800F4B4F0 /* CoreMotion.framework */; };
 		767A5B1917977EE400F4B4F0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 767A5B1817977EE400F4B4F0 /* libz.dylib */; };
 		767FAFF219440B2200262A3F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767FAFF119440B2200262A3F /* HealthKit.framework */; };
@@ -80,8 +81,6 @@
 		76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F7C1181512F65E00C8162F /* MessageUI.framework */; };
 		76FFDBF917EE93BB00C3FF65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76FFDBF817EE93BB00C3FF65 /* Images.xcassets */; };
 		76FFDBFB17EE9ACD00C3FF65 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FFDBFA17EE9ACD00C3FF65 /* StoreKit.framework */; };
-		8808335F1794956500CF5C8D /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8808335E1794956500CF5C8D /* PebbleKit.framework */; };
-		880833611794956F00CF5C8D /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880833601794956F00CF5C8D /* PebbleVendor.framework */; };
 		880833631794A4DB00CF5C8D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880833621794A4DB00CF5C8D /* CoreBluetooth.framework */; };
 		880833651794A50000CF5C8D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880833641794A50000CF5C8D /* ExternalAccessory.framework */; };
 		883262D61795F3D900CAF767 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883262D51795F3D900CAF767 /* CoreText.framework */; };
@@ -180,6 +179,7 @@
 		76452BEF14E7363F00376465 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		76452BF114E7364C00376465 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		7647F34315159022007E1487 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		7679BEB41A3AA06F0047C30C /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		767A5B1617977EB800F4B4F0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		767A5B1817977EE400F4B4F0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		767FAFF119440B2200262A3F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -210,8 +210,6 @@
 		76F7C1181512F65E00C8162F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		76FFDBF817EE93BB00C3FF65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		76FFDBFA17EE9ACD00C3FF65 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		8808335E1794956500CF5C8D /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleKit.framework; sourceTree = "<group>"; };
-		880833601794956F00CF5C8D /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleVendor.framework; sourceTree = "<group>"; };
 		880833621794A4DB00CF5C8D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		880833641794A50000CF5C8D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		883262D51795F3D900CAF767 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -261,8 +259,6 @@
 				880833651794A50000CF5C8D /* ExternalAccessory.framework in Frameworks */,
 				76F7C1191512F65E00C8162F /* MessageUI.framework in Frameworks */,
 				880833631794A4DB00CF5C8D /* CoreBluetooth.framework in Frameworks */,
-				880833611794956F00CF5C8D /* PebbleVendor.framework in Frameworks */,
-				8808335F1794956500CF5C8D /* PebbleKit.framework in Frameworks */,
 				76132D7F1511B4C700AE5FA1 /* AVFoundation.framework in Frameworks */,
 				76132D7D1511B4C000AE5FA1 /* CoreAudio.framework in Frameworks */,
 				76132D7A1511B45F00AE5FA1 /* CFNetwork.framework in Frameworks */,
@@ -435,8 +431,6 @@
 				883262D51795F3D900CAF767 /* CoreText.framework */,
 				880833641794A50000CF5C8D /* ExternalAccessory.framework */,
 				880833621794A4DB00CF5C8D /* CoreBluetooth.framework */,
-				880833601794956F00CF5C8D /* PebbleVendor.framework */,
-				8808335E1794956500CF5C8D /* PebbleKit.framework */,
 				7619381616027FDB00CA6B47 /* Default-568h@2x.png */,
 				76F7C1181512F65E00C8162F /* MessageUI.framework */,
 				76132D7E1511B4C700AE5FA1 /* AVFoundation.framework */,
@@ -529,6 +523,7 @@
 		88F76AF414D73F9C00587116 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7679BEB41A3AA06F0047C30C /* Icon-120.png */,
 				88F03E8A17B1974F00688EE3 /* pebble_watch_1x.png */,
 				7647F34315159022007E1487 /* default.png */,
 				760F98C714FF32CE0027ED83 /* AudioFiles */,
@@ -635,6 +630,7 @@
 				760F98E714FF32CE0027ED83 /* 2.wav in Resources */,
 				760F98E814FF32CE0027ED83 /* 20.wav in Resources */,
 				760F98E914FF32CE0027ED83 /* 3.wav in Resources */,
+				7679BEB51A3AA06F0047C30C /* Icon-120.png in Resources */,
 				760F98EA14FF32CE0027ED83 /* 4.wav in Resources */,
 				760F98EB14FF32CE0027ED83 /* 5.wav in Resources */,
 				760F98EC14FF32CE0027ED83 /* 6.wav in Resources */,
@@ -763,7 +759,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -854,7 +850,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -877,7 +873,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Run/Run-Prefix.pch";
 				INFOPLIST_FILE = "Run/Run-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -25,7 +25,7 @@
     [self.healthStore saveObject:sleepSample withCompletion:^(BOOL success, NSError *error) {
         if (!success) {
             NSLog(@"An error occured saving the height sample %@. In your app, try to handle this gracefully. The error was: %@.", sleepSample, error);
-            abort();
+            //abort();
         }
         
     }];

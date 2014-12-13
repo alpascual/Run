@@ -436,8 +436,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
         if (idx > 0)
             CGContextAddLineToPoint(context, xpos, ypos);
-        else
-            CGContextMoveToPoint(context, xpos, ypos);
+        //else
+            //CGContextMoveToPoint(context, xpos, ypos);
     }];
 
     // draw the graph line (path)
